@@ -68,7 +68,8 @@ test_that("test that classes and attributes are keep", {
     cohort_end_date = as.Date("2020-01-10")
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cohortTables = list("cohort1" = cohort1),
     cdmName = "test"
   )

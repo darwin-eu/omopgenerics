@@ -16,7 +16,8 @@ test_that("dropSourceTable", {
     cohort_end_date = as.Date("2020-01-01")
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort)
   )
@@ -26,7 +27,8 @@ test_that("dropSourceTable", {
   expect_true(!"cohort1" %in% names(cdm))
 
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort)
   )

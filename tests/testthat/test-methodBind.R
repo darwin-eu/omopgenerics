@@ -39,7 +39,8 @@ test_that("bind a cohort_table", {
         observation_period_end_date = as.Date("2023-12-31"),
         period_type_concept_id = 0L
       )
-    ),
+    ) |>
+      addFields(),
     cdmName = "mock",
     cohortTables = list(
       "cohort1" = cohort1, "cohort2" = cohort2, "cohort3" = cohort3,
@@ -122,7 +123,8 @@ test_that("bind a cohort_table", {
         observation_period_end_date = as.Date("2023-12-31"),
         period_type_concept_id = 0L
       )
-    ),
+    ) |>
+      addFields(),
     cdmName = "mock",
     cohortTables = list(
       "cohort1" = cohort1, "cohort2" = cohort2, "cohort3" = cohort3

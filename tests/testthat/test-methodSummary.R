@@ -10,7 +10,8 @@ test_that("summary a cdm reference", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "mock"
   )
   expect_no_error(summary(cdm))
@@ -103,7 +104,8 @@ test_that("summary a generated cohort set", {
     cohort_end_date = as.Date("2020-01-01")
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort, "cohort2" = cohort)
   )

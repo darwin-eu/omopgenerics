@@ -16,7 +16,8 @@ test_that("multiplication works", {
     cohort_end_date = as.Date(c("2020-01-01", "2021-01-01", "2022-01-01", "2022-01-01")),
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort)
   )
@@ -80,7 +81,8 @@ test_that("multiplication works", {
   )
 
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort, "cohort2" = cohort)
   )

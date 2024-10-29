@@ -25,7 +25,15 @@ cdm <- cdmFromTables(
   tables = list(
     "person" = tibble(
       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-      race_concept_id = 0, ethnicity_concept_id = 0
+      race_concept_id = 0, ethnicity_concept_id = 0,
+      month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+      birth_datetime = as.Date(NA_character_), location_id = 0L,
+      provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+      gender_source_value = NA_character_,
+      gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+      race_source_concept_id = NA_integer_,
+      ethnicity_source_value = NA_character_,
+      ethnicity_source_concept_id = NA_integer_
     ),
     "observation_period" = tibble(
       observation_period_id = 1:3, person_id = 1:3,

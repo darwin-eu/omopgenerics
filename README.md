@@ -18,20 +18,21 @@ The omopgenerics package provides definitions of core classes and
 methods used by analytic pipelines that query the OMOP common data
 model.
 
+    #> Warning in citation("omopgenerics"): could not determine year for
+    #> 'omopgenerics' from package DESCRIPTION file
     #> To cite package 'omopgenerics' in publications use:
     #> 
-    #>   Català M, Burn E (2024). _omopgenerics: Methods and Classes for the
-    #>   OMOP Common Data Model_. R package version 0.3.0,
-    #>   <https://CRAN.R-project.org/package=omopgenerics>.
+    #>   Català M, Burn E (????). _omopgenerics: Methods and Classes for the
+    #>   OMOP Common Data Model_. R package version 0.3.1.900,
+    #>   <https://darwin-eu-dev.github.io/omopgenerics/>.
     #> 
     #> A BibTeX entry for LaTeX users is
     #> 
     #>   @Manual{,
     #>     title = {omopgenerics: Methods and Classes for the OMOP Common Data Model},
     #>     author = {Martí Català and Edward Burn},
-    #>     year = {2024},
-    #>     note = {R package version 0.3.0},
-    #>     url = {https://CRAN.R-project.org/package=omopgenerics},
+    #>     note = {R package version 0.3.1.900},
+    #>     url = {https://darwin-eu-dev.github.io/omopgenerics/},
     #>   }
 
 If you find the package useful in supporting your research study, please
@@ -96,8 +97,15 @@ Each one of the tables has a required columns. For example, for the
 
 ``` r
 omopColumns(table = "person")
-#> [1] "person_id"            "gender_concept_id"    "year_of_birth"       
-#> [4] "race_concept_id"      "ethnicity_concept_id"
+#>  [1] "person_id"                   "gender_concept_id"          
+#>  [3] "year_of_birth"               "month_of_birth"             
+#>  [5] "day_of_birth"                "birth_datetime"             
+#>  [7] "race_concept_id"             "ethnicity_concept_id"       
+#>  [9] "location_id"                 "provider_id"                
+#> [11] "care_site_id"                "person_source_value"        
+#> [13] "gender_source_value"         "gender_source_concept_id"   
+#> [15] "race_source_value"           "race_source_concept_id"     
+#> [17] "ethnicity_source_value"      "ethnicity_source_concept_id"
 ```
 
 - Cohort tables We can see the cohort-related tables and their required
@@ -198,17 +206,35 @@ attributes such as settings and attrition.
 
 ``` r
 person <- tibble(
-  person_id = 1, gender_concept_id = 0, year_of_birth = 1990,
-  race_concept_id = 0, ethnicity_concept_id = 0
+  person_id = 1L, 
+  gender_concept_id = 0L, 
+  year_of_birth = 1990L,
+  race_concept_id = 0L, 
+  ethnicity_concept_id = 0L,
+  month_of_birth = NA_integer_,
+  day_of_birth = NA_integer_,
+  birth_datetime = as.Date(NA_character_),
+  location_id = NA_integer_,
+  provider_id = NA_integer_,
+  care_site_id = NA_character_,
+  person_source_value = NA_character_,
+  gender_source_value = NA_character_,
+  gender_source_concept_id = NA_integer_,
+  race_source_value = NA_character_,
+  race_source_concept_id = NA_integer_,
+  ethnicity_source_value = NA_character_,
+  ethnicity_source_concept_id = NA_integer_
 )
 observation_period <- dplyr::tibble(
-  observation_period_id = 1, person_id = 1,
+  observation_period_id = 1L, 
+  person_id = 1L,
   observation_period_start_date = as.Date("2000-01-01"),
   observation_period_end_date = as.Date("2023-12-31"),
-  period_type_concept_id = 0
+  period_type_concept_id = 0L
 )
 diabetes <- tibble(
-  cohort_definition_id = 1, subject_id = 1,
+  cohort_definition_id = 1L, 
+  subject_id = 1L,
   cohort_start_date = as.Date("2020-01-01"),
   cohort_end_date = as.Date("2020-01-10")
 )
@@ -221,25 +247,14 @@ cdm <- cdmFromTables(
   ),
   cdmName = "example_cdm"
 )
-#> Warning: ! 5 column in person do not match expected column type:
-#> • `person_id` is numeric but expected integer
-#> • `gender_concept_id` is numeric but expected integer
-#> • `year_of_birth` is numeric but expected integer
-#> • `race_concept_id` is numeric but expected integer
-#> • `ethnicity_concept_id` is numeric but expected integer
-#> Warning: ! 3 column in observation_period do not match expected column type:
-#> • `observation_period_id` is numeric but expected integer
-#> • `person_id` is numeric but expected integer
-#> • `period_type_concept_id` is numeric but expected integer
+#> Warning: ! 1 column in person do not match expected column type:
+#> • `care_site_id` is character but expected integer
 cdm$diabetes <- newCohortTable(cdm$diabetes)
-#> Warning: ! 2 column in diabetes do not match expected column type:
-#> • `cohort_definition_id` is numeric but expected integer
-#> • `subject_id` is numeric but expected integer
 
 cdm$diabetes
 #> # A tibble: 1 × 4
 #>   cohort_definition_id subject_id cohort_start_date cohort_end_date
-#>                  <dbl>      <dbl> <date>            <date>         
+#>                  <int>      <int> <date>            <date>         
 #> 1                    1          1 2020-01-01        2020-01-10
 settings(cdm$diabetes)
 #> # A tibble: 1 × 2
@@ -282,7 +297,7 @@ summary(cdm) |>
 #> $ variable_level   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 #> $ estimate_name    <chr> "value", "count", "count", "source_name", "version", …
 #> $ estimate_type    <chr> "date", "integer", "integer", "character", "character…
-#> $ estimate_value   <chr> "2024-09-11", "1", "1", "", NA, "5.3", "", "", "", ""…
+#> $ estimate_value   <chr> "2024-10-29", "1", "1", "", NA, "5.3", "", "", "", ""…
 #> $ additional_name  <chr> "overall", "overall", "overall", "overall", "overall"…
 #> $ additional_level <chr> "overall", "overall", "overall", "overall", "overall"…
 ```
