@@ -13,7 +13,8 @@ test_that("test cdm_reference", {
       period_type_concept_id = 0L
     ) |>
       newCdmTable(src, "observation_period")
-  )
+  ) |>
+    addFields()
 
   expect_no_error(cdm <- newCdmReference(tables = cdmTables, cdmName = "mock"))
 

@@ -118,7 +118,9 @@ test_that("test cdmFromTables", {
   # no drug_exposure
   person <- dplyr::tibble(
     person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
-    race_concept_id = 0L, ethnicity_concept_id = 0L
+    race_concept_id = 0L, ethnicity_concept_id = 0L,
+    month_of_birth, day_of_birth, birth_datetime, location_id, provider_id, care_site_id, person_source_value, gender_source_value, gender_source_concept_id, race_source_value,
+    race_source_concept_id, ethnicity_source_value and ethnicity_source_concept_id
   )
   observation_period <- dplyr::tibble(
     observation_period_id = 1L, person_id = 1L,
@@ -137,8 +139,7 @@ test_that("test cdmFromTables", {
     tables = list(
       "person" = person, "observation_period" = observation_period,
       "drug_exposure" = drug_exposure
-    ) |>
-      addFields(),
+    ),
     cdmName = "test"
   ))
   expect_false("drug_exposure" %in% names(cdm))
