@@ -10,7 +10,8 @@ test_that("test cdmFromTables", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   ) |>
     expect_no_error()
@@ -22,7 +23,8 @@ test_that("test cdmFromTables", {
     cohort_end_date = as.Date("2020-01-01")
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period)|>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort)
   ) |>
@@ -36,7 +38,8 @@ test_that("test cdmFromTables", {
     "cohort_definition_id" = 1L, "cohort_name" = "my_cohort"
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period)|>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort)
   ) |>
@@ -50,7 +53,8 @@ test_that("test cdmFromTables", {
       tables = list(
         "person" = person, "observation_period" = observation_period,
         "cdm_source" = dplyr::tibble(cdm_source_name = "mocktest")
-      ),
+      ) |>
+        addFields(),
       cohortTables = list("cohort1" = cohort)
     )
   )

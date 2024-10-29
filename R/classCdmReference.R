@@ -35,8 +35,16 @@
 #'
 #' cdmTables <- list(
 #'   "person" = tibble(
-#'     person_id = 1, gender_concept_id = 0, year_of_birth = 1990,
-#'     race_concept_id = 0, ethnicity_concept_id = 0
+#'     person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
+#'     race_concept_id = 0, ethnicity_concept_id = 0,
+#'     month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'     birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'     provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'     gender_source_value = NA_character_,
+#'     gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'     race_source_concept_id = NA_integer_,
+#'     ethnicity_source_value = NA_character_,
+#'     ethnicity_source_concept_id = NA_integer_
 #'   ) |>
 #'     newCdmTable(newLocalSource(), "person"),
 #'   "observation_period" = tibble(
@@ -328,9 +336,17 @@ checkPerson <- function(cdm, call = parent.frame()) {
 #'
 #' cdm <- cdmFromTables(
 #'   tables = list(
-#'     "person" = tibble(
+#'     "person" = person <- tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -383,7 +399,15 @@ cdmName.default <- function(x) {
 #'   tables = list(
 #'     "person" = tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -435,7 +459,15 @@ cdmVersion.default <- function(x) {
 #'   tables = list(
 #'     "person" = tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -493,7 +525,15 @@ cdmSource.default <- function(x, ...) {
 #'   tables = list(
 #'     "person" = tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -531,7 +571,15 @@ cdmSourceType <- function(cdm) {
 #'   tables = list(
 #'     "person" = tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -566,7 +614,15 @@ cdmSourceType <- function(cdm) {
 #'   tables = list(
 #'     "person" = tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -618,7 +674,15 @@ cdmSourceType <- function(cdm) {
 #'   tables = list(
 #'     "person" = dplyr::tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = dplyr::tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -735,7 +799,15 @@ cdmSourceType <- function(cdm) {
 #'   tables = list(
 #'     "person" = dplyr::tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = dplyr::tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
@@ -802,7 +874,15 @@ print.cdm_reference <- function(x, ...) {
 #'   tables = list(
 #'     "person" = dplyr::tibble(
 #'       person_id = c(1, 2, 3), gender_concept_id = 0, year_of_birth = 1990,
-#'       race_concept_id = 0, ethnicity_concept_id = 0
+#'       race_concept_id = 0, ethnicity_concept_id = 0,
+#'       month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'       birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'       provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'       gender_source_value = NA_character_,
+#'       gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'       race_source_concept_id = NA_integer_,
+#'       ethnicity_source_value = NA_character_,
+#'       ethnicity_source_concept_id = NA_integer_
 #'     ),
 #'     "observation_period" = dplyr::tibble(
 #'       observation_period_id = 1:3, person_id = 1:3,
