@@ -10,7 +10,8 @@ test_that("test cdmFromTables", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   ) |>
     expect_no_error()
@@ -22,7 +23,8 @@ test_that("test cdmFromTables", {
     cohort_end_date = as.Date("2020-01-01")
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort)
   ) |>
@@ -36,7 +38,8 @@ test_that("test cdmFromTables", {
     "cohort_definition_id" = 1L, "cohort_name" = "my_cohort"
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort)
   ) |>
@@ -50,7 +53,8 @@ test_that("test cdmFromTables", {
       tables = list(
         "person" = person, "observation_period" = observation_period,
         "cdm_source" = dplyr::tibble(cdm_source_name = "mocktest")
-      ),
+      ) |>
+        addFields(),
       cohortTables = list("cohort1" = cohort)
     )
   )
@@ -71,7 +75,8 @@ test_that("test cdmFromTables", {
       "cdm_source" = dplyr::tibble(
         cdm_source_name = "test", cdm_version = NA_character_
       )
-    ),
+    ) |>
+      addFields(),
     cdmName = "mock"
   ) |>
     expect_no_error()
@@ -88,7 +93,8 @@ test_that("test cdmFromTables", {
     period_type_concept_id = 0L
   )
   expect_error(cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   ))
 
@@ -104,14 +110,23 @@ test_that("test cdmFromTables", {
     period_type_concept_id = 0L
   )
   expect_error(cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   ))
 
   # no drug_exposure
   person <- dplyr::tibble(
     person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
-    race_concept_id = 0L, ethnicity_concept_id = 0L
+    race_concept_id = 0L, ethnicity_concept_id = 0L,
+    month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+    birth_datetime = as.Date(NA_character_), location_id = 0L,
+    provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+    gender_source_value = NA_character_,
+    gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+    race_source_concept_id = NA_integer_,
+    ethnicity_source_value = NA_character_,
+    ethnicity_source_concept_id = NA_integer_
   )
   observation_period <- dplyr::tibble(
     observation_period_id = 1L, person_id = 1L,
@@ -137,7 +152,15 @@ test_that("test cdmFromTables", {
 
   person <- dplyr::tibble(
     person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
-    race_concept_id = 0L, ethnicity_concept_id = 0L
+    race_concept_id = 0L, ethnicity_concept_id = 0L,
+    month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+    birth_datetime = as.Date(NA_character_), location_id = 0L,
+    provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+    gender_source_value = NA_character_,
+    gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+    race_source_concept_id = NA_integer_,
+    ethnicity_source_value = NA_character_,
+    ethnicity_source_concept_id = NA_integer_
   )
   observation_period <- dplyr::tibble(
     observation_period_id = 1L, person_id = 1L,
@@ -153,11 +176,13 @@ test_that("test cdmFromTables", {
     drug_exposure_end_date = as.Date("2020-01-01"),
     drug_type_concept_id = 0L
   )
+  tables <- list(
+    "person" = person, "observation_period" = observation_period,
+    "drug_exposure" = drug_exposure
+  ) |>
+    addFields()
   expect_no_warning(cdm <- cdmFromTables(
-    tables = list(
-      "person" = person, "observation_period" = observation_period,
-      "drug_exposure" = drug_exposure
-    ),
+    tables = tables,
     cdmName = "test"
   ))
   expect_true("drug_exposure" %in% names(cdm))
@@ -167,7 +192,7 @@ test_that("test cdmFromTables", {
   expect_true("drug_exposure" %in% names(cdm))
   expect_false(inherits(cdm$drug_exposure, "omop_table"))
   expect_no_error(cdm <- insertTable(
-    cdm = cdm, name = "drug_exposure", table = drug_exposure
+    cdm = cdm, name = "drug_exposure", table = tables$drug_exposure
   ))
   expect_true(inherits(cdm$drug_exposure, "omop_table"))
 })

@@ -10,7 +10,8 @@ test_that("insertFromSource", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   )
   cdm$test <- dplyr::tibble(a = 1) |> expect_no_error()

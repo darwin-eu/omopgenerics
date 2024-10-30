@@ -1,4 +1,9 @@
 test_that("summary a cdm reference", {
+  addFieldsCdmSource <- function(x) {
+    x <- list(cdm_source = x) |>
+      addFields()
+    x$cdm_source
+  }
   person <- dplyr::tibble(
     person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
     race_concept_id = 0L, ethnicity_concept_id = 0L
@@ -10,38 +15,57 @@ test_that("summary a cdm reference", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list(
+      "person" = person,
+      "observation_period" = observation_period
+    ) |>
+      addFields(),
     cdmName = "mock"
   )
   expect_no_error(summary(cdm))
-  cdm <- insertTable(cdm, "cdm_source", dplyr::tibble(cdm_source_name = "test"))
+  cdm <- cdm |>
+    insertTable(
+      name = "cdm_source",
+      table = dplyr::tibble(cdm_source_name = "test") |> addFieldsCdmSource()
+    )
   expect_no_error(x <- summary(cdm))
   expect_equal(
     x$estimate_value[x$estimate_name == "source_name"],
     cdm$cdm_source |> dplyr::pull("cdm_source_name")
   )
-  cdm <- insertTable(cdm, "cdm_source", dplyr::tibble(
-    cdm_source_name = "test", vocabulary_version = 5.3
-  ))
+  cdm <- cdm |>
+    insertTable(
+      name = "cdm_source",
+      table = dplyr::tibble(cdm_source_name = "test", vocabulary_version = 5.3) |>
+        addFieldsCdmSource()
+    )
   expect_no_error(x <- summary(cdm))
   expect_equal(
     x$estimate_value[x$estimate_name == "version" & x$variable_name == "vocabulary"],
     cdm$cdm_source |> dplyr::pull("vocabulary_version") |> as.character()
   )
-  cdm <- insertTable(cdm, "cdm_source", dplyr::tibble(
-    cdm_source_name = "test", cdm_version = 5.3
-  ))
+  cdm <- cdm |>
+    insertTable(
+      name = "cdm_source",
+      table = dplyr::tibble(cdm_source_name = "test", cdm_version = 5.3) |>
+        addFieldsCdmSource()
+    )
   expect_no_error(x <- summary(cdm))
   expect_equal(
     x$estimate_value[x$estimate_name == "version" & x$variable_name == "cdm"],
     cdm$cdm_source |> dplyr::pull("cdm_version") |> as.character()
   )
-  cdm <- insertTable(cdm, "cdm_source", dplyr::tibble(
-    cdm_source_name = "test", cdm_version = 5.3, cdm_holder = "me",
-    vocabulary_version = "5.3.8 AUG 2022", cdm_release_date = Sys.Date(),
-    source_description = "this is mock data qith only 1 individual",
-    source_documentation_reference = "www.omopgenerics.com"
-  ))
+  cdm <- cdm |>
+    insertTable(
+      name = "cdm_source",
+      table = dplyr::tibble(
+        cdm_source_name = "test", cdm_version = 5.3, cdm_holder = "me",
+        vocabulary_version = "5.3.8 AUG 2022", cdm_release_date = Sys.Date(),
+        source_description = "this is mock data qith only 1 individual",
+        source_documentation_reference = "www.omopgenerics.com"
+      ) |>
+        addFieldsCdmSource()
+    )
   expect_no_error(x <- summary(cdm))
   expt <- dplyr::tibble(
     variable_name = c(
@@ -103,7 +127,8 @@ test_that("summary a generated cohort set", {
     cohort_end_date = as.Date("2020-01-01")
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test",
     cohortTables = list("cohort1" = cohort, "cohort2" = cohort)
   )

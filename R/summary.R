@@ -28,14 +28,22 @@
 #' library(dplyr, warn.conflicts = FALSE)
 #'
 #' person <- tibble(
-#'   person_id = 1, gender_concept_id = 0, year_of_birth = 1990,
-#'   race_concept_id = 0, ethnicity_concept_id = 0
+#'   person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
+#'   race_concept_id = 0L, ethnicity_concept_id = 0,
+#'   month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'   birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'   provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'   gender_source_value = NA_character_,
+#'   gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'   race_source_concept_id = NA_integer_,
+#'   ethnicity_source_value = NA_character_,
+#'   ethnicity_source_concept_id = NA_integer_
 #' )
 #' observation_period <- tibble(
-#'   observation_period_id = 1, person_id = 1,
+#'   observation_period_id = 1L, person_id = 1L,
 #'   observation_period_start_date = as.Date("2000-01-01"),
 #'   observation_period_end_date = as.Date("2023-12-31"),
-#'   period_type_concept_id = 0
+#'   period_type_concept_id = 0L
 #' )
 #' cdm <- cdmFromTables(
 #'   tables = list("person" = person, "observation_period" = observation_period),
@@ -203,21 +211,29 @@ summary.cdm_reference <- function(object, ...) {
 #' library(dplyr, warn.conflicts = FALSE)
 #'
 #' person <- tibble(
-#'   person_id = 1, gender_concept_id = 0, year_of_birth = 1990,
-#'   race_concept_id = 0, ethnicity_concept_id = 0
+#'   person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
+#'   race_concept_id = 0L, ethnicity_concept_id = 0,
+#'   month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'   birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'   provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'   gender_source_value = NA_character_,
+#'   gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'   race_source_concept_id = NA_integer_,
+#'   ethnicity_source_value = NA_character_,
+#'   ethnicity_source_concept_id = NA_integer_
 #' )
 #' observation_period <- tibble(
-#'   observation_period_id = 1, person_id = 1,
+#'   observation_period_id = 1L, person_id = 1L,
 #'   observation_period_start_date = as.Date("2000-01-01"),
 #'   observation_period_end_date = as.Date("2023-12-31"),
-#'   period_type_concept_id = 0
+#'   period_type_concept_id = 0L
 #' )
 #' cdm <- cdmFromTables(
 #'   tables = list("person" = person, "observation_period" = observation_period),
 #'   cdmName = "test",
 #'   cohortTables = list("cohort1" = tibble(
-#'     cohort_definition_id = 1,
-#'     subject_id = 1,
+#'     cohort_definition_id = 1L,
+#'     subject_id = 1L,
 #'     cohort_start_date = as.Date("2010-01-01"),
 #'     cohort_end_date = as.Date("2010-01-05")
 #'   ))
@@ -342,14 +358,22 @@ addPkgDetails <- function(res) {
 #' library(dplyr, warn.conflicts = FALSE)
 #'
 #' person <- tibble(
-#'   person_id = 1, gender_concept_id = 0, year_of_birth = 1990,
-#'   race_concept_id = 0, ethnicity_concept_id = 0
-#'  )
+#'   person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
+#'   race_concept_id = 0L, ethnicity_concept_id = 0,
+#'   month_of_birth = NA_integer_, day_of_birth = NA_integer_,
+#'   birth_datetime = as.Date(NA_character_), location_id = 0L,
+#'   provider_id = 0L, care_site_id = 0L, person_source_value = NA_character_,
+#'   gender_source_value = NA_character_,
+#'   gender_source_concept_id = NA_integer_, race_source_value = NA_character_,
+#'   race_source_concept_id = NA_integer_,
+#'   ethnicity_source_value = NA_character_,
+#'   ethnicity_source_concept_id = NA_integer_
+#' )
 #' observation_period <- tibble(
-#'   observation_period_id = 1, person_id = 1,
+#'   observation_period_id = 1L, person_id = 1L,
 #'   observation_period_start_date = as.Date("2000-01-01"),
 #'   observation_period_end_date = as.Date("2023-12-31"),
-#'   period_type_concept_id = 0
+#'   period_type_concept_id = 0L
 #' )
 #' cdm <- cdmFromTables(
 #'   tables = list("person" = person, "observation_period" = observation_period),

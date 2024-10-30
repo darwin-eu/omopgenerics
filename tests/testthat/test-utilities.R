@@ -1,7 +1,10 @@
 test_that("test getCohortName and getCohortId", {
   person <- dplyr::tibble(
-    person_id = 1L, gender_concept_id = 0L, year_of_birth = 1990L,
-    race_concept_id = 0L, ethnicity_concept_id = 0L
+    person_id = 1L,
+    gender_concept_id = 0L,
+    year_of_birth = 1990L,
+    race_concept_id = 0L,
+    ethnicity_concept_id = 0L
   )
   observation_period <- dplyr::tibble(
     observation_period_id = 1L,
@@ -23,7 +26,8 @@ test_that("test getCohortName and getCohortId", {
     cohort_end_date = Sys.Date()
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cohortTables = list("my_first_cohort" = x, "my_second_cohort" = y),
     cdmName = "test"
   )

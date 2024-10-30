@@ -11,7 +11,8 @@ test_that("test create cohort", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   )
   cdm <- insertTable(
@@ -279,7 +280,8 @@ test_that("test validateCohortArgument", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   )
 
@@ -372,7 +374,8 @@ test_that("test error if attributes lost after class creation", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   )
 
@@ -408,7 +411,8 @@ test_that("test that tables are casted", {
     period_type_concept_id = 0L
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "test"
   )
   cdm <- insertTable(cdm, name = "cohort1", table = dplyr::tibble(

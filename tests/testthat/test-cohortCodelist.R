@@ -20,7 +20,8 @@ test_that("test codelist from cohort", {
       "person" = person,
       "observation_period" = observation_period,
       "cohort1" = cohort1
-    ),
+    ) |>
+      addFields(),
     cdmName = "test"
   )
   cdm$cohort1 <- newCohortTable(table = cdm$cohort1)
@@ -88,7 +89,8 @@ test_that("test epected error cohort_codelist in wrong format", {
     ))
   )
   cdm <- cdmFromTables(
-    tables = list("person" = person, "observation_period" = observation_period),
+    tables = list("person" = person, "observation_period" = observation_period) |>
+      addFields(),
     cdmName = "my_example_cdm",
     cohortTables = list("cohort1" = cohort)
   )
