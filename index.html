@@ -51,6 +51,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/darwin-eu/omopgenerics/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -67,21 +68,25 @@
 <h2 id="package-overview">Package overview<a class="anchor" aria-label="anchor" href="#package-overview"></a>
 </h2>
 <p>The omopgenerics package provides definitions of core classes and methods used by analytic pipelines that query the OMOP common data model.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">#&gt; To cite package 'omopgenerics' in publications use:</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;   Català M, Burn E (2024). _omopgenerics: Methods and Classes for the</span></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt;   OMOP Common Data Model_. R package version 0.3.0,</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt;   &lt;https://CRAN.R-project.org/package=omopgenerics&gt;.</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;   @Manual{,</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt;     title = {omopgenerics: Methods and Classes for the OMOP Common Data Model},</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt;     author = {Martí Català and Edward Burn},</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt;     year = {2024},</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;     note = {R package version 0.3.0},</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;     url = {https://CRAN.R-project.org/package=omopgenerics},</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;   }</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co">#&gt; Warning in citation("omopgenerics"): no date field in DESCRIPTION file of</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; package 'omopgenerics'</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; Warning in citation("omopgenerics"): could not determine year for</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; 'omopgenerics' from package DESCRIPTION file</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; To cite package 'omopgenerics' in publications use:</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt;   Català M, Burn E (????). _omopgenerics: Methods and Classes for the</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;   OMOP Common Data Model_. R package version 0.3.1.900,</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt;   &lt;https://darwin-eu.github.io/omopgenerics/&gt;.</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;   @Manual{,</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;     title = {omopgenerics: Methods and Classes for the OMOP Common Data Model},</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt;     author = {Martí Català and Edward Burn},</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt;     note = {R package version 0.3.1.900},</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt;     url = {https://darwin-eu.github.io/omopgenerics/},</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt;   }</span></span></code></pre></div>
 <p>If you find the package useful in supporting your research study, please consider citing this package.</p>
 </div>
 <div class="section level2">
@@ -89,11 +94,11 @@
 </h2>
 <p>You can install the development version of OMOPGenerics from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"darwin-eu-dev/omopgenerics"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"darwin-eu/omopgenerics"</span><span class="op">)</span></span></code></pre></div>
 <p>And load it using the library command:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu-dev.github.io/omopgenerics/">omopgenerics</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu.github.io/omopgenerics/">omopgenerics</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -126,8 +131,15 @@
 <p>Each one of the tables has a required columns. For example, for the <code>person</code> table this are the required columns:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/omopColumns.html">omopColumns</a></span><span class="op">(</span>table <span class="op">=</span> <span class="st">"person"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "person_id"            "gender_concept_id"    "year_of_birth"       </span></span>
-<span><span class="co">#&gt; [4] "race_concept_id"      "ethnicity_concept_id"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] "person_id"                   "gender_concept_id"          </span></span>
+<span><span class="co">#&gt;  [3] "year_of_birth"               "month_of_birth"             </span></span>
+<span><span class="co">#&gt;  [5] "day_of_birth"                "birth_datetime"             </span></span>
+<span><span class="co">#&gt;  [7] "race_concept_id"             "ethnicity_concept_id"       </span></span>
+<span><span class="co">#&gt;  [9] "location_id"                 "provider_id"                </span></span>
+<span><span class="co">#&gt; [11] "care_site_id"                "person_source_value"        </span></span>
+<span><span class="co">#&gt; [13] "gender_source_value"         "gender_source_concept_id"   </span></span>
+<span><span class="co">#&gt; [15] "race_source_value"           "race_source_concept_id"     </span></span>
+<span><span class="co">#&gt; [17] "ethnicity_source_value"      "ethnicity_source_concept_id"</span></span></code></pre></div>
 <ul>
 <li>Cohort tables We can see the cohort-related tables and their required columns.</li>
 </ul>
@@ -285,7 +297,7 @@
 <span><span class="co">#&gt; $ variable_level   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA</span></span>
 <span><span class="co">#&gt; $ estimate_name    &lt;chr&gt; "value", "count", "count", "source_name", "version", …</span></span>
 <span><span class="co">#&gt; $ estimate_type    &lt;chr&gt; "date", "integer", "integer", "character", "character…</span></span>
-<span><span class="co">#&gt; $ estimate_value   &lt;chr&gt; "2024-09-11", "1", "1", "", NA, "5.3", "", "", "", ""…</span></span>
+<span><span class="co">#&gt; $ estimate_value   &lt;chr&gt; "2024-11-01", "1", "1", "", NA, "5.3", "", "", "", ""…</span></span>
 <span><span class="co">#&gt; $ additional_name  &lt;chr&gt; "overall", "overall", "overall", "overall", "overall"…</span></span>
 <span><span class="co">#&gt; $ additional_level &lt;chr&gt; "overall", "overall", "overall", "overall", "overall"…</span></span></code></pre></div>
 <p>and also when we summarise a cohort</p>
@@ -314,6 +326,8 @@
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=omopgenerics" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/darwin-eu/omopgenerics/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/darwin-eu/omopgenerics/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -346,9 +360,9 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/Lifecycle-Experimental-339999" alt="Lifecycle:Experimental"></a></li>
-<li><a href="https://github.com/darwin-eu-dev/omopgenerics/actions" class="external-link"><img src="https://github.com/darwin-eu-dev/omopgenerics/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/darwin-eu/omopgenerics/actions" class="external-link"><img src="https://github.com/darwin-eu/omopgenerics/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://CRAN.R-project.org/package=omopgenerics" class="external-link"><img src="https://www.r-pkg.org/badges/version/omopgenerics" alt="CRANstatus"></a></li>
-<li><a href="https://app.codecov.io/gh/darwin-eu-dev/omopgenerics?branch=main" class="external-link"><img src="https://codecov.io/gh/darwin-eu-dev/omopgenerics/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://app.codecov.io/gh/darwin-eu/omopgenerics?branch=main" class="external-link"><img src="https://codecov.io/gh/darwin-eu/omopgenerics/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 

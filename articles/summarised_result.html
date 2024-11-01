@@ -49,6 +49,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/darwin-eu/omopgenerics/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -65,7 +66,7 @@
       <h1>A summarised result</h1>
             
       
-
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/vignettes/summarised_result.Rmd" class="external-link"><code>vignettes/summarised_result.Rmd</code></a></small>
       <div class="d-none name"><code>summarised_result.Rmd</code></div>
     </div>
 
@@ -699,7 +700,7 @@ above; and the settings argument. The settings argument can be NULL or
 do not contain all the required columns and they will be populated by
 default (a warning will appear). Let’s see a very simple example:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu-dev.github.io/omopgenerics/">omopgenerics</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu.github.io/omopgenerics/">omopgenerics</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -930,7 +931,7 @@ strata_name, strata_level, additional_name, additional_level; will be
 suppressed if there exist a variable_name %in% c(“number subjects”,
 “number records”) that is suppressed.</p></li>
 </ul>
-<p>You can see the source code for cell suppression here: <a href="https://github.com/darwin-eu-dev/omopgenerics/blob/main/R/methodSuppress.R" class="external-link uri">https://github.com/darwin-eu-dev/omopgenerics/blob/main/R/methodSuppress.R</a>.</p>
+<p>You can see the source code for cell suppression here: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/R/methodSuppress.R" class="external-link uri">https://github.com/darwin-eu/omopgenerics/blob/main/R/methodSuppress.R</a>.</p>
 </div>
 </div>
 <div class="section level2">
