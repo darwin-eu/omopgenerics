@@ -2,7 +2,7 @@ test_that("addSettings", {
   x <- dplyr::tibble(
     "result_id" = as.integer(c(1, 2)),
     "cdm_name" = c("cprd", "eunomia"),
-    "group_name" = "sex",
+    "group_name" = "group",
     "group_level" = "male",
     "strata_name" = "sex",
     "strata_level" = "male",

@@ -40,7 +40,7 @@ addSettings <- function(result,
                         settingsColumn = colnames(settings(result))) {
 
   # checks
-  result <- validateSummariseResult(result)
+  if(is.null(attr(result, "settings"))) {cli::cli_abort("result doesn't have a `settings` attribute")}
   settingsColumn <- checkSettingsColumns(settingsColumn, result)
   set <- settings(result)
 
