@@ -39,6 +39,7 @@ Imports:
     cli,
     dbplyr,
     dplyr,
+    generics,
     glue,
     lifecycle,
     methods,
