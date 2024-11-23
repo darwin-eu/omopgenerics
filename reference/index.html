@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1.900</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,12 +65,6 @@
 
         </dt>
         <dd>Bind two or more objects of the same class.</dd>
-      </dl><dl><dt>
-
-          <code><a href="participants.html">participants()</a></code>
-
-        </dt>
-        <dd>It returns the participants that contributed to a particular analysis</dd>
       </dl><dl><dt>
 
           <code><a href="settings.html">settings()</a></code>
@@ -527,6 +521,18 @@
 
       <dl><dt>
 
+          <code><a href="addSettings.html">addSettings()</a></code>
+
+        </dt>
+        <dd>Add settings columns to a <code>&lt;summarised_result&gt;</code> object</dd>
+      </dl><dl><dt>
+
+          <code><a href="additionalColumns.html">additionalColumns()</a></code>
+
+        </dt>
+        <dd>Identify variables in additional_name column</dd>
+      </dl><dl><dt>
+
           <code><a href="bind.summarised_result.html">bind(<i>&lt;summarised_result&gt;</i>)</a></code>
 
         </dt>
@@ -545,10 +551,46 @@
         <dd>Export a summarised_result object to a csv file.</dd>
       </dl><dl><dt>
 
+          <code><a href="filterAdditional.html">filterAdditional()</a></code>
+
+        </dt>
+        <dd>Filter the additional_name-additional_level pair in a summarised_result</dd>
+      </dl><dl><dt>
+
+          <code><a href="filterGroup.html">filterGroup()</a></code>
+
+        </dt>
+        <dd>Filter the group_name-group_level pair in a summarised_result</dd>
+      </dl><dl><dt>
+
+          <code><a href="filterSettings.html">filterSettings()</a></code>
+
+        </dt>
+        <dd>Filter a <code>&lt;summarised_result&gt;</code> using the settings</dd>
+      </dl><dl><dt>
+
+          <code><a href="filterStrata.html">filterStrata()</a></code>
+
+        </dt>
+        <dd>Filter the strata_name-strata_level pair in a summarised_result</dd>
+      </dl><dl><dt>
+
+          <code><a href="groupColumns.html">groupColumns()</a></code>
+
+        </dt>
+        <dd>Identify variables in group_name column</dd>
+      </dl><dl><dt>
+
           <code><a href="importSummarisedResult.html">importSummarisedResult()</a></code>
 
         </dt>
         <dd>Import a set of summarised results.</dd>
+      </dl><dl><dt>
+
+          <code><a href="pivotEstimates.html">pivotEstimates()</a></code>
+
+        </dt>
+        <dd>Set estimates as columns</dd>
       </dl><dl><dt>
 
           <code><a href="resultColumns.html">resultColumns()</a></code>
@@ -563,6 +605,42 @@
         <dd>Get settings from a summarised_result object.</dd>
       </dl><dl><dt>
 
+          <code><a href="settingsColumns.html">settingsColumns()</a></code>
+
+        </dt>
+        <dd>Identify settings columns of a <code>&lt;summarised_result&gt;</code></dd>
+      </dl><dl><dt>
+
+          <code><a href="splitAdditional.html">splitAdditional()</a></code>
+
+        </dt>
+        <dd>Split additional_name and additional_level columns</dd>
+      </dl><dl><dt>
+
+          <code><a href="splitAll.html">splitAll()</a></code>
+
+        </dt>
+        <dd>Split all pairs name-level into columns.</dd>
+      </dl><dl><dt>
+
+          <code><a href="splitGroup.html">splitGroup()</a></code>
+
+        </dt>
+        <dd>Split group_name and group_level columns</dd>
+      </dl><dl><dt>
+
+          <code><a href="splitStrata.html">splitStrata()</a></code>
+
+        </dt>
+        <dd>Split strata_name and strata_level columns</dd>
+      </dl><dl><dt>
+
+          <code><a href="strataColumns.html">strataColumns()</a></code>
+
+        </dt>
+        <dd>Identify variables in strata_name column</dd>
+      </dl><dl><dt>
+
           <code><a href="summary.summarised_result.html">summary(<i>&lt;summarised_result&gt;</i>)</a></code>
 
         </dt>
@@ -573,6 +651,36 @@
 
         </dt>
         <dd>Function to suppress counts in result objects</dd>
+      </dl><dl><dt>
+
+          <code><a href="tidy.summarised_result.html">tidy(<i>&lt;summarised_result&gt;</i>)</a></code>
+          <span class="badge lifecycle lifecycle-experimental">experimental</span>
+        </dt>
+        <dd>Turn a <code>&lt;summarised_result&gt;</code> object into a tidy tibble</dd>
+      </dl><dl><dt>
+
+          <code><a href="tidyColumns.html">tidyColumns()</a></code>
+
+        </dt>
+        <dd>Identify tidy columns of a <code>&lt;summarised_result&gt;</code></dd>
+      </dl><dl><dt>
+
+          <code><a href="uniteAdditional.html">uniteAdditional()</a></code>
+
+        </dt>
+        <dd>Unite one or more columns in additional_name-additional_level format</dd>
+      </dl><dl><dt>
+
+          <code><a href="uniteGroup.html">uniteGroup()</a></code>
+
+        </dt>
+        <dd>Unite one or more columns in group_name-group_level format</dd>
+      </dl><dl><dt>
+
+          <code><a href="uniteStrata.html">uniteStrata()</a></code>
+
+        </dt>
+        <dd>Unite one or more columns in strata_name-strata_level format</dd>
       </dl></div><div class="section level2">
 
       <h3 id="codelist-utility-functions">codelist utility functions<a class="anchor" aria-label="anchor" href="#codelist-utility-functions"></a></h3>
@@ -685,6 +793,12 @@
 
         </dt>
         <dd>Validate if two columns are valid Name-Level pair.</dd>
+      </dl><dl><dt>
+
+          <code><a href="validateNewColumn.html">validateNewColumn()</a></code>
+
+        </dt>
+        <dd>Validate a new column of a table</dd>
       </dl><dl><dt>
 
           <code><a href="validateResultArguemnt.html">validateResultArguemnt()</a></code>

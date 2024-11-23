@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1.900</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,12 +89,12 @@ allows us to represent individuals in a cohort.</p>
 <p>Let’s start by creating a cdm reference with just two people.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">person</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span>  person_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,</span>
+<span>  person_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>  gender_concept_id <span class="op">=</span> <span class="fl">0</span>, year_of_birth <span class="op">=</span> <span class="fl">1990</span>,</span>
 <span>  race_concept_id <span class="op">=</span> <span class="fl">0</span>, ethnicity_concept_id <span class="op">=</span> <span class="fl">0</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">observation_period</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span>  observation_period_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, person_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,</span>
+<span>  observation_period_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, person_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>,</span>
 <span>  observation_period_start_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2000-01-01"</span><span class="op">)</span>,</span>
 <span>  observation_period_end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2021-12-31"</span><span class="op">)</span>,</span>
 <span>  period_type_concept_id <span class="op">=</span> <span class="fl">0</span></span>
@@ -182,13 +182,14 @@ associated with our cohort.</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">0 codelists</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>
 <p>We could though associate our cohort with a codelist</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span>, </span>
-<span>                             cohortCodelistRef <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span>                                 cohort_definition_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>,</span>
-<span>                                 codelist_name <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"disease X"</span>, <span class="st">"disease X"</span><span class="op">)</span>,</span>
-<span>                                 concept_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">101</span>,<span class="fl">102</span><span class="op">)</span>,</span>
-<span>                                 type <span class="op">=</span> <span class="st">"index event"</span></span>
-<span>                               <span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span>,</span>
+<span>  cohortCodelistRef <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>    cohort_definition_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    codelist_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"disease X"</span>, <span class="st">"disease X"</span><span class="op">)</span>,</span>
+<span>    concept_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">101</span>, <span class="fl">102</span><span class="op">)</span>,</span>
+<span>    type <span class="op">=</span> <span class="st">"index event"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/cohortCodelist.html">cohortCodelist</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span>, cohortId <span class="op">=</span> <span class="fl">1</span>, type <span class="op">=</span> <span class="st">"index event"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> `codelist` contains numeric values, they are casted</span></span>
 <span><span class="co">#&gt; to integers.</span></span>
@@ -285,23 +286,30 @@ cohort tables. You have to provide a name for the new cohort table.</p>
 <span>  cohort_end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-10"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/insertTable.html">insertTable</a></span><span class="op">(</span><span class="va">cdm</span>, name <span class="op">=</span> <span class="st">"asthma"</span>, table <span class="op">=</span> <span class="va">asthma</span><span class="op">)</span></span>
-<span><span class="va">cdm</span><span class="op">$</span><span class="va">asthma</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">asthma</span>, </span>
-<span>                             cohortSetRef <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>cohort_definition_id <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                                                   cohort_name <span class="op">=</span> <span class="st">"asthma"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">cdm</span><span class="op">$</span><span class="va">asthma</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">asthma</span>,</span>
+<span>  cohortSetRef <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>    cohort_definition_id <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    cohort_name <span class="op">=</span> <span class="st">"asthma"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">copd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  cohort_definition_id <span class="op">=</span> <span class="fl">1</span>, subject_id <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  cohort_start_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>,</span>
 <span>  cohort_end_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-10"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">cdm</span> <span class="op">&lt;-</span>  <span class="fu"><a href="../reference/insertTable.html">insertTable</a></span><span class="op">(</span><span class="va">cdm</span>, name <span class="op">=</span> <span class="st">"copd"</span>, table <span class="op">=</span> <span class="va">copd</span><span class="op">)</span></span>
-<span><span class="va">cdm</span><span class="op">$</span><span class="va">copd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">copd</span>, </span>
-<span>                           cohortSetRef <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>cohort_definition_id <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>                                                   cohort_name <span class="op">=</span> <span class="st">"copd"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/insertTable.html">insertTable</a></span><span class="op">(</span><span class="va">cdm</span>, name <span class="op">=</span> <span class="st">"copd"</span>, table <span class="op">=</span> <span class="va">copd</span><span class="op">)</span></span>
+<span><span class="va">cdm</span><span class="op">$</span><span class="va">copd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">copd</span>,</span>
+<span>  cohortSetRef <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>    cohort_definition_id <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    cohort_name <span class="op">=</span> <span class="st">"copd"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bind.html">bind</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">asthma</span>, </span>
-<span>            <span class="va">cdm</span><span class="op">$</span><span class="va">copd</span>,</span>
-<span>            name <span class="op">=</span> <span class="st">"exposures"</span><span class="op">)</span></span>
+<span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bind.html">bind</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">asthma</span>,</span>
+<span>  <span class="va">cdm</span><span class="op">$</span><span class="va">copd</span>,</span>
+<span>  name <span class="op">=</span> <span class="st">"exposures"</span></span>
+<span><span class="op">)</span></span>
 <span><span class="va">cdm</span><span class="op">$</span><span class="va">exposures</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 4</span></span></span>
 <span><span class="co">#&gt;   cohort_definition_id subject_id cohort_start_date cohort_end_date</span></span>
