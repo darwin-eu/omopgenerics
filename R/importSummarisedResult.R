@@ -49,8 +49,8 @@ importSummarisedResult <- function(path,
 importSummarisedResultFromPath <- function(path,
                                            recursive) {
   assertCharacter(path,
-    length = 1,
-    msg = "Only a single path can be specified"
+                  length = 1,
+                  msg = "Only a single path can be specified"
   )
 
   if (stringr::str_sub(path, -4, -1) == ".csv") {
@@ -68,14 +68,14 @@ importSummarisedResultFromPath <- function(path,
 
   if (isDir) {
     csvFiles <- list.files(path,
-      recursive = recursive,
-      pattern = "\\.csv$",
-      full.names = TRUE
+                           recursive = recursive,
+                           pattern = "\\.csv$",
+                           full.names = TRUE
     )
     csvFileNames <- list.files(path,
-      recursive = recursive,
-      pattern = "\\.csv$",
-      full.names = FALSE
+                               recursive = recursive,
+                               pattern = "\\.csv$",
+                               full.names = FALSE
     )
   } else {
     csvFiles <- path
@@ -91,14 +91,18 @@ importSummarisedResultFromPath <- function(path,
   allResults[["empty"]] <- emptySummarisedResult()
   for (i in seq_along(csvFiles)) {
     cli::cli_inform("Reading {csvFiles[[i]]}")
-    allResults[[i]] <- readr::read_csv(csvFiles[[i]],
-      col_types = c(
-        .default = "c",
-        result_id = "integer"
-      ),
+    enc <- readr::guess_encoding(csvFiles[[i]], n_max = -1)
+    if (is.character(enc$encoding[1])) {
+      locale <- readr::locale(encoding = enc$encoding[1])
+    } else {
+      locale <- readr::default_locale()
+    }
+    allResults[[i]] <- readr::read_csv(
+      file = csvFiles[[i]],
+      col_types = c(.default = "c", result_id = "i"),
+      locale = locale,
       show_col_types = FALSE
     )
-
 
     if (isFALSE(setequal(sort(colnames(allResults[[i]])), sort(resultColumns())))) {
       cli::cli_warn("{csvFileNames[[i]]} does not have summarised result columns and so was omitted")
