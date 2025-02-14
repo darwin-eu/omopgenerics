@@ -9,6 +9,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/summarised_result.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/authors.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/index.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/news/index.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/achillesColumns.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/achillesTables.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/addSettings.html</loc></url>
@@ -29,6 +30,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/bind.summarised_result.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cash-.cdm_reference.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cash-set-.cdm_reference.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmDisconnect.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmFromTables.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmName.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmReference.html</loc></url>
@@ -71,6 +73,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/importConceptSetExpression.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/importSummarisedResult.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/index.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/insertCdmTo.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/insertFromSource.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/insertTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/isResultSuppressed.html</loc></url>
@@ -87,6 +90,8 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/newLocalSource.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/newOmopTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/newSummarisedResult.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/numberRecords.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/numberSubjects.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopColumns.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopTableFields.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopTables.html</loc></url>
@@ -129,16 +134,21 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/uniteAdditional.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/uniteGroup.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/uniteStrata.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateAchillesTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateAgeGroupArgument.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateCdmArgument.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateCdmTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateCohortArgument.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateCohortIdArgument.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateColumn.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateConceptSetArgument.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateNameArgument.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateNameLevel.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateNameStyle.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateNewColumn.html</loc></url>
-<url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateResultArguemnt.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateOmopTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateResultArgument.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateStrataArgument.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/validateWindowArgument.html</loc></url>
 </urlset>
 
