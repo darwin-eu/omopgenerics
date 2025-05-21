@@ -44,7 +44,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Create a log file</h1>
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.2.0/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
       <div class="d-none name"><code>createLogFile.Rd</code></div>
     </div>
 
@@ -77,18 +77,18 @@ and '{time}' to add the date and time in the log file name.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">logFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"log_{date}_{time}"</span>, fileext <span class="op">=</span> <span class="st">".txt"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">createLogFile</span><span class="op">(</span>logFile <span class="op">=</span> <span class="va">logFile</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpYgzGMz/log_2025_05_21_17_38_481d9e1bdc28b6.txt</span>.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 17:38:48]</span> - Log file created</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpPts4uJ/log_2025_05_21_18_04_491ca17887955e.txt</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:49]</span> - Log file created</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Starting analysis"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 17:38:48]</span> - Starting analysis</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:49]</span> - Starting analysis</span>
 <span class="r-in"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span><span class="fu"><a href="logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Analysis finished"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 17:38:48]</span> - Analysis finished</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:49]</span> - Analysis finished</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="summariseLogFile.html">summariseLogFile</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 17:38:48]</span> - Exporting log file</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:49]</span> - Exporting log file</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 4</span>
@@ -103,7 +103,7 @@ and '{time}' to add the date and time in the log file name.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ variable_level   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_name    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "date_time"<span style="color: #949494;">, </span>"date_time"<span style="color: #949494;">, </span>"date_time"<span style="color: #949494;">, </span>"date_time"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_type    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "character"<span style="color: #949494;">, </span>"character"<span style="color: #949494;">, </span>"character"<span style="color: #949494;">, </span>"character"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2025-05-21 17:38:48"<span style="color: #949494;">, </span>"2025-05-21 17:38:48"<span style="color: #949494;">, </span>"2025-0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2025-05-21 18:04:49"<span style="color: #949494;">, </span>"2025-05-21 18:04:49"<span style="color: #949494;">, </span>"2025-0…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_level <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"</span>
 <span class="r-in"><span></span></span>
@@ -111,10 +111,10 @@ and '{time}' to add the date and time in the log file name.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   cdm_name log_id variable_name      variable_level date_time          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> unknown  1      Log file created   <span style="color: #BB0000;">NA</span>             2025-05-21 17:38:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> unknown  2      Starting analysis  <span style="color: #BB0000;">NA</span>             2025-05-21 17:38:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> unknown  3      Analysis finished  <span style="color: #BB0000;">NA</span>             2025-05-21 17:38:48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> unknown  4      Exporting log file <span style="color: #BB0000;">NA</span>             2025-05-21 17:38:48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> unknown  1      Log file created   <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> unknown  2      Starting analysis  <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> unknown  3      Analysis finished  <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> unknown  4      Exporting log file <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:49</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
