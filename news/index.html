@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,9 @@
     <li><a class="dropdown-item" href="../articles/cohorts.html">Cohort tables</a></li>
     <li><a class="dropdown-item" href="../articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
+    <li><a class="dropdown-item" href="../articles/logging.html">Logging with omopgenerics</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
     <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
   </ul></li>
@@ -41,9 +44,32 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.1.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.2.0" id="omopgenerics-120">omopgenerics 1.2.0<a class="anchor" aria-label="anchor" href="#omopgenerics-120"></a></h2><p class="text-muted">CRAN release: 2025-05-19</p>
+<ul><li>Remove NA in estimates in transformToSummarisedResult by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/702" class="external-link">#702</a></li>
+<li>Create logging functions by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/700" class="external-link">#700</a></li>
+<li>Allow strata to be a character by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/703" class="external-link">#703</a></li>
+<li>Remove settings that are NA after filterSettings by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/704" class="external-link">#704</a></li>
+<li>
+<code>validateWindowArgument</code> force snake_case names by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/711" class="external-link">#711</a></li>
+<li>Keep cohort_table class after collect by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/710" class="external-link">#710</a></li>
+<li>
+<code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">dplyr::as_tibble</a></code> for codelist by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/712" class="external-link">#712</a></li>
+<li>
+<code>type</code> -&gt; <code>codelist_type</code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/709" class="external-link">#709</a></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.1" id="omopgenerics-111">omopgenerics 1.1.1<a class="anchor" aria-label="anchor" href="#omopgenerics-111"></a></h2><p class="text-muted">CRAN release: 2025-03-16</p>
+<ul><li>more general validation for cohorts by <a href="https://github.com/edward-burn" class="external-link">@edward-burn</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/692" class="external-link">#692</a></li>
+<li>change <code>grepl</code> to <code><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">stringr::str_detect</a></code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/689" class="external-link">#689</a></li>
+<li>allow <code><a href="https://readr.tidyverse.org/reference/encoding.html" class="external-link">readr::guess_encoding</a></code> to fail and default configuration by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/685" class="external-link">#685</a></li>
+<li>keep codelist class when subsetting by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/693" class="external-link">#693</a></li>
+<li>export summarised_results always as utf8 by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/690" class="external-link">#690</a></li>
+<li>add option checkPermanentTable to <code>validateCohortArgument</code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/694" class="external-link">#694</a></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.1.0" id="omopgenerics-110">omopgenerics 1.1.0<a class="anchor" aria-label="anchor" href="#omopgenerics-110"></a></h2><p class="text-muted">CRAN release: 2025-02-25</p>
 <ul><li>more general cdm validation checks by <a href="https://github.com/edward-burn" class="external-link">@edward-burn</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/674" class="external-link">#674</a></li>
@@ -66,7 +92,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
 </div>
 
     </footer></div>
