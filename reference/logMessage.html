@@ -9,7 +9,7 @@ logFile does not exist the message is only displayed in the console."></head><bo
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,7 @@ logFile does not exist the message is only displayed in the console."></head><bo
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
     <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="../articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -46,7 +47,7 @@ logFile does not exist the message is only displayed in the console."></head><bo
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Log a message to a logFile</h1>
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.2.0/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
       <div class="d-none name"><code>logMessage.Rd</code></div>
     </div>
 
@@ -88,18 +89,18 @@ logFile does not exist the message is only displayed in the console."></head><bo
 <span class="r-in"><span><span class="va">logFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"log_{date}_{time}"</span>, fileext <span class="op">=</span> <span class="st">".txt"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="createLogFile.html">createLogFile</a></span><span class="op">(</span>logFile <span class="op">=</span> <span class="va">logFile</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Overwriting current log file</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpPts4uJ/log_2025_05_21_18_04_561ca130df3818.txt</span>.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:56]</span> - Log file created</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpTBA6ZM/log_2025_07_15_18_50_341dcb7ab68252.txt</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-07-15 18:50:34]</span> - Log file created</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">logMessage</span><span class="op">(</span><span class="st">"Starting analysis"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:56]</span> - Starting analysis</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-07-15 18:50:34]</span> - Starting analysis</span>
 <span class="r-in"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span><span class="fu">logMessage</span><span class="op">(</span><span class="st">"Analysis finished"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:56]</span> - Analysis finished</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-07-15 18:50:34]</span> - Analysis finished</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="summariseLogFile.html">summariseLogFile</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-05-21 18:04:56]</span> - Exporting log file</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-07-15 18:50:34]</span> - Exporting log file</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 4</span>
@@ -114,7 +115,7 @@ logFile does not exist the message is only displayed in the console."></head><bo
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ variable_level   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_name    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "date_time"<span style="color: #949494;">, </span>"date_time"<span style="color: #949494;">, </span>"date_time"<span style="color: #949494;">, </span>"date_time"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_type    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "character"<span style="color: #949494;">, </span>"character"<span style="color: #949494;">, </span>"character"<span style="color: #949494;">, </span>"character"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2025-05-21 18:04:56"<span style="color: #949494;">, </span>"2025-05-21 18:04:56"<span style="color: #949494;">, </span>"2025-0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2025-07-15 18:50:34"<span style="color: #949494;">, </span>"2025-07-15 18:50:34"<span style="color: #949494;">, </span>"2025-0…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_level <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"</span>
 <span class="r-in"><span></span></span>
@@ -122,10 +123,10 @@ logFile does not exist the message is only displayed in the console."></head><bo
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   cdm_name log_id variable_name      variable_level date_time          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> unknown  1      Log file created   <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> unknown  2      Starting analysis  <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> unknown  3      Analysis finished  <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> unknown  4      Exporting log file <span style="color: #BB0000;">NA</span>             2025-05-21 18:04:56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> unknown  1      Log file created   <span style="color: #BB0000;">NA</span>             2025-07-15 18:50:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> unknown  2      Starting analysis  <span style="color: #BB0000;">NA</span>             2025-07-15 18:50:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> unknown  3      Analysis finished  <span style="color: #BB0000;">NA</span>             2025-07-15 18:50:34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> unknown  4      Exporting log file <span style="color: #BB0000;">NA</span>             2025-07-15 18:50:34</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -138,7 +139,7 @@ logFile does not exist the message is only displayed in the console."></head><bo
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>

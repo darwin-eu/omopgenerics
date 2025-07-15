@@ -4,6 +4,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/cdm_reference.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/codelists.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/cohorts.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/articles/expanding_omopgenerics.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/index.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/logging.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/reexport.html</loc></url>
@@ -31,6 +32,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/bind.summarised_result.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cash-.cdm_reference.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cash-set-.cdm_reference.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmClasses.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmDisconnect.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmFromTables.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/cdmName.html</loc></url>
@@ -49,7 +51,9 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/collect.cohort_table.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/combineStrata.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/compute.cdm_table.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/createIndexes.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/createLogFile.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/createTableIndex.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/dropSourceTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/dropTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptyAchillesTable.html</loc></url>
@@ -60,6 +64,8 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptyOmopTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptySummarisedResult.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/estimateTypeChoices.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/existingIndexes.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/expectedIndexes.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/exportCodelist.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/exportConceptSetExpression.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.html</loc></url>
@@ -118,11 +124,13 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/splitAll.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/splitGroup.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/splitStrata.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/statusIndexes.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/strataColumns.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/sub-sub-.cdm_reference.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/sub-subset-.cdm_reference.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/summariseLogFile.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/summary.cdm_reference.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/summary.cdm_source.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/summary.cohort_table.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/summary.summarised_result.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/suppress.html</loc></url>
