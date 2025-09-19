@@ -215,9 +215,10 @@ fieldTablesColumns <- dplyr::tribble(
   "measurement", "measurement_date", "measurement_date", "measurement_concept_id", "measurement_source_concept_id", "measurement_type_concept_id", "measurement_id", "measurement", "person_id",
   "observation", "observation_date", "observation_date", "observation_concept_id", "observation_source_concept_id", "observation_type_concept_id", "observation_id", "observation", "person_id",
   "death", "death_date", "death_date", "cause_concept_id", "cause_source_concept_id", "death_type_concept_id", "person_id", NA, "person_id",
-  "condition_era", "condition_era_start_date", "condition_era_end_date", "condition_concept_id", NA, NA, "consition_era_id", "condition", "person_id",
+  "condition_era", "condition_era_start_date", "condition_era_end_date", "condition_concept_id", NA, NA, "condition_era_id", "condition", "person_id",
   "drug_era", "drug_era_start_date", "drug_era_end_date", "drug_concept_id", NA, NA, "drug_era_id", "drug", "person_id",
-  "dose_era", "dose_era_start_date", "dose_era_end_date", "drug_concept_id", NA, NA, "dose_era_id", "drug", "person_id"
+  "dose_era", "dose_era_start_date", "dose_era_end_date", "drug_concept_id", NA, NA, "dose_era_id", "drug", "person_id",
+  "payer_plan_period", "payer_plan_period_start_date", "payer_plan_period_end_date", "payer_concept_id", "payer_source_concept_id", NA, "payer_plan_period_id", NA, "person_id"
 )
 
 supportedCdmVersions <- c("5.3", "5.4")
