@@ -9,6 +9,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/logging.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/reexport.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/articles/summarised_result.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/articles/suppression.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/authors.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/index.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/news/index.html</loc></url>
@@ -61,6 +62,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptyCodelist.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptyCodelistWithDetails.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptyCohortTable.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptyConceptSetExpression.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptyOmopTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/emptySummarisedResult.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/estimateTypeChoices.html</loc></url>
@@ -102,6 +104,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/numberRecords.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/numberSubjects.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopColumns.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopDataFolder.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopTableFields.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopTables.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/omopgenerics-package.html</loc></url>

@@ -9,7 +9,8 @@ articles:
   logging: logging.html
   reexport: reexport.html
   summarised_result: summarised_result.html
-last_built: 2025-07-15T18:54Z
+  suppression: suppression.html
+last_built: 2025-09-19T10:54Z
 urls:
   reference: https://darwin-eu.github.io/omopgenerics/reference
   article: https://darwin-eu.github.io/omopgenerics/articles
