@@ -149,7 +149,7 @@ cdmReference <- function(table) {
 #' }
 tableName <- function(table) {
   assertClass(table, "cdm_table",
-    msg = "`table` does not have the class: cdm_table"
+              msg = "`table` does not have the class: cdm_table"
   )
   attr(table, "tbl_name")
 }
@@ -187,7 +187,7 @@ tableName <- function(table) {
 #' }
 tableSource <- function(table) {
   assertClass(table, "cdm_table",
-    msg = "`table` does not have the class: cdm_table"
+              msg = "`table` does not have the class: cdm_table"
   )
   attr(table, "tbl_source")
 }
@@ -200,10 +200,18 @@ collect.cdm_table <- function(x, ...) {
     # TO CHANGE TO ERROR IN NEW RELEASE
     cli::cli_warn(c("!" = "A cdm_table must have lowercase column names."))
   }
-  x <- x |> dplyr::collect()
+  x <- dplyr::collect(x)
   attr(x, "tbl_name") <- NULL
   attr(x, "tbl_source") <- NULL
   attr(x, "cdm_reference") <- NULL
+
+  # check character columns
+  x <- x |>
+    dplyr::mutate(dplyr::across(
+      .cols = dplyr::where(is.character),
+      .fns = \(x) iconv(x = x, from = "", to = "UTF-8", sub = "")
+    ))
+
   return(x)
 }
 

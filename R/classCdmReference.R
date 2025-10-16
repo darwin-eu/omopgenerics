@@ -162,6 +162,25 @@ validateCdmReference <- function(cdm, soft) {
     )
   }
 
+  # check utf8
+  if ("concept" %in% names(cdm)) {
+    conceptsToCheck <- c(79833, 4039817, 4245360, 4347058, 4041231, 19004935) |>
+      as.integer()
+    concepts <- cdm$concept |>
+      dplyr::filter(.data$concept_id %in% .env$conceptsToCheck) |>
+      dplyr::pull("concept_name")
+    if (length(concepts) == 0) {
+      concepts <- cdm$concept |>
+        utils::head(10) |>
+        dplyr::pull("concept_name")
+    }
+    if (!all(tolower(unique(Encoding(concepts))) %in% c("utf-8", "unknown"))) {
+      cli::cli_warn(c("!" = "non UTF-8 characters detected in your cdm, these
+                      characters will be lost when collecting, please change the
+                      setup of your database character encoding."))
+    }
+  }
+
   # not overlapping periods
   if (!soft) {
     checkOverlapObservation(cdm$observation_period)
@@ -203,8 +222,8 @@ checkOverlapObservation <- function(x, call = parent.frame()) {
       .data$observation_period_start_date
     )) |>
     dplyr::mutate(overlap = dplyr::if_else(!is.na(.data$next_observation_period_start_date) &
-                                           .data$observation_period_end_date >=
-                                           .data$next_observation_period_start_date,
+                                             .data$observation_period_end_date >=
+                                             .data$next_observation_period_start_date,
                                            1L, 0L)) |>
     dplyr::select(c("person_id", "overlap")) |>
     dplyr::filter(.data$overlap == 1L) |>
@@ -216,15 +235,15 @@ checkOverlapObservation <- function(x, call = parent.frame()) {
       utils::head(5) |>
       dplyr::pull()
     if(length(x) < 5){
-    cli::cli_abort(
-      message = c(
-        "There is overlap between observation_periods, {nrow(x)} overlap{?s}
+      cli::cli_abort(
+        message = c(
+          "There is overlap between observation_periods, {nrow(x)} overlap{?s}
         detected for person ID {x5}"
-      ),
-      call = call
-    )
+        ),
+        call = call
+      )
     } else {
-     cli::cli_abort(
+      cli::cli_abort(
         message = c(
           "There is overlap between observation_periods, {nrow(x)} overlap{?s}
         detected. First five affected person ID {x5}"
@@ -238,7 +257,7 @@ checkStartBeforeEndObservation <- function(x, call = parent.frame()) {
   x <- x |>
     dplyr::mutate(start_end = dplyr::if_else(.data$observation_period_start_date >
                                                .data$observation_period_end_date,
-                                           1L, 0L)) |>
+                                             1L, 0L)) |>
     dplyr::select("person_id", "start_end") |>
     dplyr::filter(.data$start_end == 1L) |>
     dplyr::collect()
@@ -273,10 +292,10 @@ checkPlausibleObservationDates <- function(x, call = parent.frame()) {
     x <- x |>
       dplyr::summarise(
         min_obs_start = min(.data$observation_period_start_date,
-          na.rm = TRUE
+                            na.rm = TRUE
         ),
         max_obs_end = max(.data$observation_period_end_date,
-          na.rm = TRUE
+                          na.rm = TRUE
         )
       ) |>
       dplyr::collect()
@@ -284,7 +303,7 @@ checkPlausibleObservationDates <- function(x, call = parent.frame()) {
     if (as.Date(x$min_obs_start) < as.Date("1800-01-01")) {
       cli::cli_warn(
         message = c("There are observation period start dates before 1800-01-01",
-          "i" = "The earliest min observation period start date found is {x$min_obs_start}"
+                    "i" = "The earliest min observation period start date found is {x$min_obs_start}"
         ),
         call = call
       )
@@ -293,7 +312,7 @@ checkPlausibleObservationDates <- function(x, call = parent.frame()) {
     if (as.Date(x$max_obs_end) > Sys.Date()) {
       cli::cli_warn(
         message = c("There are observation period end dates after the current date: {Sys.Date()}",
-          "i" = "The latest max observation period end date found is {x$max_obs_end}"
+                    "i" = "The latest max observation period end date found is {x$max_obs_end}"
         ),
         call = call
       )
