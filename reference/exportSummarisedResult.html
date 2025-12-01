@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Export a summarised_result object to a csv file.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.2/R/exportSummarisedResult.R" class="external-link"><code>R/exportSummarisedResult.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/R/exportSummarisedResult.R" class="external-link"><code>R/exportSummarisedResult.R</code></a></small>
       <div class="d-none name"><code>exportSummarisedResult.Rd</code></div>
     </div>
 
@@ -63,7 +63,7 @@
 <span>  path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  logFile <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"omopgenerics.logFile"</span><span class="op">)</span>,</span>
 <span>  logSqlPath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"omopgenerics.log_sql_path"</span><span class="op">)</span>,</span>
-<span>  logExplainPath <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"omopgenerics.log_sql_explain_path"</span><span class="op">)</span></span>
+<span>  logExplainPath <span class="op">=</span> <span class="fu">lifecycle</span><span class="fu">::</span><span class="fu"><a href="https://lifecycle.r-lib.org/reference/deprecated.html" class="external-link">deprecated</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -98,8 +98,7 @@ is a full name with path included.</p></dd>
 
 
 <dt id="arg-logexplainpath">logExplainPath<a class="anchor" aria-label="anchor" href="#arg-logexplainpath"></a></dt>
-<dd><p>Path to the folder that contains the sql logs explain
-to export.</p></dd>
+<dd><p>deprecated.</p></dd>
 
 </dl></div>
 
@@ -112,7 +111,7 @@ to export.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
