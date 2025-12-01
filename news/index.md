@@ -1,5 +1,22 @@
 # Changelog
 
+## omopgenerics 1.3.4
+
+CRAN release: 2025-12-01
+
+- Handle edge case in concept set expression import by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#793](https://github.com/darwin-eu/omopgenerics/issues/793)
+- Add elapsed time calculation to log summary by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#795](https://github.com/darwin-eu/omopgenerics/issues/795)
+- Remove specimen_source_concept_id from fieldTablesColumns by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#797](https://github.com/darwin-eu/omopgenerics/issues/797)
+- Add methods for concept classes by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#796](https://github.com/darwin-eu/omopgenerics/issues/796)
+
 ## omopgenerics 1.3.3
 
 CRAN release: 2025-11-11

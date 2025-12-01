@@ -19,16 +19,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/darwin-eu/omopgenerics/blob/v1.3.3/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/darwin-eu/omopgenerics/blob/main/DESCRIPTION)
 
 Català M, Burn E (2025). *omopgenerics: Methods and Classes for the OMOP
-Common Data Model*. R package version 1.3.3,
+Common Data Model*. R package version 1.3.4,
 <https://darwin-eu.github.io/omopgenerics/>.
 
     @Manual{,
       title = {omopgenerics: Methods and Classes for the OMOP Common Data Model},
       author = {Martí Català and Edward Burn},
       year = {2025},
-      note = {R package version 1.3.3},
+      note = {R package version 1.3.4},
       url = {https://darwin-eu.github.io/omopgenerics/},
     }

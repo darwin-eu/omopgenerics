@@ -112,7 +112,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/print.cdm_reference.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/print.codelist.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/print.codelist_with_details.html</loc></url>
-<url><loc>https://darwin-eu.github.io/omopgenerics/reference/print.conceptSetExpression.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/print.concept_set_expression.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/readSourceTable.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/recordCohortAttrition.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/reexports.html</loc></url>

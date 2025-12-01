@@ -396,7 +396,7 @@ Utility functions for codelist objects
   : Print a codelist
 - [`print(`*`<codelist_with_details>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/print.codelist_with_details.md)
   : Print a codelist with details
-- [`print(`*`<conceptSetExpression>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/print.conceptSetExpression.md)
+- [`print(`*`<concept_set_expression>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/print.concept_set_expression.md)
   : Print a concept set expression
 
 ### Work with indexes
