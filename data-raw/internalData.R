@@ -206,7 +206,7 @@ fieldTablesColumns <- dplyr::tribble(
   "observation_period", "observation_period_start_date", "observation_period_end_date", NA, NA, "period_type_concept_id", "observation_period_id", NA, "person_id",
   "visit_occurrence", "visit_start_date", "visit_end_date", "visit_concept_id", "visit_source_concept_id", "visit_type_concept_id", "visit_occurrence_id", "visit", "person_id",
   "visit_detail", "visit_detail_start_date", "visit_detail_end_date", "visit_detail_concept_id", "visit_detail_source_concept_id", "visit_detail_type_concept_id", "visit_detail_id", "visit", "person_id",
-  "specimen", "specimen_date", "specimen_date", "specimen_concept_id", "specimen_source_concept_id", "specimen_type_concept_id", "specimen_id", "specimen", "person_id",
+  "specimen", "specimen_date", "specimen_date", "specimen_concept_id", NA, "specimen_type_concept_id", "specimen_id", "specimen", "person_id",
   "note", "note_date", "note_date", NA, NA, "note_type_concept_id", "note_id", NA, "person_id",
   "condition_occurrence", "condition_start_date", "condition_end_date", "condition_concept_id", "condition_source_concept_id", "condition_type_concept_id", "condition_occurrence_id", "condition", "person_id",
   "drug_exposure", "drug_exposure_start_date", "drug_exposure_end_date", "drug_concept_id", "drug_source_concept_id", "drug_type_concept_id", "drug_exposure_id", "drug", "person_id",
