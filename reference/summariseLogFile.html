@@ -48,7 +48,7 @@ summarised_result object."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Summarise and extract the information of a log file into a <code>summarised_result</code> object.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.4/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
       <div class="d-none name"><code>summariseLogFile.Rd</code></div>
     </div>
 
@@ -90,18 +90,18 @@ summarised_result object."></head><body>
 <span class="r-in"><span><span class="va">logFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"log_{date}_{time}"</span>, fileext <span class="op">=</span> <span class="st">".txt"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="createLogFile.html">createLogFile</a></span><span class="op">(</span>logFile <span class="op">=</span> <span class="va">logFile</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Overwriting current log file</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpLm3dfo/log_2025_12_01_18_43_59191d2270369b.txt</span>.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:43:59]</span> - Log file created</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpsWHf60/log_2025_12_01_18_47_39191147e97ddd.txt</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:47:39]</span> - Log file created</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Starting analysis"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:43:59]</span> - Starting analysis</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:47:39]</span> - Starting analysis</span>
 <span class="r-in"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span><span class="fu"><a href="logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Analysis finished"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:43:59]</span> - Analysis finished</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:47:39]</span> - Analysis finished</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">summariseLogFile</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:43:59]</span> - Exporting log file</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2025-12-01 18:47:39]</span> - Exporting log file</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 7</span>
@@ -116,7 +116,7 @@ summarised_result object."></head><body>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ variable_level   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_name    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "date_time"<span style="color: #949494;">, </span>"elapsed_time"<span style="color: #949494;">, </span>"date_time"<span style="color: #949494;">, </span>"elapsed_ti…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_type    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "character"<span style="color: #949494;">, </span>"integer"<span style="color: #949494;">, </span>"character"<span style="color: #949494;">, </span>"integer"<span style="color: #949494;">, </span>"char…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2025-12-01 18:43:59"<span style="color: #949494;">, </span>"0"<span style="color: #949494;">, </span>"2025-12-01 18:43:59"<span style="color: #949494;">, </span>"0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2025-12-01 18:47:39"<span style="color: #949494;">, </span>"0"<span style="color: #949494;">, </span>"2025-12-01 18:47:39"<span style="color: #949494;">, </span>"0…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_level <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"…</span>
 <span class="r-in"><span></span></span>
