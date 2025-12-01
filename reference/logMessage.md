@@ -35,18 +35,18 @@ library(dplyr)
 logFile <- tempfile(pattern = "log_{date}_{time}", fileext = ".txt")
 createLogFile(logFile = logFile)
 #> ! Overwriting current log file
-#> ℹ Creating log file: /tmp/RtmpkKGc71/log_2025_12_01_18_27_341a016e85338.txt.
-#> [2025-12-01 18:27:34] - Log file created
+#> ℹ Creating log file: /tmp/Rtmp9wn4zb/log_2025_12_01_18_30_5219081c6d1b23.txt.
+#> [2025-12-01 18:30:52] - Log file created
 
 logMessage("Starting analysis")
-#> [2025-12-01 18:27:34] - Starting analysis
+#> [2025-12-01 18:30:52] - Starting analysis
 1 + 1
 #> [1] 2
 logMessage("Analysis finished")
-#> [2025-12-01 18:27:34] - Analysis finished
+#> [2025-12-01 18:30:52] - Analysis finished
 
 res <- summariseLogFile()
-#> [2025-12-01 18:27:34] - Exporting log file
+#> [2025-12-01 18:30:52] - Exporting log file
 
 glimpse(res)
 #> Rows: 4
@@ -61,7 +61,7 @@ glimpse(res)
 #> $ variable_level   <chr> NA, NA, NA, NA
 #> $ estimate_name    <chr> "date_time", "date_time", "date_time", "date_time"
 #> $ estimate_type    <chr> "character", "character", "character", "character"
-#> $ estimate_value   <chr> "2025-12-01 18:27:34", "2025-12-01 18:27:34", "2025-1…
+#> $ estimate_value   <chr> "2025-12-01 18:30:52", "2025-12-01 18:30:52", "2025-1…
 #> $ additional_name  <chr> "overall", "overall", "overall", "overall"
 #> $ additional_level <chr> "overall", "overall", "overall", "overall"
 
@@ -69,8 +69,8 @@ tidy(res)
 #> # A tibble: 4 × 5
 #>   cdm_name log_id variable_name      variable_level date_time          
 #>   <chr>    <chr>  <chr>              <chr>          <chr>              
-#> 1 unknown  1      Log file created   NA             2025-12-01 18:27:34
-#> 2 unknown  2      Starting analysis  NA             2025-12-01 18:27:34
-#> 3 unknown  3      Analysis finished  NA             2025-12-01 18:27:34
-#> 4 unknown  4      Exporting log file NA             2025-12-01 18:27:34
+#> 1 unknown  1      Log file created   NA             2025-12-01 18:30:52
+#> 2 unknown  2      Starting analysis  NA             2025-12-01 18:30:52
+#> 3 unknown  3      Analysis finished  NA             2025-12-01 18:30:52
+#> 4 unknown  4      Exporting log file NA             2025-12-01 18:30:52
 ```

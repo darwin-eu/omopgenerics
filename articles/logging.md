@@ -33,29 +33,29 @@ library(omopgenerics, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmpx7XkJA/log_2025_12_01_18_28_042413389c59d4.txt.
-#> [2025-12-01 18:28:04] - Log file created
+#> ℹ Creating log file: /tmp/RtmpQhr1Xt/log_2025_12_01_18_31_25231c450288bc.txt.
+#> [2025-12-01 18:31:25] - Log file created
 
 # study
 logMessage("Generating random numbers")
-#> [2025-12-01 18:28:04] - Generating random numbers
+#> [2025-12-01 18:31:25] - Generating random numbers
 x <- runif(1e6)
 
 logMessage("Calculating the sum")
-#> [2025-12-01 18:28:04] - Calculating the sum
+#> [2025-12-01 18:31:25] - Calculating the sum
 result <- sum(x)
 
 # export logger to a `summarised_result`
 log <- summariseLogFile()
-#> [2025-12-01 18:28:04] - Exporting log file
+#> [2025-12-01 18:31:25] - Exporting log file
 
 # content of the log file
 readLines(getOption("omopgenerics.logFile")) |>
   cat(sep = "\n")
-#> [2025-12-01 18:28:04] - Log file created
-#> [2025-12-01 18:28:04] - Generating random numbers
-#> [2025-12-01 18:28:04] - Calculating the sum
-#> [2025-12-01 18:28:04] - Exporting log file
+#> [2025-12-01 18:31:25] - Log file created
+#> [2025-12-01 18:31:25] - Generating random numbers
+#> [2025-12-01 18:31:25] - Calculating the sum
+#> [2025-12-01 18:31:25] - Exporting log file
 
 # `summarised_result` object
 log
@@ -83,10 +83,10 @@ tidy(log)
 #> # A tibble: 4 × 5
 #>   cdm_name log_id variable_name             variable_level date_time          
 #>   <chr>    <chr>  <chr>                     <chr>          <chr>              
-#> 1 unknown  1      Log file created          NA             2025-12-01 18:28:04
-#> 2 unknown  2      Generating random numbers NA             2025-12-01 18:28:04
-#> 3 unknown  3      Calculating the sum       NA             2025-12-01 18:28:04
-#> 4 unknown  4      Exporting log file        NA             2025-12-01 18:28:04
+#> 1 unknown  1      Log file created          NA             2025-12-01 18:31:25
+#> 2 unknown  2      Generating random numbers NA             2025-12-01 18:31:25
+#> 3 unknown  3      Calculating the sum       NA             2025-12-01 18:31:25
+#> 4 unknown  4      Exporting log file        NA             2025-12-01 18:31:25
 ```
 
 Note that if the logFile is not created the
@@ -105,17 +105,17 @@ library(tidyr, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmpx7XkJA/log_2025_12_01_18_28_0524136e728113.txt.
-#> [2025-12-01 18:28:05] - Log file created
+#> ℹ Creating log file: /tmp/RtmpQhr1Xt/log_2025_12_01_18_31_26231c68e35ad5.txt.
+#> [2025-12-01 18:31:26] - Log file created
 
 # start analysis
 logMessage("Deffining toy data")
-#> [2025-12-01 18:28:05] - Deffining toy data
+#> [2025-12-01 18:31:26] - Deffining toy data
 n <- 1e5
 x <- tibble(person_id = seq_len(n), age = rnorm(n = n, mean = 55, sd = 20))
 
 logMessage("Summarise toy data")
-#> [2025-12-01 18:28:05] - Summarise toy data
+#> [2025-12-01 18:31:26] - Summarise toy data
 res <- x |>
   summarise(
     `number subjects_count` = n(),
@@ -148,7 +148,7 @@ res <- x |>
 # res is a summarised_result object that we can export using the `exportSummarisedResult`
 tempDir <- tempdir()
 exportSummarisedResult(res, path = tempDir)
-#> [2025-12-01 18:28:05] - Exporting log file
+#> [2025-12-01 18:31:26] - Exporting log file
 ```
 
 [`exportSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.md)
@@ -157,9 +157,9 @@ exported `summarised_result` object:
 
 ``` r
 result <- importSummarisedResult(tempDir)
-#> Reading file: /tmp/Rtmpx7XkJA/results_mock data_2025_12_01.csv.
+#> Reading file: /tmp/RtmpQhr1Xt/results_mock data_2025_12_01.csv.
 #> Converting to summarised_result:
-#> /tmp/Rtmpx7XkJA/results_mock data_2025_12_01.csv.
+#> /tmp/RtmpQhr1Xt/results_mock data_2025_12_01.csv.
 ```
 
 We can see that the log file is exported see
@@ -191,8 +191,8 @@ result |>
 #> # A tibble: 4 × 5
 #>   cdm_name  log_id variable_name      variable_level date_time          
 #>   <chr>     <chr>  <chr>              <chr>          <chr>              
-#> 1 mock data 1      Log file created   NA             2025-12-01 18:28:05
-#> 2 mock data 2      Deffining toy data NA             2025-12-01 18:28:05
-#> 3 mock data 3      Summarise toy data NA             2025-12-01 18:28:05
-#> 4 mock data 4      Exporting log file NA             2025-12-01 18:28:05
+#> 1 mock data 1      Log file created   NA             2025-12-01 18:31:26
+#> 2 mock data 2      Deffining toy data NA             2025-12-01 18:31:26
+#> 3 mock data 3      Summarise toy data NA             2025-12-01 18:31:26
+#> 4 mock data 4      Exporting log file NA             2025-12-01 18:31:26
 ```

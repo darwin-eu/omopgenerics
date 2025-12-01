@@ -19,7 +19,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/darwin-eu/omopgenerics/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/darwin-eu/omopgenerics/blob/v1.3.3/DESCRIPTION)
 
 Català M, Burn E (2025). *omopgenerics: Methods and Classes for the OMOP
 Common Data Model*. R package version 1.3.3,
