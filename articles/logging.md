@@ -33,29 +33,29 @@ library(omopgenerics, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmp9mZsBX/log_2026_01_28_17_46_0326da542ade62.txt.
-#> [2026-01-28 17:46:03] - Log file created
+#> ℹ Creating log file: /tmp/RtmpnAIiJp/log_2026_01_28_17_49_212673fa6d6df.txt.
+#> [2026-01-28 17:49:21] - Log file created
 
 # study
 logMessage("Generating random numbers")
-#> [2026-01-28 17:46:03] - Generating random numbers
+#> [2026-01-28 17:49:21] - Generating random numbers
 x <- runif(1e6)
 
 logMessage("Calculating the sum")
-#> [2026-01-28 17:46:03] - Calculating the sum
+#> [2026-01-28 17:49:21] - Calculating the sum
 result <- sum(x)
 
 # export logger to a `summarised_result`
 log <- summariseLogFile()
-#> [2026-01-28 17:46:03] - Exporting log file
+#> [2026-01-28 17:49:21] - Exporting log file
 
 # content of the log file
 readLines(getOption("omopgenerics.logFile")) |>
   cat(sep = "\n")
-#> [2026-01-28 17:46:03] - Log file created
-#> [2026-01-28 17:46:03] - Generating random numbers
-#> [2026-01-28 17:46:03] - Calculating the sum
-#> [2026-01-28 17:46:03] - Exporting log file
+#> [2026-01-28 17:49:21] - Log file created
+#> [2026-01-28 17:49:21] - Generating random numbers
+#> [2026-01-28 17:49:21] - Calculating the sum
+#> [2026-01-28 17:49:21] - Exporting log file
 
 # `summarised_result` object
 log
@@ -108,17 +108,17 @@ library(tidyr, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmp9mZsBX/log_2026_01_28_17_46_0326da3b1ee281.txt.
-#> [2026-01-28 17:46:03] - Log file created
+#> ℹ Creating log file: /tmp/RtmpnAIiJp/log_2026_01_28_17_49_222673739eacf9.txt.
+#> [2026-01-28 17:49:22] - Log file created
 
 # start analysis
 logMessage("Deffining toy data")
-#> [2026-01-28 17:46:03] - Deffining toy data
+#> [2026-01-28 17:49:22] - Deffining toy data
 n <- 1e5
 x <- tibble(person_id = seq_len(n), age = rnorm(n = n, mean = 55, sd = 20))
 
 logMessage("Summarise toy data")
-#> [2026-01-28 17:46:03] - Summarise toy data
+#> [2026-01-28 17:49:22] - Summarise toy data
 res <- x |>
   summarise(
     `number subjects_count` = n(),
@@ -151,7 +151,7 @@ res <- x |>
 # res is a summarised_result object that we can export using the `exportSummarisedResult`
 tempDir <- tempdir()
 exportSummarisedResult(res, path = tempDir)
-#> [2026-01-28 17:46:03] - Exporting log file
+#> [2026-01-28 17:49:22] - Exporting log file
 ```
 
 [`exportSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.md)
@@ -160,9 +160,9 @@ exported `summarised_result` object:
 
 ``` r
 result <- importSummarisedResult(tempDir)
-#> Reading file: /tmp/Rtmp9mZsBX/results_mock data_2026_01_28.csv.
+#> Reading file: /tmp/RtmpnAIiJp/results_mock data_2026_01_28.csv.
 #> Converting to summarised_result:
-#> /tmp/Rtmp9mZsBX/results_mock data_2026_01_28.csv.
+#> /tmp/RtmpnAIiJp/results_mock data_2026_01_28.csv.
 ```
 
 We can see that the log file is exported see

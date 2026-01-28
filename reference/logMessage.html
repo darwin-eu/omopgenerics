@@ -48,7 +48,7 @@ logFile does not exist the message is only displayed in the console."></head><bo
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Log a message to a logFile</h1>
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.6/R/logger.R" class="external-link"><code>R/logger.R</code></a></small>
       <div class="d-none name"><code>logMessage.Rd</code></div>
     </div>
 
@@ -90,18 +90,18 @@ logFile does not exist the message is only displayed in the console."></head><bo
 <span class="r-in"><span><span class="va">logFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"log_{date}_{time}"</span>, fileext <span class="op">=</span> <span class="st">".txt"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="createLogFile.html">createLogFile</a></span><span class="op">(</span>logFile <span class="op">=</span> <span class="va">logFile</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Overwriting current log file</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpXSDdW2/log_2026_01_28_17_45_301cca3b138d77.txt</span>.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:45:30]</span> - Log file created</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpN2YVxp/log_2026_01_28_17_48_481c632a9a70f.txt</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:48:48]</span> - Log file created</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">logMessage</span><span class="op">(</span><span class="st">"Starting analysis"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:45:30]</span> - Starting analysis</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:48:48]</span> - Starting analysis</span>
 <span class="r-in"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span><span class="fu">logMessage</span><span class="op">(</span><span class="st">"Analysis finished"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:45:30]</span> - Analysis finished</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:48:48]</span> - Analysis finished</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="summariseLogFile.html">summariseLogFile</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:45:30]</span> - Exporting log file</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">[2026-01-28 17:48:48]</span> - Exporting log file</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 7</span>
@@ -116,7 +116,7 @@ logFile does not exist the message is only displayed in the console."></head><bo
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ variable_level   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span><span style="color: #949494;">, </span><span style="color: #BB0000;">NA</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_name    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "date_time"<span style="color: #949494;">, </span>"elapsed_time"<span style="color: #949494;">, </span>"date_time"<span style="color: #949494;">, </span>"elapsed_ti…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_type    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "character"<span style="color: #949494;">, </span>"integer"<span style="color: #949494;">, </span>"character"<span style="color: #949494;">, </span>"integer"<span style="color: #949494;">, </span>"char…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2026-01-28 17:45:30"<span style="color: #949494;">, </span>"0"<span style="color: #949494;">, </span>"2026-01-28 17:45:30"<span style="color: #949494;">, </span>"0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ estimate_value   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2026-01-28 17:48:48"<span style="color: #949494;">, </span>"0"<span style="color: #949494;">, </span>"2026-01-28 17:48:48"<span style="color: #949494;">, </span>"0…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ additional_level <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"<span style="color: #949494;">, </span>"overall"…</span>
 <span class="r-in"><span></span></span>
