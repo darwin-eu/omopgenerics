@@ -1,5 +1,25 @@
 # Changelog
 
+## omopgenerics 1.3.6
+
+- Allow to codelist and concept set import in tibble format by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#806](https://github.com/darwin-eu/omopgenerics/issues/806)
+
+## omopgenerics 1.3.5
+
+CRAN release: 2025-12-10
+
+- Eliminate repeated elements from codelists by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#800](https://github.com/darwin-eu/omopgenerics/issues/800)
+- Add methods for empty concept sets by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#802](https://github.com/darwin-eu/omopgenerics/issues/802)
+- Add log query to collect by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#804](https://github.com/darwin-eu/omopgenerics/issues/804)
+
 ## omopgenerics 1.3.4
 
 CRAN release: 2025-12-01

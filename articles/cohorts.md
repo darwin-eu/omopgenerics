@@ -147,7 +147,7 @@ cohortCodelist(cdm$cohort, cohortId = 1, type = "index event")
 #> Warning: The `type` argument of `cohortCodelist()` is deprecated as of omopgenerics
 #> 1.2.0.
 #> ℹ Please use the `codelistType` argument instead.
-#> This warning is displayed once every 8 hours.
+#> This warning is displayed once per session.
 #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 #> generated.
 #> Warning: No codelists found for the specified cohorts
