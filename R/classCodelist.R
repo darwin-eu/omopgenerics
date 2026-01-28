@@ -34,14 +34,24 @@ newCodelist <- function(x) {
 }
 
 constructCodelist <- function(x) {
-  if (inherits(x, "tbl") & all(c("concept_id", "codelist_name") %in% colnames(x))) {
-    x <- x |>
-      dplyr::collect() |>
-      dplyr::group_by(.data$codelist_name) |>
-      dplyr::group_split() |>
-      as.list()
-    names(x) <- purrr::map_chr(x, \(x) unique(x$codelist_name))
-    x <- purrr::map(x, \(x) as.integer(unique(x$concept_id)))
+  if (inherits(x, "tbl")) {
+    if (x |> dplyr::tally() |> dplyr::pull() == 0) {
+      x <- list()
+    } else {
+      if ("concept_set_expression_name" %in% colnames(x) & !"codelist_name" %in% colnames(x)) {
+        x <- x |>
+          dplyr::rename("concept_set_expression_name" = "codelist_name")
+      }
+      if ("codelist_name" %in% colnames(x)) {
+        x <- x |>
+          dplyr::collect() |>
+          dplyr::group_by(.data$codelist_name) |>
+          dplyr::group_split() |>
+          as.list()
+        names(x) <- purrr::map_chr(x, \(x) unique(x$codelist_name))
+        x <- purrr::map(x, \(x) as.integer(unique(x$concept_id)))
+      }
+    }
   }
 
   x |>
@@ -136,14 +146,74 @@ bind.codelist <- function(...) {
 
 #' @export
 c.codelist <- function(...) {
-  # all codelists together
-  allCodelists <- unlist(list(...), recursive = FALSE)
-  allCodelists <- allCodelists[!duplicated(allCodelists)]
+  combineCodelist(x = list(...), type = "codelist")
+}
 
-  # check for repeated names
-  nms <- names(allCodelists)
+combineCodelist <- function(x, type) {
+  # function
+  fun <- switch (type,
+    "codelist" = newCodelist,
+    "codelist_with_details" = newCodelistWithDetails,
+    "concept_set_expression" = newConceptSetExpression
+  )
+
+  # check classes
+  x <- x |>
+    purrr::imap(\(element, nm) {
+      if (!inherits(element, type)) {
+        element <- tryCatch(fun(element), error = function(e) NULL)
+        if (is.null(element)) {
+          cli::cli_inform(c("!" = "Element `{nm}` eliminated as could not be converted to `<{type}>`."))
+        } else {
+          cli::cli_inform(c("i" = "Element `{nm}` converted to `<{type}>`."))
+        }
+      }
+      element
+    }) |>
+    purrr::compact()
+
+  # all codelists together
+  x <- unlist(x, recursive = FALSE)
+
+  # remove repeated codelists
+  x <- removeRepeated(x = x)
+
+  # rename repeated names
+  x <- renameCodelists(x = x)
+
+  # add class
+  x <- fun(x)
+
+  return(x)
+}
+removeRepeated <- function(x) {
+  # check for repeated elements
+  nms <- names(x)
   if (length(nms) != length(unique(nms))) {
-    # identify repeated
+    eliminate <- rep(FALSE, length(nms))
+    for (k in seq_along(nms)) {
+      if (!eliminate[k]) {
+        # other codelist with same name
+        id <- which(nms[k] == nms)
+        id <- id[id > k]
+        cont <- x[[k]]
+        if (length(id) > 0) {
+          for (i in id) {
+            if (identical(cont, x[[i]])) {
+              eliminate[i] <- TRUE
+            }
+          }
+        }
+      }
+    }
+    x <- x[!eliminate]
+  }
+  return(x)
+}
+renameCodelists <- function(x) {
+  nms <- names(x)
+  if (length(nms) != length(unique(nms))) {
+    # find duplicated names
     duplicated <- names(which(table(nms) > 1))
     id <- nms %in% duplicated
     dup <- nms[id]
@@ -163,13 +233,10 @@ c.codelist <- function(...) {
     c("!" = "Repeated names found between codelist, renamed as:", msg) |>
       cli::cli_warn()
 
-    names(allCodelists)[id] <- unname(nameChange)
+    names(x)[id] <- unname(nameChange)
   }
-
-  # add class
-  newCodelist(allCodelists)
+  x
 }
-
 findNewName <- function(name, usedNames) {
   usedNames <- usedNames[startsWith(x = usedNames, prefix = paste0(name, "_"))]
   k <- 1
@@ -191,6 +258,12 @@ findNewName <- function(name, usedNames) {
 
 #' @export
 as_tibble.codelist <- function(x, ...) {
+  if (length(x) == 0) {
+    return(dplyr::tibble(
+      codelist_name = character(),
+      concept_id = integer()
+    ))
+  }
   x |>
     purrr::map(\(x) dplyr::tibble(concept_id = as.integer(x))) |>
     dplyr::bind_rows(.id = "codelist_name")
