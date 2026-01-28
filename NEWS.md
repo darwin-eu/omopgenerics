@@ -1,3 +1,13 @@
+# omopgenerics 1.3.6
+
+* Allow to codelist and concept set import in tibble format by @catalamarti in #806
+
+# omopgenerics 1.3.5
+
+* Eliminate repeated elements from codelists by @catalamarti in #800
+* Add methods for empty concept sets by @catalamarti in #802
+* Add log query to collect by @catalamarti in #804
+
 # omopgenerics 1.3.4
 
 * Handle edge case in concept set expression import by @catalamarti in #793
