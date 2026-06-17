@@ -1,6 +1,20 @@
 # Changelog
 
+## omopgenerics 1.3.7
+
+CRAN release: 2026-03-07
+
+- Correct typo in import concept set expression in tibble format by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#808](https://github.com/darwin-eu/omopgenerics/issues/808)
+- Correctly handling different cdm versions by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#811](https://github.com/darwin-eu/omopgenerics/issues/811),
+  [\#812](https://github.com/darwin-eu/omopgenerics/issues/812)
+
 ## omopgenerics 1.3.6
+
+CRAN release: 2026-01-28
 
 - Allow to codelist and concept set import in tibble format by
   [@catalamarti](https://github.com/catalamarti) in

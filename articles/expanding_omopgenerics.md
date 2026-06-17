@@ -32,6 +32,7 @@ cdm_reference has been created.
 Example how the creation of a new source would look like:
 
 ``` r
+
 myCustomSource <- function(argument1, argument2, ...) {
   # pre calculation and validation of arguments
   ...
@@ -90,6 +91,7 @@ function must at the end validate it with `omopgenerics::newCdmTable().`
 Sketch of how the function should look like:
 
 ``` r
+
 #' @export
 #' @importFrom omopgenerics insertTable
 insertTable.my_custom_source <- function(cdm, name, table, overwrite, temporary) {
@@ -116,6 +118,7 @@ source, empty identifiers `""` will be eliminated by `omopgenerics`.
 Sketch of how the function should look like:
 
 ``` r
+
 #' @export
 #' @importFrom omopgenerics listSourceTables
 listSourceTables.my_custom_source <- function(cdm) {
@@ -143,6 +146,7 @@ your function must at the end validate it with
 Sketch of how the function should look like:
 
 ``` r
+
 #' @export
 #' @importFrom omopgenerics readSourceTable
 readSourceTable.my_custom_source <- function(cdm, name) {
@@ -169,6 +173,7 @@ readSourceTable.my_custom_source <- function(cdm, name) {
 Sketch of how the function should look like:
 
 ``` r
+
 #' @export
 #' @importFrom omopgenerics dropSourceTable
 dropSourceTable.my_custom_source <- function(cdm, name) {
@@ -195,6 +200,7 @@ your `to` source.
 Sketch of how the function should look like:
 
 ``` r
+
 #' @export
 #' @importFrom omopgenerics dropSourceTable
 insertCdmTo.my_custom_source <- function(cdm, to) {
@@ -229,6 +235,7 @@ a string of length 1.
 Sketch of how the function should look like:
 
 ``` r
+
 #' @export
 summary.my_custom_source <- function(object, ...) {
   # extract metadata
@@ -264,6 +271,7 @@ not have to worry about that).
 Sketch of how the function should look like:
 
 ``` r
+
 #' @export
 #' @importFrom dplyr compute
 compute.my_custom_source <- function(x, name, overwrite, temporary, ...) {
@@ -281,6 +289,7 @@ to include in your cdm object. **tables** must be a list of with the
 same source.
 
 ``` r
+
 cdmFromMyCustomSource <- function(argument1, argument2, ...) {
   # read and prepare the cdm tables
   ...
@@ -298,6 +307,7 @@ If you want to add to your object do it after the initial cdm creation
 like:
 
 ``` r
+
 # read from source 
 cdm <- readSourceTable(cdm = cdm, name = "my_cohort")
 
@@ -314,6 +324,7 @@ cdm$my_cohort <- cdm$my_cohort |>
 This step can be included in your cdm object creation if you wish:
 
 ``` r
+
 cdmFromMyCustomSource <- function(argument1, argument2, ..., cohortTables) {
   # read and prepare the cdm tables
   ...

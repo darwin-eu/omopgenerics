@@ -89,6 +89,7 @@ do not contain all the required columns and they will be populated by
 default (a warning will appear). Let’s see a very simple example:
 
 ``` r
+
 library(omopgenerics)
 library(dplyr)
 
@@ -138,6 +139,7 @@ We can also associate settings with our results. These will typically be
 used to explain how the result was created.
 
 ``` r
+
 result <- newSummarisedResult(
   x = x,
   settings = tibble(
@@ -180,6 +182,7 @@ althought being in different objects they will be merged into a single
 one.
 
 ``` r
+
 result1 <- newSummarisedResult(
   x = tibble(
     result_id = 1L,
@@ -236,6 +239,7 @@ sets of results contain the same result ID, when the results are
 combined this will be automatically updated.
 
 ``` r
+
 result <- bind(result1, result2)
 result |>
   dplyr::glimpse()
@@ -281,6 +285,7 @@ with the following functions:
 Note that exportSummarisedResult also suppresses the results.
 
 ``` r
+
 x <- tempdir()
 files <- list.files(x)
 
@@ -297,6 +302,7 @@ You can later import the results back with
 [`importSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/importSummarisedResult.md):
 
 ``` r
+
 res <- importSummarisedResult(path = file.path(x, "result.csv"))
 class(res)
 #> [1] "summarised_result" "omop_result"       "tbl_df"           
@@ -453,6 +459,7 @@ NAs.
 Let’s see a simple example with some toy data:
 
 ``` r
+
 result |>
   tidy()
 #> # A tibble: 2 × 7
@@ -478,6 +485,7 @@ There is also the function: -
 that splits any pair x_name-x_level that is found on the data.
 
 ``` r
+
 splitAll(result)
 #> # A tibble: 2 × 9
 #>   result_id cdm_name cohort_name sex     variable_name variable_level
@@ -507,6 +515,7 @@ Note that `variable_level` can contain NA values, these will be ignored
 on the naming part.
 
 ``` r
+
 pivotEstimates(
   result,
   pivotEstimatesBy = c("variable_name", "variable_level", "estimate_name")
@@ -530,6 +539,7 @@ The `settingsColumn` argument is used to choose which are the settings
 we want to add.
 
 ``` r
+
 addSettings(
   result,
   settingsColumn = "result_type"
@@ -569,6 +579,7 @@ this process:
 For instance, let’s filter `result` so it only has results for males:
 
 ``` r
+
 result |>
   filterStrata(sex == "male")
 #> # A tibble: 1 × 13
@@ -586,6 +597,7 @@ since this information is in the result_type column in settings, we
 procees as follows:
 
 ``` r
+
 result |>
   filterSettings(result_type == "overall_analysis")
 #> # A tibble: 1 × 13
@@ -625,6 +637,7 @@ levels. These retrieval functions help you identify and manage columns:
 Let’s see the different values with out example result data:
 
 ``` r
+
 settingsColumns(result)
 #> [1] "study"
 groupColumns(result)
@@ -659,6 +672,7 @@ For example, to create group_name and group_level columns from a tibble,
 you can use:
 
 ``` r
+
 # Create and show mock data
 data <- tibble(
   denominator_cohort_name = c("general_population", "older_than_60", "younger_than_60"),

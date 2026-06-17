@@ -21,6 +21,7 @@ function that is defined by:
 Let’s start by creating a cdm reference with just two people.
 
 ``` r
+
 person <- tibble(
   person_id = c(1, 2),
   gender_concept_id = 0, year_of_birth = 1990,
@@ -63,6 +64,7 @@ can include them in a cohort table which can then be used as part of an
 analysis.
 
 ``` r
+
 cohort <- tibble(
   cohort_definition_id = 1, subject_id = 1,
   cohort_start_date = as.Date("2020-01-01"),
@@ -82,6 +84,7 @@ using the function
 [`settings()`](https://darwin-eu.github.io/omopgenerics/reference/settings.md)
 
 ``` r
+
 settings(cdm$cohort)
 #> # A tibble: 1 × 2
 #>   cohort_definition_id cohort_name
@@ -94,6 +97,7 @@ the function
 [`attrition()`](https://darwin-eu.github.io/omopgenerics/reference/attrition.md)
 
 ``` r
+
 attrition(cdm$cohort)
 #> # A tibble: 1 × 7
 #>   cohort_definition_id number_records number_subjects reason_id reason          
@@ -108,6 +112,7 @@ the function
 [`cohortCount()`](https://darwin-eu.github.io/omopgenerics/reference/cohortCount.md).
 
 ``` r
+
 cohortCount(cdm$cohort)
 #> # A tibble: 1 × 3
 #>   cohort_definition_id number_records number_subjects
@@ -120,6 +125,7 @@ attrition, if we make changes to a cohort we should then update
 attrition as we go. We can do this
 
 ``` r
+
 cdm$cohort <- cdm$cohort |>
   filter(cohort_start_date == as.Date("2019-01-01")) |>
   compute(name = "cohort", temporary = FALSE) |>
@@ -143,6 +149,7 @@ create the cohort. In this example we do not have a codelist associated
 with our cohort.
 
 ``` r
+
 cohortCodelist(cdm$cohort, cohortId = 1, type = "index event")
 #> Warning: The `type` argument of `cohortCodelist()` is deprecated as of omopgenerics
 #> 1.2.0.
@@ -158,6 +165,7 @@ cohortCodelist(cdm$cohort, cohortId = 1, type = "index event")
 We could though associate our cohort with a codelist
 
 ``` r
+
 cdm$cohort <- newCohortTable(cdm$cohort,
   cohortCodelistRef = dplyr::tibble(
     cohort_definition_id = c(1, 1),
@@ -262,6 +270,7 @@ constrain is that cohort names must be unique across the different
 cohort tables. You have to provide a name for the new cohort table.
 
 ``` r
+
 asthma <- tibble(
   cohort_definition_id = 1, subject_id = 1,
   cohort_start_date = as.Date("2020-01-01"),
@@ -332,6 +341,7 @@ You can export the metadata of a `cohort_table` using the function:
 [`summary()`](https://rdrr.io/r/base/summary.html):
 
 ``` r
+
 summary(cdm$exposures) |>
   glimpse()
 #> `cohort_definition_id` casted to character.

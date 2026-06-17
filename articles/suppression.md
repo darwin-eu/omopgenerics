@@ -72,6 +72,7 @@ desired minimum cell count value using the
 function.
 
 ``` r
+
 library(omopgenerics, warn.conflicts = FALSE)
 library(dplyr, warn.conflicts = FALSE)
 
@@ -108,6 +109,7 @@ suppressedResult <- suppress(result = result, minCellCount = 7)
 The minCellCount suppression is recorded in the settings of the object:
 
 ``` r
+
 glimpse(settings(result))
 #> Rows: 1
 #> Columns: 9
@@ -141,6 +143,7 @@ utility function to check if an object has been suppressed or not,
 [`isResultSuppressed()`](https://darwin-eu.github.io/omopgenerics/reference/isResultSuppressed.html):
 
 ``` r
+
 isResultSuppressed(result = result, minCellCount = 5)
 #> Warning: ✖ 1 set (1 row) not suppressed.
 #> [1] FALSE

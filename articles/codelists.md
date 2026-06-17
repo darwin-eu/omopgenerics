@@ -1,6 +1,7 @@
 # Concept sets
 
 ``` r
+
 library(omopgenerics)
 ```
 
@@ -11,6 +12,7 @@ expression. A codelist is a named list, with each item of the list
 containing specific concept IDs.
 
 ``` r
+
 condition_codes <- list(
   "diabetes" = c(201820, 4087682, 3655269),
   "asthma" = 317009
@@ -27,6 +29,7 @@ condition_codes
 A codelist must be named
 
 ``` r
+
 condition_codes <- list(c(201820, 4087682, 3655269))
 newCodelist(condition_codes)
 #> Error in `newCodelist()`:
@@ -38,6 +41,7 @@ newCodelist(condition_codes)
 And a codelist cannot have missing values
 
 ``` r
+
 condition_codes <- list(
   "diabetes" = c(201820, NA, 3655269),
   "asthma" = 317009
@@ -56,6 +60,7 @@ use of the concept hierarchies and relationships), will result in a
 codelist.
 
 ``` r
+
 condition_cs <- list(
   "diabetes" = dplyr::tibble(
     "concept_id" = c(201820, 4087682),
@@ -82,6 +87,7 @@ As with a codelist, a concept set expression must be a named list and
 cannot have missing elements.
 
 ``` r
+
 condition_cs <- list(
   dplyr::tibble(
     "concept_id" = c(201820, NA),
@@ -98,6 +104,7 @@ newConceptSetExpression(condition_cs)
 ```
 
 ``` r
+
 condition_cs <- list(
   "diabetes" = dplyr::tibble(
     "concept_id" = c(201820, NA),

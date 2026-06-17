@@ -21,6 +21,7 @@ There are multiple versions of the OMOP CDM. The list of tables included
 in version 5.3 are as follows.
 
 ``` r
+
 library(omopgenerics)
 #> 
 #> Attaching package: 'omopgenerics'
@@ -47,6 +48,7 @@ The standard OMOP tables have required fields. We can check the required
 column of the person table, for example, like so
 
 ``` r
+
 omopColumns(table = "person", version = "5.3")
 #>  [1] "person_id"                   "gender_concept_id"          
 #>  [3] "year_of_birth"               "month_of_birth"             
@@ -60,6 +62,7 @@ omopColumns(table = "person", version = "5.3")
 ```
 
 ``` r
+
 omopColumns(table = "observation_period", version = "5.3")
 #> [1] "observation_period_id"         "person_id"                    
 #> [3] "observation_period_start_date" "observation_period_end_date"  
@@ -77,6 +80,7 @@ contain a specific set of fields (with no restriction placed on whether
 they include additional fields or not).
 
 ``` r
+
 cohortColumns(table = "cohort", version = "5.3")
 #> [1] "cohort_definition_id" "subject_id"           "cohort_start_date"   
 #> [4] "cohort_end_date"
@@ -95,6 +99,7 @@ database. The results from Achilles are stored in tables in the
 database. The following tables are created with the given columns.
 
 ``` r
+
 achillesTables()
 #> [1] "achilles_analysis"     "achilles_results"      "achilles_results_dist"
 achillesColumns("achilles_analysis")
@@ -142,19 +147,19 @@ When the export method is applied to a cdm reference, metadata about
 that cdm will be written to a csv. The csv contains the following
 columns
 
-| Variable                               | Description                                                                                             | Datatype  | Required |
-|:---------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------|:---------|
-| result_type                            | Always “Snapshot”. Identifies this result as a summary of a cdm reference.                              | Character | Yes      |
-| cdm_name                               | The name of the data source.                                                                            | Character | Yes      |
-| cdm_source_name                        | Value of cdm source name taken from the cdm source table (if present in the cdm reference).             | Character | No       |
-| cdm_description                        | Value of cdm description taken from the cdm source table (if present in the cdm reference).             | Character | No       |
-| cdm_documentation_reference            | Value of cdm documentation reference taken from the cdm source table (if present in the cdm reference). | Character | No       |
-| cdm_version                            | The cdm version associated with the cdm reference.                                                      | Character | Yes      |
-| cdm_holder                             | Value of cdm holder reference taken from the cdm source table (if present in the cdm reference).        | Character | No       |
-| cdm_release_date                       | Value of cdm release date taken from the cdm source table (if present in the cdm reference).            | Date      | No       |
-| vocabulary_version                     | Version of the vocabulary being used taken from the concept table (if present in the cdm reference).    | Character | No       |
-| person_count                           | Number of records in the person table.                                                                  | Integer   | Yes      |
-| observation_period_count               | Number of records in the observation period table.                                                      | Integer   | Yes      |
-| earliest_observation_period_start_date | Earliest date in the observation period start date field from the observation period table.             | Date      | Yes      |
-| latest_observation_period_end_date     | Latest date in the observation period start date field from the observation period table.               | Date      | Yes      |
-| snapshot_date                          | Date at which this snapshot was created.                                                                | Date      | Yes      |
+| Variable | Description | Datatype | Required |
+|:---|:---|:---|:---|
+| result_type | Always “Snapshot”. Identifies this result as a summary of a cdm reference. | Character | Yes |
+| cdm_name | The name of the data source. | Character | Yes |
+| cdm_source_name | Value of cdm source name taken from the cdm source table (if present in the cdm reference). | Character | No |
+| cdm_description | Value of cdm description taken from the cdm source table (if present in the cdm reference). | Character | No |
+| cdm_documentation_reference | Value of cdm documentation reference taken from the cdm source table (if present in the cdm reference). | Character | No |
+| cdm_version | The cdm version associated with the cdm reference. | Character | Yes |
+| cdm_holder | Value of cdm holder reference taken from the cdm source table (if present in the cdm reference). | Character | No |
+| cdm_release_date | Value of cdm release date taken from the cdm source table (if present in the cdm reference). | Date | No |
+| vocabulary_version | Version of the vocabulary being used taken from the concept table (if present in the cdm reference). | Character | No |
+| person_count | Number of records in the person table. | Integer | Yes |
+| observation_period_count | Number of records in the observation period table. | Integer | Yes |
+| earliest_observation_period_start_date | Earliest date in the observation period start date field from the observation period table. | Date | Yes |
+| latest_observation_period_end_date | Latest date in the observation period start date field from the observation period table. | Date | Yes |
+| snapshot_date | Date at which this snapshot was created. | Date | Yes |

@@ -26,6 +26,7 @@ A vector of all combinations of strata.
 ## Examples
 
 ``` r
+
 combineStrata(character())
 #> list()
 combineStrata(character(), overall = TRUE)

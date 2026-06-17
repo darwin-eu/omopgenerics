@@ -34,6 +34,7 @@ You can install the development version of OMOPGenerics from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 install.packages("pak")
 pak::pkg_install("darwin-eu/omopgenerics")
 ```
@@ -41,6 +42,7 @@ pak::pkg_install("darwin-eu/omopgenerics")
 And load it using the library command:
 
 ``` r
+
 library(omopgenerics)
 library(dplyr)
 ```
@@ -66,6 +68,7 @@ A cdm object can contain four type of tables:
 - Standard tables:
 
 ``` r
+
 omopTables()
 #>  [1] "person"                "observation_period"    "visit_occurrence"     
 #>  [4] "visit_detail"          "condition_occurrence"  "drug_exposure"        
@@ -86,6 +89,7 @@ Each one of the tables has a required columns. For example, for the
 `person` table this are the required columns:
 
 ``` r
+
 omopColumns(table = "person")
 #>  [1] "person_id"                   "gender_concept_id"          
 #>  [3] "year_of_birth"               "month_of_birth"             
@@ -102,6 +106,7 @@ omopColumns(table = "person")
   columns.
 
 ``` r
+
 cohortTables()
 #> [1] "cohort"           "cohort_set"       "cohort_attrition" "cohort_codelist"
 cohortColumns(table = "cohort")
@@ -118,6 +123,7 @@ vignette.
   the tables created and their required columns.
 
 ``` r
+
 achillesTables()
 #> [1] "achilles_analysis"     "achilles_results"      "achilles_results_dist"
 achillesColumns(table = "achilles_results")
@@ -144,6 +150,7 @@ expression. A codelist is a named list, with each item of the list
 containing specific concept IDs.
 
 ``` r
+
 condition_codes <- list(
   "diabetes" = c(201820L, 4087682L, 3655269L),
   "asthma" = 317009L
@@ -164,6 +171,7 @@ concepts that, when applied to a specific OMOP CDM vocabulary version
 result in a codelist.
 
 ``` r
+
 condition_cs <- list(
   "diabetes" = dplyr::tibble(
     "concept_id" = c(201820L, 4087682L),
@@ -196,6 +204,7 @@ has a cohort table class. Cohort tables are then associated with
 attributes such as settings and attrition.
 
 ``` r
+
 person <- tibble(
   person_id = 1L,
   gender_concept_id = 0L,
@@ -259,6 +268,7 @@ For example this format is used when we get a summary of the cdm as a
 whole
 
 ``` r
+
 summary(cdm) |>
   glimpse()
 #> Rows: 13
@@ -281,6 +291,7 @@ summary(cdm) |>
 and also when we summarise a cohort
 
 ``` r
+
 summary(cdm$diabetes) |>
   glimpse()
 #> `cohort_definition_id` casted to character.
