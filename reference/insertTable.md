@@ -1,6 +1,6 @@
-# Insert a table to a cdm object.
+# Insert a table into a cdm object.
 
-Insert a table to a cdm object.
+Insert a table into a cdm object.
 
 ## Usage
 
@@ -12,7 +12,7 @@ insertTable(cdm, name, table, overwrite = TRUE, temporary = FALSE, ...)
 
 - cdm:
 
-  A cdm reference or the source of a cdm reference.
+  A `<cdm_reference>` object.
 
 - name:
 
@@ -20,11 +20,11 @@ insertTable(cdm, name, table, overwrite = TRUE, temporary = FALSE, ...)
 
 - table:
 
-  Table to insert to the cdm.
+  Table to insert into the cdm.
 
 - overwrite:
 
-  Whether to overwrite an existent table.
+  Whether to overwrite an existing table.
 
 - temporary:
 
@@ -32,7 +32,7 @@ insertTable(cdm, name, table, overwrite = TRUE, temporary = FALSE, ...)
 
 - ...:
 
-  For compatibility.
+  For compatibility; not used.
 
 ## Value
 

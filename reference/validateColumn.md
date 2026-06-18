@@ -1,6 +1,6 @@
-# Validate whether a variable points to a certain exiting column in a table.
+# Validate whether a variable points to a certain existing column in a table.
 
-Validate whether a variable points to a certain exiting column in a
+Validate whether a variable points to a certain existing column in a
 table.
 
 ## Usage
@@ -11,6 +11,9 @@ validateColumn(
   x,
   type = c("character", "date", "logical", "numeric", "integer"),
   validation = "error",
+  null = FALSE,
+  empty = TRUE,
+  nm = deparse1(substitute(column), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -19,11 +22,11 @@ validateColumn(
 
 - column:
 
-  Name of a column that you want to check that exist in `x` table.
+  Name of a column that you want to check exists in `x` table.
 
 - x:
 
-  Table to check if the column exist.
+  Table to check if the column exists.
 
 - type:
 
@@ -31,11 +34,24 @@ validateColumn(
 
 - validation:
 
-  Whether to throw warning or error.
+  How to perform validation: "error", "warning".
+
+- null:
+
+  Whether `NULL` is accepted.
+
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `column`.
 
 - call:
 
-  Passed to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Value
 

@@ -2,8 +2,8 @@
 
 ## Introduction
 
-**omopgenerics** defines an `ecosystem` of methods and classes
-particularly the class that can be expanded. Currently there are two
+**omopgenerics** defines an `ecosystem` of methods and classes,
+particularly the class, that can be expanded. Currently there are two
 packages that define cdm sources:
 
 - [omopgenerics](https://darwin-eu.github.io/omopgenerics/) defines the
@@ -13,23 +13,23 @@ packages that define cdm sources:
   source that defines a general implementation for *DBI* connections.
 
 In this vignette we explain how to expand the **omopgenerics** ecosystem
-defining more sources.
+by defining more sources.
 
 ## The source object
 
-First we need to define a function to create our source object: the
+First we need to define a function to create our source object. The
 source object must be an object (usually a list) that contains several
-attributes that will be used in the methods to fulfill their purpose.
-Finally we have to assign a class to our source and validate it with
+attributes that will be used by the methods. Finally, we have to assign
+a class to our source and validate it with
 [`omopgenerics::newCdmSource()`](https://darwin-eu.github.io/omopgenerics/reference/newCdmSource.md).
 The function has an argument to assign a `sourceType` that must be a
-character vector that identifies the name of the source. This is what
-will be retrieved by the
+character vector identifying the name of the source. This is what will
+be retrieved by the
 [`omopgenerics::sourceType()`](https://darwin-eu.github.io/omopgenerics/reference/sourceType.md)
-function and it will be useful to identify how the source of the
+function, and it will be useful for identifying how the source of the
 cdm_reference has been created.
 
-Example how the creation of a new source would look like:
+Example of how the creation of a new source would look:
 
 ``` r
 
@@ -38,9 +38,9 @@ myCustomSource <- function(argument1, argument2, ...) {
   ...
   
   # create the source object
-  obj <- list(x = x, y = y, ...) # this way you would access the attributes like: obj$x
+  obj <- list(x = x, y = y, ...) # this way you would access attributes like: obj$x
   # or
-  obj <- structure(.Data = list(), x = x, y = y, ...) # this you would access the attributes like: attr(obj, "x")
+  obj <- structure(.Data = list(), x = x, y = y, ...) # this way you would access attributes like: attr(obj, "x")
     
   # assign class
   class(obj) <- "my_custom_source"
@@ -50,11 +50,11 @@ myCustomSource <- function(argument1, argument2, ...) {
 }
 ```
 
-If the first function that we create is `myCustomSource()` the
-validation with
+If the first function that we create is `myCustomSource()`, validation
+with
 [`omopgenerics::newCdmSource()`](https://darwin-eu.github.io/omopgenerics/reference/newCdmSource.md)
-will fail as inside the *methods* are checked to be defined and work
-properly.
+will fail because the required *methods* are checked to confirm that
+they are defined and work properly.
 
 ## Methods
 
@@ -63,7 +63,7 @@ You will need to write 4 to 7 methods for your new `<my_custom_source>`:
 - `insertTable` **required** To insert local data into your source.
 - `compute` **required** To compute a ‘query’ into a table in your
   source.
-- `listSourceTables` **required** To list the data present into your
+- `listSourceTables` **required** To list the data present in your
   source.
 - `dropSourceTable` **required** To drop a table from your source.
 - `readSourceTable` **recommended** To read a table from your source.
@@ -85,8 +85,10 @@ You will need to write 4 to 7 methods for your new `<my_custom_source>`:
   exists in the database.
 - `temporary` (by default FALSE), whether the table must be temporary.
 
-**Output**: The output of a insertTable must be a `cdm_table` so your
-function must at the end validate it with `omopgenerics::newCdmTable().`
+**Output**: The output of
+[`insertTable()`](https://darwin-eu.github.io/omopgenerics/reference/insertTable.md)
+must be a `cdm_table`, so your function must validate it at the end with
+[`omopgenerics::newCdmTable()`](https://darwin-eu.github.io/omopgenerics/reference/newCdmTable.md).
 
 Sketch of how the function should look like:
 
@@ -139,9 +141,10 @@ listSourceTables.my_custom_source <- function(cdm) {
   `myCustomSource()` function.
 - `name` Name to identify the table in your source.
 
-**Output**: The output of a readSourceTable must be a `cdm_table` so
-your function must at the end validate it with
-`omopgenerics::newCdmTable().`
+**Output**: The output of
+[`readSourceTable()`](https://darwin-eu.github.io/omopgenerics/reference/readSourceTable.md)
+must be a `cdm_table`, so your function must validate it at the end with
+[`omopgenerics::newCdmTable()`](https://darwin-eu.github.io/omopgenerics/reference/newCdmTable.md).
 
 Sketch of how the function should look like:
 
@@ -168,7 +171,8 @@ readSourceTable.my_custom_source <- function(cdm, name) {
   `myCustomSource()` function.
 - `name` Name identifier for the table that you want to drop.
 
-**Output**: The output is ignored, would recommend to return the source.
+**Output**: The output is ignored; we recommend returning the source
+invisibly.
 
 Sketch of how the function should look like:
 
@@ -189,8 +193,8 @@ dropSourceTable.my_custom_source <- function(cdm, name) {
 
 **Arguments**:
 
-- `cdm` A cdm reference from a different source. Recommend to collect
-  each table before inserting.
+- `cdm` A cdm reference from a different source. We recommend collecting
+  each table before inserting it.
 - `to` The ‘to’ argument will be your source object created with
   `myCustomSource()` function.
 
@@ -217,7 +221,7 @@ insertCdmTo.my_custom_source <- function(cdm, to) {
 }
 ```
 
-The content of the function can vary depending of your source.
+The content of the function can vary depending on your source.
 
 ### `summary`
 
@@ -249,8 +253,8 @@ summary.my_custom_source <- function(object, ...) {
 
 ### `compute`
 
-This function works slightly different to the rest the input it will be
-a query instead of the source object.
+This function works slightly differently from the rest; the input will
+be a query instead of the source object.
 
 **Purpose**: To compute a table into a permanent placeholder in your
 source.
@@ -264,9 +268,10 @@ source.
   exists in the database.
 - `...` For consistency.
 
-**Output**: The output of a compute must be a reference to your table in
-your source data, it will be converted later to a cdm_table (but you do
-not have to worry about that).
+**Output**: The output of
+[`compute()`](https://dplyr.tidyverse.org/reference/compute.html) must
+be a reference to your table in your source data. It will be converted
+later to a cdm_table, but you do not have to worry about that.
 
 Sketch of how the function should look like:
 
@@ -283,10 +288,10 @@ compute.my_custom_source <- function(x, name, overwrite, temporary, ...) {
 
 ## The cdm reference object
 
-Finally every `<cdm_source>` class object would also need a function to
-create a to do that you just have to read all the tables that you want
-to include in your cdm object. **tables** must be a list of with the
-same source.
+Finally, every `<cdm_source>` class object also needs a function to
+create a . To do that, you just have to read all the tables that you
+want to include in your cdm object. **tables** must be a list of objects
+with the same source.
 
 ``` r
 
@@ -303,7 +308,7 @@ cdmFromMyCustomSource <- function(argument1, argument2, ...) {
 }
 ```
 
-If you want to add to your object do it after the initial cdm creation
+If you want to add to your object, do it after the initial cdm creation
 like:
 
 ``` r

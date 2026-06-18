@@ -1,6 +1,6 @@
-# Export a summarised_result object to a csv file.
+# Export a summarised_result object to a CSV file.
 
-Export a summarised_result object to a csv file.
+Export a summarised_result object to a CSV file.
 
 ## Usage
 
@@ -33,8 +33,8 @@ exportSummarisedResult(
 
 - path:
 
-  Path where to create the csv file. It is ignored if fileName it is a
-  full name with path included.
+  Path where the CSV file should be created. It is ignored if fileName
+  is a full file name with a path included.
 
 - logFile:
 

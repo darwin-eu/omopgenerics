@@ -5,7 +5,7 @@
 ## Usage
 
 ``` r
-newCodelist(x)
+newCodelist(x, cdm = NULL)
 ```
 
 ## Arguments
@@ -13,6 +13,11 @@ newCodelist(x)
 - x:
 
   A named list where each element contains a vector of concept IDs.
+
+- cdm:
+
+  A `<cdm_reference>` object. If provided, concept IDs in `x` will be
+  checked against `cdm$concept`.
 
 ## Value
 

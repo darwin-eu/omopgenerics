@@ -24,8 +24,8 @@ filterSettings(result, ...)
 
 ## Value
 
-A `<summarised_result>` object with only the result_id rows that fulfill
-the required specified settings.
+A `<summarised_result>` object with only the result_id rows that satisfy
+the specified settings.
 
 ## Examples
 

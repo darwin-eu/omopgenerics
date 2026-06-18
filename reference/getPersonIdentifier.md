@@ -18,7 +18,7 @@ getPersonIdentifier(x, call = parent.frame())
 
 - call:
 
-  A call argument passed to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Value
 

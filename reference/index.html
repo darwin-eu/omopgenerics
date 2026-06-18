@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,11 +26,11 @@
     <li><a class="dropdown-item" href="../articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
-    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result obejct</a></li>
+    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result object</a></li>
     <li><a class="dropdown-item" href="../articles/logging.html">Logging with omopgenerics</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
-    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgenerics</a></li>
     <li><a class="dropdown-item" href="../articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -125,6 +125,13 @@
 
         <dt>
 
+          <code><a href="newCodeSearch.html">newCodeSearch()</a></code>
+          <span class="badge lifecycle lifecycle-experimental">experimental</span>
+        </dt>
+        <dd>Create a new <code>code_search</code> object</dd>
+
+        <dt>
+
           <code><a href="newCodelist.html">newCodelist()</a></code>
 
         </dt>
@@ -167,10 +174,17 @@
 
         <dt>
 
+          <code><a href="newReadOnlySource.html">newReadOnlySource()</a></code>
+
+        </dt>
+        <dd>A new read-only source for the cdm</dd>
+
+        <dt>
+
           <code><a href="newSummarisedResult.html">newSummarisedResult()</a></code>
 
         </dt>
-        <dd>'summarised_results' object constructor</dd>
+        <dd><code>summarised_result</code> object constructor</dd>
       </dl></div><div class="section level2">
 
       <h3 id="creates-empty-objects">Creates empty objects<a class="anchor" aria-label="anchor" href="#creates-empty-objects"></a></h3>
@@ -194,6 +208,13 @@
 
         </dt>
         <dd>Create an empty cdm_reference</dd>
+
+        <dt>
+
+          <code><a href="emptyCodeSearch.html">emptyCodeSearch()</a></code>
+
+        </dt>
+        <dd>Empty code search object</dd>
 
         <dt>
 
@@ -269,10 +290,10 @@
 
         <dt>
 
-          <code><a href="cdmName.html">cdmName()</a></code>
+          <code><a href="cdmName.html">cdmName()</a></code> <code><a href="cdmName.html">`cdmName&lt;-`()</a></code>
 
         </dt>
-        <dd>Get the name of a cdm_reference associated object</dd>
+        <dd>Get or set the name of a cdm_reference associated object</dd>
 
         <dt>
 
@@ -321,7 +342,7 @@
           <code><a href="listSourceTables.html">listSourceTables()</a></code>
 
         </dt>
-        <dd>List tables that can be accessed though a cdm object.</dd>
+        <dd>List tables that can be accessed through a cdm object.</dd>
 
         <dt>
 
@@ -335,14 +356,14 @@
           <code><a href="insertTable.html">insertTable()</a></code>
 
         </dt>
-        <dd>Insert a table to a cdm object.</dd>
+        <dd>Insert a table into a cdm object.</dd>
 
         <dt>
 
           <code><a href="readSourceTable.html">readSourceTable()</a></code>
 
         </dt>
-        <dd>Read a table from the cdm_source and add it to to the cdm.</dd>
+        <dd>Read a table from the cdm_source and add it to the cdm.</dd>
 
         <dt>
 
@@ -370,14 +391,14 @@
           <code><a href="cash-set-.cdm_reference.html">`$&lt;-`(<i>&lt;cdm_reference&gt;</i>)</a></code>
 
         </dt>
-        <dd>Assign an table to a cdm reference.</dd>
+        <dd>Assign a table to a cdm reference.</dd>
 
         <dt>
 
           <code><a href="collect.cdm_reference.html">collect(<i>&lt;cdm_reference&gt;</i>)</a></code>
 
         </dt>
-        <dd>Retrieves the cdm reference into a local cdm.</dd>
+        <dd>Retrieve the cdm reference into a local cdm.</dd>
 
         <dt>
 
@@ -405,7 +426,7 @@
           <code><a href="summary.cdm_reference.html">summary(<i>&lt;cdm_reference&gt;</i>)</a></code>
 
         </dt>
-        <dd>Summary a cdm reference</dd>
+        <dd>Summarise a cdm reference</dd>
 
         <dt>
 
@@ -486,7 +507,7 @@
           <code><a href="omopTableFields.html">omopTableFields()</a></code>
 
         </dt>
-        <dd>Return a table of omop cdm fields informations</dd>
+        <dd>Return a table of omop cdm field information</dd>
 
         <dt>
 
@@ -494,6 +515,13 @@
 
         </dt>
         <dd>Standard tables that a cdm reference can contain in the OMOP Common Data Model.</dd>
+
+        <dt>
+
+          <code><a href="compareOmopTableFields.html">compareOmopTableFields()</a></code>
+
+        </dt>
+        <dd>Compare the fields of two different OMOP CDM versions</dd>
       </dl></div><div class="section level2">
 
       <h3 id="achilles-table-utility-functions">achilles_table utility functions<a class="anchor" aria-label="anchor" href="#achilles-table-utility-functions"></a></h3>
@@ -609,7 +637,7 @@
           <code><a href="summary.cohort_table.html">summary(<i>&lt;cohort_table&gt;</i>)</a></code>
 
         </dt>
-        <dd>Summary a generated cohort set</dd>
+        <dd>Summarise a generated cohort set</dd>
       </dl></div><div class="section level2">
 
       <h3 id="summarised-result-utility-functions">summarised_result utility functions<a class="anchor" aria-label="anchor" href="#summarised-result-utility-functions"></a></h3>
@@ -632,7 +660,7 @@
           <code><a href="exportSummarisedResult.html">exportSummarisedResult()</a></code>
 
         </dt>
-        <dd>Export a summarised_result object to a csv file.</dd>
+        <dd>Export a summarised_result object to a CSV file.</dd>
 
         <dt>
 
@@ -660,7 +688,7 @@
           <code><a href="resultPackageVersion.html">resultPackageVersion()</a></code>
 
         </dt>
-        <dd>Check if different packages version are used for summarise_results object</dd>
+        <dd>Check if different package versions are used for a summarised_result object</dd>
 
         <dt>
 
@@ -688,7 +716,7 @@
           <code><a href="summary.summarised_result.html">summary(<i>&lt;summarised_result&gt;</i>)</a></code>
 
         </dt>
-        <dd>Summary a summarised_result</dd>
+        <dd>Summarise a summarised_result</dd>
 
         <dt>
 
@@ -717,6 +745,13 @@
 
         </dt>
         <dd>Filter the group_name-group_level pair in a summarised_result</dd>
+
+        <dt>
+
+          <code><a href="filterResult.html">filterResult()</a></code>
+
+        </dt>
+        <dd>Filter a <code>&lt;summarised_result&gt;</code> automatically</dd>
 
         <dt>
 
@@ -829,6 +864,50 @@
 
         </dt>
         <dd>Add settings columns to a <code>&lt;summarised_result&gt;</code> object</dd>
+
+        <dt>
+
+          <code><a href="resultType.html">resultType()</a></code>
+
+        </dt>
+        <dd>Get the <code>result_type(s)</code> defined in a certain package</dd>
+      </dl></div><div class="section level2">
+
+      <h3 id="code-search-utility-functions">code_search utility functions<a class="anchor" aria-label="anchor" href="#code-search-utility-functions"></a></h3>
+      <div class="section-desc"><p>Utility functions for code_search objects</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="exportCodeSearch.html">exportCodeSearch()</a></code>
+          <span class="badge lifecycle lifecycle-experimental">experimental</span>
+        </dt>
+        <dd>Export a <code>code_search</code> object into an Excel spreadsheet</dd>
+
+        <dt>
+
+          <code><a href="importCodeSearch.html">importCodeSearch()</a></code>
+          <span class="badge lifecycle lifecycle-experimental">experimental</span>
+        </dt>
+        <dd>Import a <code>code_search</code> object from an Excel spreadsheet</dd>
+
+        <dt>
+
+          <code><a href="searchStrategy.html">searchStrategy()</a></code>
+          <span class="badge lifecycle lifecycle-experimental">experimental</span>
+        </dt>
+        <dd>Get the search strategy used to create a <code>code_search</code></dd>
+
+        <dt>
+
+          <code><a href="print.code_search.html">print(<i>&lt;code_search&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Print a code search</dd>
       </dl></div><div class="section level2">
 
       <h3 id="codelist-utility-functions">codelist utility functions<a class="anchor" aria-label="anchor" href="#codelist-utility-functions"></a></h3>
@@ -848,6 +927,13 @@
 
         <dt>
 
+          <code><a href="exportCodelistWithDetails.html">exportCodelistWithDetails()</a></code>
+
+        </dt>
+        <dd>Export a codelist with details object.</dd>
+
+        <dt>
+
           <code><a href="exportConceptSetExpression.html">exportConceptSetExpression()</a></code>
 
         </dt>
@@ -859,6 +945,13 @@
 
         </dt>
         <dd>Import a codelist.</dd>
+
+        <dt>
+
+          <code><a href="importCodelistWithDetails.html">importCodelistWithDetails()</a></code>
+
+        </dt>
+        <dd>Import a codelist with details.</dd>
 
         <dt>
 
@@ -981,14 +1074,14 @@
           <code><a href="validateCohortIdArgument.html">validateCohortIdArgument()</a></code>
 
         </dt>
-        <dd>Validate cohortId argument. CohortId can either be a cohort_definition_id value, a cohort_name or a tidyselect expression referinc to cohort_names. If you want to support tidyselect expressions please use the function as: <code>validateCohortIdArgument({{cohortId}}, cohort)</code>.</dd>
+        <dd>Validate cohortId argument. CohortId can either be a cohort_definition_id value, a cohort_name or a tidyselect expression referring to cohort_names. If you want to support tidyselect expressions please use the function as: <code>validateCohortIdArgument({{cohortId}}, cohort)</code>.</dd>
 
         <dt>
 
           <code><a href="validateColumn.html">validateColumn()</a></code>
 
         </dt>
-        <dd>Validate whether a variable points to a certain exiting column in a table.</dd>
+        <dd>Validate whether a variable points to a certain existing column in a table.</dd>
 
         <dt>
 
@@ -1002,7 +1095,7 @@
           <code><a href="validateNameArgument.html">validateNameArgument()</a></code>
 
         </dt>
-        <dd>Validate name argument. It must be a snake_case character vector. You can add the a cdm object to check <code>name</code> is not already used in that cdm.</dd>
+        <dd>Validate name argument. It must be a snake_case character vector. You can add a cdm object to check that <code>name</code> is not already used in that cdm.</dd>
 
         <dt>
 
@@ -1037,7 +1130,7 @@
           <code><a href="validateResultArgument.html">validateResultArgument()</a></code>
 
         </dt>
-        <dd>Validate if a an object is a valid 'summarised_result' object.</dd>
+        <dd>Validate whether an object is a valid 'summarised_result' object.</dd>
 
         <dt>
 
@@ -1051,7 +1144,7 @@
           <code><a href="validateWindowArgument.html">validateWindowArgument()</a></code>
 
         </dt>
-        <dd>Validate a window argument. It must be a list of two elements (window start and window end), both must be integerish and window start must be lower or equal than window end.</dd>
+        <dd>Validate a window argument. It must be a list of two elements (window start and window end), both must be numeric, integerish by default, and window start must be lower or equal than window end.</dd>
       </dl></div><div class="section level2">
 
       <h3 id="general-assertions">General assertions<a class="anchor" aria-label="anchor" href="#general-assertions"></a></h3>
@@ -1067,14 +1160,14 @@
           <code><a href="assertCharacter.html">assertCharacter()</a></code>
 
         </dt>
-        <dd>Assert that an object is a character and fulfill certain conditions.</dd>
+        <dd>Assert that an object is a character and satisfies certain conditions.</dd>
 
         <dt>
 
           <code><a href="assertChoice.html">assertChoice()</a></code>
 
         </dt>
-        <dd>Assert that an object is within a certain oprtions.</dd>
+        <dd>Assert that an object is one of a set of options.</dd>
 
         <dt>
 
@@ -1153,7 +1246,7 @@
           <code><a href="tmpPrefix.html">tmpPrefix()</a></code>
 
         </dt>
-        <dd>Create a temporary prefix for tables, that contains a unique prefix that starts with tmp.</dd>
+        <dd>Create a temporary prefix for tables that contains a unique prefix that starts with tmp.</dd>
 
         <dt>
 

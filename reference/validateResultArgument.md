@@ -1,6 +1,6 @@
-# Validate if a an object is a valid 'summarised_result' object.
+# Validate whether an object is a valid 'summarised_result' object.
 
-Validate if a an object is a valid 'summarised_result' object.
+Validate whether an object is a valid 'summarised_result' object.
 
 ## Usage
 
@@ -10,7 +10,9 @@ validateResultArgument(
   checkNoDuplicates = FALSE,
   checkNameLevel = FALSE,
   checkSuppression = FALSE,
+  empty = TRUE,
   validation = "error",
+  nm = deparse1(substitute(result), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -23,27 +25,36 @@ validateResultArgument(
 
 - checkNoDuplicates:
 
-  Whether there are not allowed duplicates in the result object.
+  Whether duplicates are not allowed in the result object.
 
 - checkNameLevel:
 
-  Whether the name-level paired columns are can be correctly split.
+  Whether the name-level paired columns can be correctly split.
 
 - checkSuppression:
 
   Whether the suppression in the result object is well defined.
 
+- empty:
+
+  Whether it can be empty.
+
 - validation:
 
   Only error is supported at the moment.
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `result`.
+
 - call:
 
-  parent.frame
+  Call argument passed to `cli` functions.
 
 ## Value
 
-summarise result object
+A summarised_result object.
 
 ## Examples
 

@@ -1,6 +1,6 @@
-# Check if different packages version are used for summarise_results object
+# Check if different package versions are used for a summarised_result object
 
-Check if different packages version are used for summarise_results
+Check if different package versions are used for a summarised_result
 object
 
 ## Usage
@@ -13,8 +13,8 @@ resultPackageVersion(result)
 
 - result:
 
-  a summarised results object
+  A summarised_result object.
 
 ## Value
 
-a summarised results object
+A summarised_result object.

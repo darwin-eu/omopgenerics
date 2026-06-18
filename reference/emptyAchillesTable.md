@@ -12,7 +12,7 @@ emptyAchillesTable(cdm, name)
 
 - cdm:
 
-  A cdm_reference to create the table.
+  A `<cdm_reference>` object.
 
 - name:
 

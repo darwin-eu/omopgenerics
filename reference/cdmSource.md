@@ -44,13 +44,13 @@ cdm <- cdmFromTables(
   ),
   cdmName = "mock"
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 1 casted column in observation_period as do not match expected column type:
+#> Warning: ! 1 cast column in observation_period as do not match the expected column type:
 #> • `period_type_concept_id` from numeric to integer
 
 cdmSource(cdm)

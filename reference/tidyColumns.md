@@ -13,7 +13,7 @@ tidyColumns(result)
 
 - result:
 
-  A `<summarised_result>`.
+  A `<summarised_result>` object.
 
 ## Value
 

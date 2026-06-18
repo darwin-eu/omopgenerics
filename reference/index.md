@@ -31,6 +31,11 @@ To create new omopgenerics S3 classes objects
 - [`newCdmTable()`](https://darwin-eu.github.io/omopgenerics/reference/newCdmTable.md)
   : Create an cdm table.
 
+- [`newCodeSearch()`](https://darwin-eu.github.io/omopgenerics/reference/newCodeSearch.md)
+  **\[experimental\]** :
+
+  Create a new `code_search` object
+
 - [`newCodelist()`](https://darwin-eu.github.io/omopgenerics/reference/newCodelist.md)
   : 'codelist' object constructor
 
@@ -51,8 +56,13 @@ To create new omopgenerics S3 classes objects
 - [`newOmopTable()`](https://darwin-eu.github.io/omopgenerics/reference/newOmopTable.md)
   : Create an omop table from a cdm table.
 
+- [`newReadOnlySource()`](https://darwin-eu.github.io/omopgenerics/reference/newReadOnlySource.md)
+  : A new read-only source for the cdm
+
 - [`newSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/newSummarisedResult.md)
-  : 'summarised_results' object constructor
+  :
+
+  `summarised_result` object constructor
 
 ### Creates empty objects
 
@@ -63,6 +73,9 @@ To create empty omopgenerics S3 classes objects
 
 - [`emptyCdmReference()`](https://darwin-eu.github.io/omopgenerics/reference/emptyCdmReference.md)
   : Create an empty cdm_reference
+
+- [`emptyCodeSearch()`](https://darwin-eu.github.io/omopgenerics/reference/emptyCodeSearch.md)
+  : Empty code search object
 
 - [`emptyCodelist()`](https://darwin-eu.github.io/omopgenerics/reference/emptyCodelist.md)
   :
@@ -104,7 +117,8 @@ Utility functions for cdm_reference objects
   : Create a cdm object from local tables
 
 - [`cdmName()`](https://darwin-eu.github.io/omopgenerics/reference/cdmName.md)
-  : Get the name of a cdm_reference associated object
+  [`` `cdmName<-`() ``](https://darwin-eu.github.io/omopgenerics/reference/cdmName.md)
+  : Get or set the name of a cdm_reference associated object
 
 - [`cdmReference()`](https://darwin-eu.github.io/omopgenerics/reference/cdmReference.md)
   :
@@ -130,16 +144,16 @@ Utility functions for cdm_reference objects
   : Get the version of an object.
 
 - [`listSourceTables()`](https://darwin-eu.github.io/omopgenerics/reference/listSourceTables.md)
-  : List tables that can be accessed though a cdm object.
+  : List tables that can be accessed through a cdm object.
 
 - [`dropSourceTable()`](https://darwin-eu.github.io/omopgenerics/reference/dropSourceTable.md)
   : Drop a table from a cdm object.
 
 - [`insertTable()`](https://darwin-eu.github.io/omopgenerics/reference/insertTable.md)
-  : Insert a table to a cdm object.
+  : Insert a table into a cdm object.
 
 - [`readSourceTable()`](https://darwin-eu.github.io/omopgenerics/reference/readSourceTable.md)
-  : Read a table from the cdm_source and add it to to the cdm.
+  : Read a table from the cdm_source and add it to the cdm.
 
 - [`insertCdmTo()`](https://darwin-eu.github.io/omopgenerics/reference/insertCdmTo.md)
   : Insert a cdm_reference object to a different source.
@@ -153,10 +167,10 @@ Utility functions for cdm_reference objects
   : Subset a cdm reference object.
 
 - [`` `$<-`( ``*`<cdm_reference>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/cash-set-.cdm_reference.md)
-  : Assign an table to a cdm reference.
+  : Assign a table to a cdm reference.
 
 - [`collect(`*`<cdm_reference>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/collect.cdm_reference.md)
-  : Retrieves the cdm reference into a local cdm.
+  : Retrieve the cdm reference into a local cdm.
 
 - [`print(`*`<cdm_reference>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/print.cdm_reference.md)
   : Print a CDM reference object
@@ -168,7 +182,7 @@ Utility functions for cdm_reference objects
   : Assign a table to a cdm reference.
 
 - [`summary(`*`<cdm_reference>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/summary.cdm_reference.md)
-  : Summary a cdm reference
+  : Summarise a cdm reference
 
 - [`summary(`*`<cdm_source>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/summary.cdm_source.md)
   :
@@ -213,10 +227,12 @@ Utility functions for omop_table objects
   : Check or set the OMOP_DATA_FOLDER where the OMOP related data is
   stored.
 - [`omopTableFields()`](https://darwin-eu.github.io/omopgenerics/reference/omopTableFields.md)
-  : Return a table of omop cdm fields informations
+  : Return a table of omop cdm field information
 - [`omopTables()`](https://darwin-eu.github.io/omopgenerics/reference/omopTables.md)
   : Standard tables that a cdm reference can contain in the OMOP Common
   Data Model.
+- [`compareOmopTableFields()`](https://darwin-eu.github.io/omopgenerics/reference/compareOmopTableFields.md)
+  : Compare the fields of two different OMOP CDM versions
 
 ### achilles_table utility functions
 
@@ -268,7 +284,7 @@ Utility functions for cohort_table objects
   : Get cohort settings from a cohort_table object.
 
 - [`summary(`*`<cohort_table>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/summary.cohort_table.md)
-  : Summary a generated cohort set
+  : Summarise a generated cohort set
 
 ### summarised_result utility functions
 
@@ -279,7 +295,7 @@ Utility functions for summarised_result objects
   of specifications.
 
 - [`exportSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.md)
-  : Export a summarised_result object to a csv file.
+  : Export a summarised_result object to a CSV file.
 
 - [`importSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/importSummarisedResult.md)
   : Import a set of summarised results.
@@ -293,7 +309,7 @@ Utility functions for summarised_result objects
   : Required columns that the result tables must have.
 
 - [`resultPackageVersion()`](https://darwin-eu.github.io/omopgenerics/reference/resultPackageVersion.md)
-  : Check if different packages version are used for summarise_results
+  : Check if different package versions are used for a summarised_result
   object
 
 - [`isResultSuppressed()`](https://darwin-eu.github.io/omopgenerics/reference/isResultSuppressed.md)
@@ -307,7 +323,7 @@ Utility functions for summarised_result objects
   : Get settings from a summarised_result object.
 
 - [`summary(`*`<summarised_result>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/summary.summarised_result.md)
-  : Summary a summarised_result
+  : Summarise a summarised_result
 
 - [`suppress(`*`<summarised_result>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/suppress.summarised_result.md)
   : Function to suppress counts in result objects
@@ -323,6 +339,11 @@ Utility functions for summarised_result objects
 
 - [`filterGroup()`](https://darwin-eu.github.io/omopgenerics/reference/filterGroup.md)
   : Filter the group_name-group_level pair in a summarised_result
+
+- [`filterResult()`](https://darwin-eu.github.io/omopgenerics/reference/filterResult.md)
+  :
+
+  Filter a `<summarised_result>` automatically
 
 - [`filterSettings()`](https://darwin-eu.github.io/omopgenerics/reference/filterSettings.md)
   :
@@ -380,16 +401,47 @@ Utility functions for summarised_result objects
 
   Add settings columns to a `<summarised_result>` object
 
+- [`resultType()`](https://darwin-eu.github.io/omopgenerics/reference/resultType.md)
+  :
+
+  Get the `result_type(s)` defined in a certain package
+
+### code_search utility functions
+
+Utility functions for code_search objects
+
+- [`exportCodeSearch()`](https://darwin-eu.github.io/omopgenerics/reference/exportCodeSearch.md)
+  **\[experimental\]** :
+
+  Export a `code_search` object into an Excel spreadsheet
+
+- [`importCodeSearch()`](https://darwin-eu.github.io/omopgenerics/reference/importCodeSearch.md)
+  **\[experimental\]** :
+
+  Import a `code_search` object from an Excel spreadsheet
+
+- [`searchStrategy()`](https://darwin-eu.github.io/omopgenerics/reference/searchStrategy.md)
+  **\[experimental\]** :
+
+  Get the search strategy used to create a `code_search`
+
+- [`print(`*`<code_search>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/print.code_search.md)
+  : Print a code search
+
 ### codelist utility functions
 
 Utility functions for codelist objects
 
 - [`exportCodelist()`](https://darwin-eu.github.io/omopgenerics/reference/exportCodelist.md)
   : Export a codelist object.
+- [`exportCodelistWithDetails()`](https://darwin-eu.github.io/omopgenerics/reference/exportCodelistWithDetails.md)
+  : Export a codelist with details object.
 - [`exportConceptSetExpression()`](https://darwin-eu.github.io/omopgenerics/reference/exportConceptSetExpression.md)
   : Export a concept set expression.
 - [`importCodelist()`](https://darwin-eu.github.io/omopgenerics/reference/importCodelist.md)
   : Import a codelist.
+- [`importCodelistWithDetails()`](https://darwin-eu.github.io/omopgenerics/reference/importCodelistWithDetails.md)
+  : Import a codelist with details.
 - [`importConceptSetExpression()`](https://darwin-eu.github.io/omopgenerics/reference/importConceptSetExpression.md)
   : Import a concept set expression.
 - [`print(`*`<codelist>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/print.codelist.md)
@@ -441,12 +493,12 @@ To validate input arguments of the functions
 
   Validate cohortId argument. CohortId can either be a
   cohort_definition_id value, a cohort_name or a tidyselect expression
-  referinc to cohort_names. If you want to support tidyselect
+  referring to cohort_names. If you want to support tidyselect
   expressions please use the function as:
   `validateCohortIdArgument({{cohortId}}, cohort)`.
 
 - [`validateColumn()`](https://darwin-eu.github.io/omopgenerics/reference/validateColumn.md)
-  : Validate whether a variable points to a certain exiting column in a
+  : Validate whether a variable points to a certain existing column in a
   table.
 
 - [`validateConceptSetArgument()`](https://darwin-eu.github.io/omopgenerics/reference/validateConceptSetArgument.md)
@@ -458,7 +510,7 @@ To validate input arguments of the functions
   :
 
   Validate name argument. It must be a snake_case character vector. You
-  can add the a cdm object to check `name` is not already used in that
+  can add a cdm object to check that `name` is not already used in that
   cdm.
 
 - [`validateNameLevel()`](https://darwin-eu.github.io/omopgenerics/reference/validateNameLevel.md)
@@ -478,7 +530,7 @@ To validate input arguments of the functions
   : Validate an omop_table
 
 - [`validateResultArgument()`](https://darwin-eu.github.io/omopgenerics/reference/validateResultArgument.md)
-  : Validate if a an object is a valid 'summarised_result' object.
+  : Validate whether an object is a valid 'summarised_result' object.
 
 - [`validateStrataArgument()`](https://darwin-eu.github.io/omopgenerics/reference/validateStrataArgument.md)
   : To validate a strata list. It makes sure that elements are unique
@@ -486,17 +538,18 @@ To validate input arguments of the functions
 
 - [`validateWindowArgument()`](https://darwin-eu.github.io/omopgenerics/reference/validateWindowArgument.md)
   : Validate a window argument. It must be a list of two elements
-  (window start and window end), both must be integerish and window
-  start must be lower or equal than window end.
+  (window start and window end), both must be numeric, integerish by
+  default, and window start must be lower or equal than window end.
 
 ### General assertions
 
 To assert that an object fulfills certain criteria
 
 - [`assertCharacter()`](https://darwin-eu.github.io/omopgenerics/reference/assertCharacter.md)
-  : Assert that an object is a character and fulfill certain conditions.
+  : Assert that an object is a character and satisfies certain
+  conditions.
 - [`assertChoice()`](https://darwin-eu.github.io/omopgenerics/reference/assertChoice.md)
-  : Assert that an object is within a certain oprtions.
+  : Assert that an object is one of a set of options.
 - [`assertClass()`](https://darwin-eu.github.io/omopgenerics/reference/assertClass.md)
   : Assert that an object has a certain class.
 - [`assertDate()`](https://darwin-eu.github.io/omopgenerics/reference/assertDate.md)
@@ -523,7 +576,7 @@ To assert that an object fulfills certain criteria
   : Get the source type of an object.
 
 - [`tmpPrefix()`](https://darwin-eu.github.io/omopgenerics/reference/tmpPrefix.md)
-  : Create a temporary prefix for tables, that contains a unique prefix
+  : Create a temporary prefix for tables that contains a unique prefix
   that starts with tmp.
 
 - [`uniqueId()`](https://darwin-eu.github.io/omopgenerics/reference/uniqueId.md)

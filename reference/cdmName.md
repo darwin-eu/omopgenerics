@@ -1,11 +1,13 @@
-# Get the name of a cdm_reference associated object
+# Get or set the name of a cdm_reference associated object
 
-Get the name of a cdm_reference associated object
+Get or set the name of a cdm_reference associated object
 
 ## Usage
 
 ``` r
 cdmName(x)
+
+cdmName(x) <- value
 ```
 
 ## Arguments
@@ -13,6 +15,10 @@ cdmName(x)
 - x:
 
   A cdm_reference or cdm_table object.
+
+- value:
+
+  Name to assign to the cdm_reference object.
 
 ## Value
 
@@ -40,13 +46,13 @@ cdm <- cdmFromTables(
   ),
   cdmName = "mock"
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 1 casted column in observation_period as do not match expected column type:
+#> Warning: ! 1 cast column in observation_period as do not match the expected column type:
 #> • `period_type_concept_id` from numeric to integer
 
 cdmName(cdm)
@@ -54,5 +60,7 @@ cdmName(cdm)
 
 cdmName(cdm$person)
 #> [1] "mock"
+
+cdmName(cdm) <- "mock_2"
 # }
 ```

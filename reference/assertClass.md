@@ -10,8 +10,10 @@ assertClass(
   class,
   length = NULL,
   null = FALSE,
+  empty = TRUE,
   all = FALSE,
   extra = TRUE,
+  nm = deparse1(substitute(x), backtick = TRUE),
   call = parent.frame(),
   msg = NULL
 )
@@ -21,7 +23,7 @@ assertClass(
 
 - x:
 
-  To check.
+  Variable to check.
 
 - class:
 
@@ -35,6 +37,10 @@ assertClass(
 
   Whether it can be NULL.
 
+- empty:
+
+  Whether it can be empty.
+
 - all:
 
   Whether it should have all the classes or only at least one of them.
@@ -42,6 +48,11 @@ assertClass(
 - extra:
 
   Whether the object can have extra classes.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
 
 - call:
 

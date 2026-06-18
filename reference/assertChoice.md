@@ -1,6 +1,6 @@
-# Assert that an object is within a certain oprtions.
+# Assert that an object is one of a set of options.
 
-Assert that an object is within a certain oprtions.
+Assert that an object is one of a set of options.
 
 ## Usage
 
@@ -11,8 +11,10 @@ assertChoice(
   length = NULL,
   na = FALSE,
   null = FALSE,
+  empty = TRUE,
   unique = FALSE,
   named = FALSE,
+  nm = deparse1(substitute(x), backtick = TRUE),
   call = parent.frame(),
   msg = NULL
 )
@@ -40,6 +42,10 @@ assertChoice(
 
   Whether it can be NULL.
 
+- empty:
+
+  Whether it can be empty.
+
 - unique:
 
   Whether it has to contain unique elements.
@@ -48,9 +54,14 @@ assertChoice(
 
   Whether it has to be named.
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
+
 - call:
 
-  Call argument that will be passed to `cli` error message.
+  Call argument that will be passed to `cli`.
 
 - msg:
 

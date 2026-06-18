@@ -1,6 +1,6 @@
-# Return a table of omop cdm fields informations
+# Return a table of omop cdm field information
 
-Return a table of omop cdm fields informations
+Return a table of omop cdm field information
 
 ## Usage
 
@@ -16,4 +16,4 @@ omopTableFields(cdmVersion = "5.3")
 
 ## Value
 
-a tibble contain informations on all the different fields in omop cdm.
+A tibble containing information on all the different fields in omop cdm.

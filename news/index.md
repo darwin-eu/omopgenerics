@@ -1,5 +1,79 @@
 # Changelog
 
+## omopgenerics 1.4.0
+
+CRAN release: 2026-06-17
+
+- Create importCodelistWithDetails and exportCodelistWithDetails by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#839](https://github.com/darwin-eu/omopgenerics/issues/839)
+- Provide better error message by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#834](https://github.com/darwin-eu/omopgenerics/issues/834)
+- Use type = NULL (json + csv) by default in inport function by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#841](https://github.com/darwin-eu/omopgenerics/issues/841)
+- Add methods for cdm_table (read, drop, insert, list, indexes) by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#837](https://github.com/darwin-eu/omopgenerics/issues/837)
+- Assign method for cdmName by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#833](https://github.com/darwin-eu/omopgenerics/issues/833)
+- Change casted to cast by [@ablack3](https://github.com/ablack3) in
+  [\#814](https://github.com/darwin-eu/omopgenerics/issues/814)
+- Allow uniqueId(n = 0) to work by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#842](https://github.com/darwin-eu/omopgenerics/issues/842)
+- Add integerish argument to validateWindowArgument by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#844](https://github.com/darwin-eu/omopgenerics/issues/844)
+- Create filterResult function by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#845](https://github.com/darwin-eu/omopgenerics/issues/845)
+- Add argument `nm` to assert and validate functions to allow naming of
+  the input by [@catalamarti](https://github.com/catalamarti) in
+  [\#847](https://github.com/darwin-eu/omopgenerics/issues/847)
+- Add null = FALSE argument to validateColumn by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#848](https://github.com/darwin-eu/omopgenerics/issues/848)
+- Correct message for cohort_end_date \< cohort_start_date by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#851](https://github.com/darwin-eu/omopgenerics/issues/851)
+- Add recursive = FALSE option to import Concepts functions by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#854](https://github.com/darwin-eu/omopgenerics/issues/854)
+- Create empty argument for assert and validate functions by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#849](https://github.com/darwin-eu/omopgenerics/issues/849)
+- Attributes of cohort_table are not collected if not needed by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#857](https://github.com/darwin-eu/omopgenerics/issues/857)
+- Create readOnly source by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#858](https://github.com/darwin-eu/omopgenerics/issues/858)
+- Create compareOmopTableFields function by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#859](https://github.com/darwin-eu/omopgenerics/issues/859)
+- Register result type by [@catalamarti](https://github.com/catalamarti)
+  in [\#781](https://github.com/darwin-eu/omopgenerics/issues/781)
+- Allow to validate codelists with the cdm by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#843](https://github.com/darwin-eu/omopgenerics/issues/843)
+- Allow tidy expressions and negate expressions to work for
+  dropSourecTable, readSourceTable, getCohortId functions by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#850](https://github.com/darwin-eu/omopgenerics/issues/850)
+- Fix issues with NA in summarised_result by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#860](https://github.com/darwin-eu/omopgenerics/issues/860)
+- Consistent documentation of arguments by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#855](https://github.com/darwin-eu/omopgenerics/issues/855)
+- spell check by [@catalamarti](https://github.com/catalamarti) in
+  [\#862](https://github.com/darwin-eu/omopgenerics/issues/862)
+- add code_search by [@catalamarti](https://github.com/catalamarti) in
+  [\#864](https://github.com/darwin-eu/omopgenerics/issues/864)
+
 ## omopgenerics 1.3.7
 
 CRAN release: 2026-03-07
@@ -7,7 +81,7 @@ CRAN release: 2026-03-07
 - Correct typo in import concept set expression in tibble format by
   [@catalamarti](https://github.com/catalamarti) in
   [\#808](https://github.com/darwin-eu/omopgenerics/issues/808)
-- Correctly handling different cdm versions by
+- Correctly handle different cdm versions by
   [@catalamarti](https://github.com/catalamarti) in
   [\#811](https://github.com/darwin-eu/omopgenerics/issues/811),
   [\#812](https://github.com/darwin-eu/omopgenerics/issues/812)
@@ -16,7 +90,7 @@ CRAN release: 2026-03-07
 
 CRAN release: 2026-01-28
 
-- Allow to codelist and concept set import in tibble format by
+- Allow codelist and concept set import in tibble format by
   [@catalamarti](https://github.com/catalamarti) in
   [\#806](https://github.com/darwin-eu/omopgenerics/issues/806)
 
@@ -55,8 +129,9 @@ CRAN release: 2025-12-01
 
 CRAN release: 2025-11-11
 
-- add unique argument in assertLogical by
-  [@catalamarti](https://github.com/catalamarti) in
+- Add `unique` argument to
+  [`assertLogical()`](https://darwin-eu.github.io/omopgenerics/reference/assertLogical.md)
+  by [@catalamarti](https://github.com/catalamarti) in
   [\#782](https://github.com/darwin-eu/omopgenerics/issues/782)
 - Fix non UTF-8 issues (any collected character non UTF-8 is eliminated)
   by [@catalamarti](https://github.com/catalamarti) in
@@ -77,11 +152,11 @@ CRAN release: 2025-10-13
   [\#763](https://github.com/darwin-eu/omopgenerics/issues/763)
 - Add stable badge by [@catalamarti](https://github.com/catalamarti) in
   [\#769](https://github.com/darwin-eu/omopgenerics/issues/769)
-- Allow to extract all codelists of a cohort with
+- Allow extraction of all codelists of a cohort with
   [`cohortCodelist()`](https://darwin-eu.github.io/omopgenerics/reference/cohortCodelist.md)
   by [@catalamarti](https://github.com/catalamarti) in
   [\#770](https://github.com/darwin-eu/omopgenerics/issues/770)
-- Export sql and explain sql can be added to the result object by
+- Export SQL and explain SQL can be added to the result object by
   [@catalamarti](https://github.com/catalamarti) in
   [\#765](https://github.com/darwin-eu/omopgenerics/issues/765)
 - Create
@@ -102,7 +177,7 @@ CRAN release: 2025-10-13
 
 CRAN release: 2025-09-18
 
-- The time a query takes to copute is included in log file by
+- The time a query takes to compute is included in the log file by
   [@edward-burn](https://github.com/edward-burn) in
   [\#737](https://github.com/darwin-eu/omopgenerics/issues/737)
 - Create emptyConceptSetExpression function by
@@ -151,7 +226,7 @@ CRAN release: 2025-09-18
 
 CRAN release: 2025-07-15
 
-- write method fro summary.cdm_source by
+- Write method for summary.cdm_source by
   [@catalamarti](https://github.com/catalamarti) in
   [\#719](https://github.com/darwin-eu/omopgenerics/issues/719)
   [\#720](https://github.com/darwin-eu/omopgenerics/issues/720)

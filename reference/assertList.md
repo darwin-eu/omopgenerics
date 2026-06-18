@@ -10,9 +10,11 @@ assertList(
   length = NULL,
   na = FALSE,
   null = FALSE,
+  empty = TRUE,
   unique = FALSE,
   named = FALSE,
   class = NULL,
+  nm = deparse1(substitute(x), backtick = TRUE),
   call = parent.frame(),
   msg = NULL
 )
@@ -36,6 +38,10 @@ assertList(
 
   Whether it can be NULL.
 
+- empty:
+
+  Whether it can be empty.
+
 - unique:
 
   Whether it has to contain unique elements.
@@ -48,9 +54,14 @@ assertList(
 
   Class that the elements must have.
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
+
 - call:
 
-  Call argument that will be passed to `cli` error message.
+  Call argument that will be passed to `cli`.
 
 - msg:
 

@@ -25,8 +25,8 @@ filterAdditional(result, ...)
 
 ## Value
 
-A `<summarised_result>` object with only the rows that fulfill the
-required specified additional.
+A `<summarised_result>` object with only the rows that satisfy the
+specified additional columns.
 
 ## Examples
 

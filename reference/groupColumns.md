@@ -12,7 +12,7 @@ groupColumns(result)
 
 - result:
 
-  A tibble.
+  A `<summarised_result>` object.
 
 ## Value
 

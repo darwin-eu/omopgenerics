@@ -15,7 +15,7 @@ settingsColumns(result, metadata = FALSE)
 
 - result:
 
-  A `<summarised_result>`.
+  A `<summarised_result>` object.
 
 - metadata:
 

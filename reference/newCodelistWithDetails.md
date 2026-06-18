@@ -5,7 +5,7 @@
 ## Usage
 
 ``` r
-newCodelistWithDetails(x)
+newCodelistWithDetails(x, cdm = NULL)
 ```
 
 ## Arguments
@@ -14,6 +14,11 @@ newCodelistWithDetails(x)
 
   A named list where each element contains a tibble with the column
   concept_id
+
+- cdm:
+
+  A `<cdm_reference>` object. If provided, concept IDs in `x` will be
+  checked against `cdm$concept`.
 
 ## Value
 

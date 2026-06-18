@@ -5,7 +5,14 @@ Assert that an expression is TRUE.
 ## Usage
 
 ``` r
-assertTrue(x, null = FALSE, call = parent.frame(), msg = NULL)
+assertTrue(
+  x,
+  null = FALSE,
+  empty = TRUE,
+  nm = deparse1(substitute(x), backtick = TRUE),
+  call = parent.frame(),
+  msg = NULL
+)
 ```
 
 ## Arguments
@@ -18,9 +25,18 @@ assertTrue(x, null = FALSE, call = parent.frame(), msg = NULL)
 
   Whether it can be NULL.
 
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
+
 - call:
 
-  Call argument that will be passed to `cli` error message.
+  Call argument that will be passed to `cli`.
 
 - msg:
 

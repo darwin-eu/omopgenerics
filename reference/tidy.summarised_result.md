@@ -2,9 +2,9 @@
 
 **\[experimental\]** Provides tools for obtaining a tidy version of a
 `<summarised_result>` object. This tidy version will include the
-settings as columns, `estimate_value` will be pivotted into columns
-using `estimate_name` as names, and group, strata, and additional will
-be splitted.
+settings as columns, `estimate_value` will be pivoted into columns using
+`estimate_name` as names, and group, strata, and additional will be
+split.
 
 ## Usage
 
@@ -21,7 +21,7 @@ tidy(x, ...)
 
 - ...:
 
-  For compatibility (not used).
+  For compatibility; not used.
 
 ## Value
 

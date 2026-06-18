@@ -10,7 +10,7 @@ newLocalSource()
 
 ## Value
 
-A list in the format of a cdm source
+A list in the format of a cdm source.
 
 ## Examples
 

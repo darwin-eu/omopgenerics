@@ -12,7 +12,7 @@ cdmClasses(cdm)
 
 - cdm:
 
-  A cdm_reference object.
+  A `<cdm_reference>` object.
 
 ## Value
 

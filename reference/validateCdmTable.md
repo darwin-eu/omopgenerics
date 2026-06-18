@@ -5,7 +5,13 @@ Validate if a table is a valid cdm_table object.
 ## Usage
 
 ``` r
-validateCdmTable(table, name = NULL, call = parent.frame())
+validateCdmTable(
+  table,
+  name = NULL,
+  empty = TRUE,
+  nm = deparse1(substitute(table), backtick = TRUE),
+  call = parent.frame()
+)
 ```
 
 ## Arguments
@@ -18,9 +24,18 @@ validateCdmTable(table, name = NULL, call = parent.frame())
 
   If we want to validate that the table has a specific name.
 
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `table`.
+
 - call:
 
-  Call argument that will be passed to `cli`.
+  Call argument passed to `cli` functions.
 
 ## Value
 

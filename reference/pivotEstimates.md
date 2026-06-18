@@ -12,17 +12,17 @@ pivotEstimates(result, pivotEstimatesBy = "estimate_name", nameStyle = NULL)
 
 - result:
 
-  A `<summarised_result>`.
+  A `<summarised_result>` object.
 
 - pivotEstimatesBy:
 
-  Names from which pivot wider the estimate values. If NULL the table
-  will not be pivotted.
+  Names from which to pivot the estimate values wider. If NULL the table
+  will not be pivoted.
 
 - nameStyle:
 
   Name style (glue package specifications) to customise names when
-  pivotting estimates. If NULL standard tidyr::pivot_wider formatting
+  pivoting estimates. If NULL standard tidyr::pivot_wider formatting
   will be used.
 
 ## Value

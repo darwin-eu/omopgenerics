@@ -9,6 +9,8 @@ validateOmopTable(
   omopTable,
   version = NULL,
   cast = FALSE,
+  empty = TRUE,
+  nm = deparse1(substitute(omopTable), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -21,15 +23,24 @@ validateOmopTable(
 
 - version:
 
-  The version of the cdm.
+  Version of the OMOP Common Data Model.
 
 - cast:
 
   Whether to cast columns to the correct type.
 
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `omopTable`.
+
 - call:
 
-  Call argument that will be passed to `cli` error message.
+  Call argument passed to `cli` functions.
 
 ## Value
 

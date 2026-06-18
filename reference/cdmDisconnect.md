@@ -12,15 +12,15 @@ cdmDisconnect(cdm, ...)
 
 - cdm:
 
-  A cdm reference or the source of a cdm reference.
+  A `<cdm_reference>` object.
 
 - ...:
 
-  Used for consistency.
+  For compatibility; not used.
 
 ## Value
 
-TRUE if process wass successful. library(omopgenerics) library(dplyr,
+TRUE if the process was successful. library(omopgenerics) library(dplyr,
 warn.conflicts = FALSE)
 
 person \<- tibble( person_id = 1, gender_concept_id = 0, year_of_birth =

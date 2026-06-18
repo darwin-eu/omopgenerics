@@ -13,8 +13,10 @@ assertNumeric(
   length = NULL,
   na = FALSE,
   null = FALSE,
+  empty = TRUE,
   unique = FALSE,
   named = FALSE,
+  nm = deparse1(substitute(x), backtick = TRUE),
   call = parent.frame(),
   msg = NULL
 )
@@ -50,6 +52,10 @@ assertNumeric(
 
   Whether it can be NULL.
 
+- empty:
+
+  Whether it can be empty.
+
 - unique:
 
   Whether it has to contain unique elements.
@@ -58,9 +64,14 @@ assertNumeric(
 
   Whether it has to be named.
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
+
 - call:
 
-  Call argument that will be passed to `cli` error message.
+  Call argument that will be passed to `cli`.
 
 - msg:
 

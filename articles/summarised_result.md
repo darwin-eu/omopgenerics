@@ -3,25 +3,25 @@
 ## Introduction
 
 A summarised result is a table that contains aggregated summary
-statistics (result set with no patient-level data). The summarised
-result object consist in 2 objects: **results table** and **settings
-table**.
+statistics (a result set with no patient-level data). The summarised
+result object consists of two objects: a **results table** and a
+**settings table**.
 
 #### Results table
 
-This table consist in 13 columns:
+This table has 13 columns:
 
-- `result_id` (1), it is used to identify a group of results with a
-  common settings (see settings below).
-- `cdm_name` (2), it is used to identify the name of the cdm object used
-  to obtain those results.
+- `result_id` (1), used to identify a group of results with common
+  settings (see settings below).
+- `cdm_name` (2), used to identify the name of the cdm object used to
+  obtain those results.
 - `group_name` (3) - `group_level` (4), these columns work together as a
-  *name-level* pair. A *name-level* pair are two columns that work
-  together to summarise information of multiple other columns. The
+  *name-level* pair. A *name-level* pair is two columns that work
+  together to summarise information from multiple other columns. The
   *name* column contains the column names separated by `&&&` and the
   *level* column contains the column values separated by `&&&`. Elements
-  in the *name* column must be snake_case. Usually group aggregation is
-  used to show high level aggregations: e.g. cohort name or codelist
+  in the *name* column must be snake_case. Usually, group aggregation is
+  used to show high-level aggregations: e.g. cohort name or codelist
   name.
 - `strata_name` (5) - `strata_level` (6), these columns work together as
   a *name-level* pair. Usually strata aggregation is used to show
@@ -61,32 +61,32 @@ summarised_result format:
 #### Settings
 
 The settings table provides one row per `result_id` with the settings
-used to generate those results, there is no limit of columns and
-parameters to be provided per result_id. But there is at least 3 values
-that should be provided:
+used to generate those results. There is no limit on the number of
+columns or parameters that can be provided per result_id, but at least
+three values should be provided:
 
-- `resut_type` (1): it identifies the type of result provided. We would
-  usually use the name of the function that generated that set of result
-  in snake_case. Example if the function that generates the summarised
-  result is named *summariseMyCustomData* and then the used result_type
-  would be: *summarise_my_custom_data*.
+- `result_type` (1): identifies the type of result provided. We would
+  usually use the name of the function that generated that set of
+  results in snake_case. For example, if the function that generates the
+  summarised result is named *summariseMyCustomData*, then the
+  result_type would be: *summarise_my_custom_data*.
 - `package_name` (2): name of the package that generated the result
   type.
 - `package_version` (3): version of the package that generated the
   result type.
 
-All those columns are required to be characters, but this restriction
-does not apply to other extra columns.
+These columns must be character vectors, but this restriction does not
+apply to other extra columns.
 
 #### newSummarisedResult
 
 The
 [`newSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/newSummarisedResult.md)
-function can be used to create objects, the inputs of this function are:
-the summarised_result table that must fulfill the conditions specified
-above; and the settings argument. The settings argument can be NULL or
-do not contain all the required columns and they will be populated by
-default (a warning will appear). Let’s see a very simple example:
+function can be used to create objects. The inputs to this function are
+the summarised_result table, which must satisfy the conditions specified
+above, and the settings argument. The settings argument can be NULL or
+omit some required columns; missing columns will be populated by default
+and a warning will appear. Let’s see a very simple example:
 
 ``` r
 
@@ -175,11 +175,10 @@ settings(result)
 
 ## Combining summarised results
 
-Multiple summarised results objects can be combined using the bind
-function. Result id will be assigned for each set of results with the
-same settings. So if two groups of results have the same settings
-althought being in different objects they will be merged into a single
-one.
+Multiple summarised result objects can be combined using the bind
+function. Result IDs will be assigned for each set of results with the
+same settings. If two groups of results have the same settings, although
+they are in different objects, they will be merged into a single one.
 
 ``` r
 
@@ -234,9 +233,9 @@ result2 <- newSummarisedResult(
 )
 ```
 
-Now we have our results we can combine them using bind. Because the two
-sets of results contain the same result ID, when the results are
-combined this will be automatically updated.
+Now that we have our results, we can combine them using bind. Because
+the two sets of results contain the same result ID, this will be
+automatically updated when the results are combined.
 
 ``` r
 
@@ -275,14 +274,16 @@ is suppressed:
 
 ## Export and import summarised results
 
-The summarised_result object can be exported and imported as a .csv file
+The summarised_result object can be exported and imported as a CSV file
 with the following functions:
 
 - **importSummarisedResult()**
 
 - **exportSummarisedResult()**
 
-Note that exportSummarisedResult also suppresses the results.
+Note that
+[`exportSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.md)
+also suppresses the results.
 
 ``` r
 
@@ -294,7 +295,7 @@ setdiff(list.files(x), files)
 #> [1] "result.csv"
 ```
 
-Note that the settings are included in the csv file:
+Note that the settings are included in the CSV file:
 
     #> "result_id","cdm_name","group_name","group_level","strata_name","strata_level","variable_name","variable_level","estimate_name","estimate_type","estimate_value","additional_name","additional_level" "1","my_cdm","cohort_name","cohort1","sex","male","Age group","10 to 50","count","numeric","5","overall","overall" "2","my_cdm","overall","overall","overall","overall","overall","overall","count","numeric","55","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"result_type","character","stratified_by_age_group","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"package_name","character","PatientProfiles","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"package_version","character","1.0.0","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"group","character","cohort_name","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"strata","character","sex","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"additional","character","","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"min_cell_count","character","5","overall","overall" "1",NA,"overall","overall","overall","overall","settings",NA,"study","character","my_characterisation_study","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"result_type","character","overall_analysis","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"package_name","character","PatientProfiles","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"package_version","character","1.0.0","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"group","character","","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"strata","character","","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"additional","character","","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"min_cell_count","character","5","overall","overall" "2",NA,"overall","overall","overall","overall","settings",NA,"study","character","my_characterisation_study","overall","overall"
 
@@ -338,20 +339,21 @@ res |>
 
 ### Tidy method
 
-`ompgenerics` defines the method tidy for `<summarised_result>` object,
-what this function does is to:
+`omopgenerics` defines a
+[`tidy()`](https://generics.r-lib.org/reference/tidy.html) method for
+`<summarised_result>` objects. This function:
 
 #### 1. Split *group*, *strata*, and *additional* pairs into separate columns:
 
 The `<summarised_result>` object has the following pair columns:
 group_name-group_level, strata_name-strata_level, and
 additional_name-additional_level. These pairs use the `&&&` separator to
-combine multiple fields, for example if you want to combine cohort_name
-and age_group in group_name-group_level pair:
+combine multiple fields. For example, if you want to combine cohort_name
+and age_group in the group_name-group_level pair:
 `group_name = "cohort_name &&& age_group"` and
-`group_level = "my_cohort &&& <40"`. By default if no aggregation is
-produced in group_name-group_level pair: `group_name = "overall"` and
-`group_level = "overall"`.
+`group_level = "my_cohort &&& <40"`. By default, if no aggregation is
+produced in the group_name-group_level pair: `group_name = "overall"`
+and `group_level = "overall"`.
 
 **ORIGINAL FORMAT:**
 
@@ -361,11 +363,10 @@ produced in group_name-group_level pair: `group_name = "overall"` and
 | cohort_name &&& sex | acetaminophen &&& Female |
 | sex &&& age_group   | Male &&& \<40            |
 
-The tidy format puts each one of the values as a columns. Making it
-easier to manipulate but at the same time the output is not standardised
-anymore as each `<summarised_result>` object will have a different
-number and names of columns. Missing values will be filled with the
-“overall” label.
+The tidy format puts each value into its own column. This makes it
+easier to manipulate, but the output is no longer standardised, as each
+`<summarised_result>` object will have a different number and set of
+column names. Missing values will be filled with the “overall” label.
 
 **TIDY FORMAT:**
 
@@ -377,14 +378,14 @@ number and names of columns. Missing values will be filled with the
 
 #### 2. Add settings of the `<summarised_result>` object as columns:
 
-Each `<summarised_result>` object has a setting attribute that relates
-the ‘result_id’ column with each different set of settings. The columns
+Each `<summarised_result>` object has a settings attribute that relates
+the ‘result_id’ column to each different set of settings. The columns
 ‘result_type’, ‘package_name’ and ‘package_version’ are always present
-in settings, but then we may have some extra parameters depending how
-the object was created. So in the `<summarised_result>` format we need
-to use these
+in settings, but we may also have extra parameters depending on how the
+object was created. In the `<summarised_result>` format, we need to use
+the
 [`settings()`](https://darwin-eu.github.io/omopgenerics/reference/settings.md)
-functions to see those variables:
+function to see those variables:
 
 **ORIGINAL FORMAT:**
 
@@ -404,13 +405,12 @@ functions to see those variables:
 | 2         | omop     | ... | overall         |
 | ...       | ...      | ... | ...             |
 
-But in the tidy format we add the settings as columns, making that their
-value is repeated multiple times (there is only one row per result_id in
+In the tidy format, we add the settings as columns, so their values are
+repeated multiple times (there is only one row per result_id in
 settings, whereas there can be multiple rows in the
-`<summarised_result>` object). The column ‘result_id’ is eliminated as
-it does not provide information anymore. Again we loose on
-standardisation (multiple different settings), but we gain in
-flexibility:
+`<summarised_result>` object). The column ‘result_id’ is removed because
+it no longer provides information. Again, we lose standardisation
+(multiple different settings), but we gain flexibility:
 
 **TIDY FORMAT:**
 
@@ -428,7 +428,7 @@ columns:
 
 - ‘estimate_name’ indicates the name of the estimate.
 - ‘estimate_type’ indicates the type of the estimate (as all of them
-  will be casted to character). Possible values are: *numeric, integer,
+  will be cast to character). Possible values are: *numeric, integer,
   date, character, proportion, percentage, logical*.
 - ‘estimate_value’ value of the estimate as `<character>`.
 
@@ -440,12 +440,11 @@ columns:
 | age                | mean          | numeric       | 50.3           |
 | age                | sd            | numeric       | 20.7           |
 
-In the tidy format we pivot the estimates, creating a new column for
-each one of the ‘estimate_name’ values. The columns will be casted to
-‘estimate_type’. If there are multiple estimate_type(s) for same
-estimate_name they won’t be casted and they will be displayed as
-character (a warning will be thrown). Missing data are populated with
-NAs.
+In the tidy format, we pivot the estimates, creating a new column for
+each ‘estimate_name’ value. The columns will be cast to ‘estimate_type’.
+If there are multiple estimate_type values for the same estimate_name,
+they will not be cast and will be displayed as character values (a
+warning will be thrown). Missing data are populated with NAs.
 
 **TIDY FORMAT:**
 
@@ -471,7 +470,7 @@ result |>
 
 ### Split
 
-The functions split are provided independent:
+The split functions are provided independently:
 
 - [`splitGroup()`](https://darwin-eu.github.io/omopgenerics/reference/splitGroup.md)
   only splits the pair group_name-group_level columns.
@@ -482,7 +481,7 @@ The functions split are provided independent:
 
 There is also the function: -
 [`splitAll()`](https://darwin-eu.github.io/omopgenerics/reference/splitAll.md)
-that splits any pair x_name-x_level that is found on the data.
+that splits any x_name-x_level pair found in the data.
 
 ``` r
 
@@ -501,8 +500,8 @@ splitAll(result)
 [`pivotEstimates()`](https://darwin-eu.github.io/omopgenerics/reference/pivotEstimates.md)
 can be used to pivot the variables that we are interested in.
 
-The argument `pivotEstimatesBy` specifies which are the variables that
-we want to use to pivot by, there are four options:
+The argument `pivotEstimatesBy` specifies which variables we want to use
+to pivot by. There are four options:
 
 - `NULL/character()` to not pivot anything.
 - `c("estimate_name")` to pivot only estimate_name.
@@ -535,8 +534,8 @@ pivotEstimates(
 is used to add the settings that we want as new columns to our
 `<summarised_result>` object.
 
-The `settingsColumn` argument is used to choose which are the settings
-we want to add.
+The `settingsColumn` argument is used to choose which settings we want
+to add.
 
 ``` r
 
@@ -556,15 +555,15 @@ addSettings(
 
 ### Filter
 
-Dealing with an `<summarised_result>` object can be difficult to handle
-specially when we are trying to filter. For example, difficult tasks
-would be to filter to a certain result_type or when there are many
-strata joined together filter only one of the variables. On the other
-hand it exists the `tidy` format that makes it easy to filter, but then
-you loose the `<summarised_result>` object.
+Dealing with an `<summarised_result>` object can be difficult,
+especially when we are trying to filter. For example, it can be
+difficult to filter to a certain result_type or, when many strata are
+joined together, to filter only one of the variables. The `tidy` format
+makes filtering easier, but using it means losing the
+`<summarised_result>` object.
 
-**omopgenerics** package contains some functionalities that helps on
-this process:
+The **omopgenerics** package contains functions that help with this
+process:
 
 - `filterSettings` to filter the `<summarised_result>` object using the
   [`settings()`](https://darwin-eu.github.io/omopgenerics/reference/settings.md)
@@ -572,7 +571,7 @@ this process:
 - `filterGroup` to filter the `<summarised_result>` object using the
   group_name-group_level tidy columns.
 - `filterStrata` to filter the `<summarised_result>` object using the
-  strata_name-starta_level tidy columns.
+  strata_name-strata_level tidy columns.
 - `filterAdditional` to filter the `<summarised_result>` object using
   the additional_name-additional_level tidy columns.
 
@@ -591,10 +590,10 @@ result |>
 #> #   additional_name <chr>, additional_level <chr>
 ```
 
-Now let’s see an example using the information on settings to filter the
-result. In this case, we only one results of the “overall_analysis”,
-since this information is in the result_type column in settings, we
-procees as follows:
+Now let’s see an example using the information in settings to filter the
+result. In this case, we only want results from the “overall_analysis”.
+Since this information is in the result_type column in settings, we
+proceed as follows:
 
 ``` r
 
@@ -630,11 +629,11 @@ levels. These retrieval functions help you identify and manage columns:
   gives you the new columns that will be generated when splitting
   additional_name-additional_level pair into different columns.
 - [`tidyColumns()`](https://darwin-eu.github.io/omopgenerics/reference/tidyColumns.md)
-  gives you the columns that will have the object if you tidy it
-  (`tidy(result)`). This function in very useful to know which are the
-  columns that can be included in **plot** and **table** functions.
+  gives you the columns that the object will have if you tidy it
+  (`tidy(result)`). This function is very useful for knowing which
+  columns can be included in **plot** and **table** functions.
 
-Let’s see the different values with out example result data:
+Let’s see the different values with our example result data:
 
 ``` r
 
@@ -657,8 +656,9 @@ The unite functions serve as the complementary tools to the split
 functions, allowing you to generate name-level pair columns from
 targeted columns within a `<dataframe>`.
 
-There are three `unite` functions that allow to create group, strata,
-and additional name-level columns from specified sets of columns:
+There are three `unite` functions that allow you to create group,
+strata, and additional name-level columns from specified sets of
+columns:
 
 - [`uniteAdditional()`](https://darwin-eu.github.io/omopgenerics/reference/uniteAdditional.md)
 

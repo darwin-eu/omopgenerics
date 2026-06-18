@@ -13,7 +13,9 @@ validateAgeGroupArgument(
   multipleAgeGroup = TRUE,
   overlap = FALSE,
   null = TRUE,
+  empty = TRUE,
   ageGroupName = "age_group",
+  nm = deparse1(substitute(ageGroup), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -26,7 +28,7 @@ validateAgeGroupArgument(
 
 - multipleAgeGroup:
 
-  allow mutliple age group.
+  Allow multiple age groups.
 
 - overlap:
 
@@ -36,13 +38,22 @@ validateAgeGroupArgument(
 
   null age group allowed true or false.
 
+- empty:
+
+  Whether it can be empty.
+
 - ageGroupName:
 
   Name of the default age group.
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `ageGroup`.
+
 - call:
 
-  parent frame.
+  Call argument passed to `cli` functions.
 
 ## Value
 

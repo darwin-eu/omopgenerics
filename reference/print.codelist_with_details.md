@@ -13,11 +13,11 @@ print(x, ...)
 
 - x:
 
-  A codelist with details
+  A `<codelist_with_details>` object.
 
 - ...:
 
-  Included for compatibility with generic. Not used.
+  For compatibility; not used.
 
 ## Value
 

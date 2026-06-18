@@ -12,7 +12,7 @@ exportCodelist(x, path, type = "json")
 
 - x:
 
-  A codelist
+  A `<codelist>` object.
 
 - path:
 

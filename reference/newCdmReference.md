@@ -16,11 +16,12 @@ newCdmReference(tables, cdmName, cdmVersion = NULL, .softValidation = FALSE)
 
 - cdmName:
 
-  Name of the cdm object.
+  Name of the `<cdm_reference>` object.
 
 - cdmVersion:
 
-  Version of the cdm. Supported versions 5.3 and 5.4.
+  Version of the OMOP Common Data Model. Supported versions are "5.3"
+  and "5.4".
 
 - .softValidation:
 
@@ -53,13 +54,13 @@ cdmTables <- list(
     newCdmTable(newLocalSource(), "observation_period")
 )
 cdm <- newCdmReference(tables = cdmTables, cdmName = "mock")
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 3 casted column in observation_period as do not match expected column type:
+#> Warning: ! 3 cast column in observation_period as do not match the expected column type:
 #> • `observation_period_id` from numeric to integer
 #> • `person_id` from numeric to integer
 #> • `period_type_concept_id` from numeric to integer

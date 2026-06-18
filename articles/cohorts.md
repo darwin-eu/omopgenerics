@@ -2,10 +2,10 @@
 
 ## Cohort table
 
-A cohort is a **set of people that fulfill a certain set of criteria for
+A cohort is a **set of people that satisfy a certain set of criteria for
 a period of time**.
 
-In omopgenerics we defined the `cohort_table` class that allows us to
+In omopgenerics we define the `cohort_table` class that allows us to
 represent individuals in a cohort.
 
 A `cohort_table` is created using the
@@ -40,13 +40,13 @@ cdm <- cdmFromTables(
   ),
   cdmName = "example_cdm"
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 3 casted column in observation_period as do not match expected column type:
+#> Warning: ! 3 cast column in observation_period as do not match the expected column type:
 #> • `observation_period_id` from numeric to integer
 #> • `person_id` from numeric to integer
 #> • `period_type_concept_id` from numeric to integer
@@ -59,8 +59,8 @@ cdm
 #> • other tables: -
 ```
 
-Now let’s say one of these people have a clinical event of interest, we
-can include them in a cohort table which can then be used as part of an
+Now let’s say one of these people has a clinical event of interest. We
+can include them in a cohort table, which can then be used as part of an
 analysis.
 
 ``` r
@@ -72,16 +72,17 @@ cohort <- tibble(
 )
 cdm <- insertTable(cdm = cdm, name = "cohort", table = cohort)
 cdm$cohort <- newCohortTable(cdm$cohort)
-#> Warning: ! 2 casted column in cohort as do not match expected column type:
+#> Warning: ! 2 cast column in cohort as do not match the expected column type:
 #> • `cohort_definition_id` from numeric to integer
 #> • `subject_id` from numeric to integer
 ```
 
-The cohort table will be associated with settings and attrition. As we
-didn’t specify these in newCohortTable() above they will have been
-automatically populated. You can access the cohort set of a cohort table
-using the function
-[`settings()`](https://darwin-eu.github.io/omopgenerics/reference/settings.md)
+The cohort table will be associated with settings and attrition. Because
+we did not specify these in
+[`newCohortTable()`](https://darwin-eu.github.io/omopgenerics/reference/newCohortTable.md)
+above, they will have been automatically populated. You can access the
+cohort set of a cohort table using the function
+[`settings()`](https://darwin-eu.github.io/omopgenerics/reference/settings.md).
 
 ``` r
 
@@ -94,7 +95,7 @@ settings(cdm$cohort)
 
 Meanwhile, you can access the cohort attrition of a cohort table using
 the function
-[`attrition()`](https://darwin-eu.github.io/omopgenerics/reference/attrition.md)
+[`attrition()`](https://darwin-eu.github.io/omopgenerics/reference/attrition.md).
 
 ``` r
 
@@ -106,8 +107,8 @@ attrition(cdm$cohort)
 #> # ℹ 2 more variables: excluded_records <int>, excluded_subjects <int>
 ```
 
-Cohort attrition table is also used to compute the number of counts that
-each cohort (ie from the last row of the attrition). It can be seen with
+The cohort attrition table is also used to compute the counts for each
+cohort (i.e. from the last row of the attrition). These can be seen with
 the function
 [`cohortCount()`](https://darwin-eu.github.io/omopgenerics/reference/cohortCount.md).
 
@@ -122,7 +123,7 @@ cohortCount(cdm$cohort)
 
 Note that because the cohort count is taken from the last row of
 attrition, if we make changes to a cohort we should then update
-attrition as we go. We can do this
+attrition as we go. We can do this with:
 
 ``` r
 
@@ -162,7 +163,7 @@ cohortCodelist(cdm$cohort, cohortId = 1, type = "index event")
 #> ── 0 codelists ─────────────────────────────────────────────────────────────────
 ```
 
-We could though associate our cohort with a codelist
+We can also associate our cohort with a codelist.
 
 ``` r
 
@@ -181,54 +182,52 @@ cohortCodelist(cdm$cohort, cohortId = 1, type = "index event")
 #> - disease X (2 codes)
 ```
 
-Each one of the elements that define a cohort table have to fulfill
-certain criteria.
+Each element that defines a cohort table must satisfy certain criteria.
 
 ### Cohort Set
 
 A cohort set must be a table with:
 
-- Lower case column names.
+- Lowercase column names.
 
 - At least cohort_definition_id, cohort_name columns
   (`cohortColumns("cohort_set")`).
 
-- `cohort_name` it must contain unique cohort names (currently they are
-  cased to snake case).
+- `cohort_name` must contain unique cohort names (currently they are
+  converted to snake case).
 
-- `cohort_definition_id` it must contain unique cohort ids, all the ids
-  present in table must be present in the cohort set and the same ids
-  must be present in cohort attrition.
+- `cohort_definition_id` must contain unique cohort IDs. All IDs present
+  in the table must be present in the cohort set and the same IDs must
+  be present in cohort attrition.
 
 ### Cohort Attrition
 
 A cohort attrition must be a table with:
 
-- Lower case column names.
+- Lowercase column names.
 
 - At least cohort_definition_id, number_records, number_subjects,
   reason_id, reason, excluded_records, excluded_subjects columns
   (`cohortColumns("cohort_attrition")`).
 
-- `cohort_definition_id` it must contain cohort ids, all the ids present
-  in table must be present in the cohort attrition and the same ids must
-  be present in cohort set.
+- `cohort_definition_id` must contain cohort IDs. All IDs present in the
+  table must be present in the cohort attrition and the same IDs must be
+  present in the cohort set.
 
-- There must exist unique pairs of `cohort_definition_id` and
-  `reason_id`.
+- There must be unique pairs of `cohort_definition_id` and `reason_id`.
 
 ### Cohort Codelist
 
 A cohort codelist must be a table with:
 
-- Lower case column names.
+- Lowercase column names.
 
 - At least cohort_definition_id, codelist_name, concept_id,
   codelist_type columns (`cohortColumns("cohort_codelist")`).
 
-- `cohort_definition_id` it must contain cohort ids, all the ids present
-  in table must be present in the cohort attrition and the same ids must
-  be present in cohort set.
+- `cohort_definition_id` must contain cohort IDs. All IDs present in the
+  table must be present in the cohort attrition and the same IDs must be
+  present in the cohort set.
 
 - `type` must be one of “index event”, “inclusion criteria”, and “exit
   criteria”
@@ -239,14 +238,14 @@ A cohort table must be a table with:
 
 - It comes from a cdm_reference (extracted via `cdm$cohort`).
 
-- It has the same source than this cdm_reference.
+- It has the same source as this cdm_reference.
 
-- Lower case column names.
+- Lowercase column names.
 
 - At least cohort_definition_id, subject_id, cohort_start_date,
   cohort_end_date columns (`cohortColumns("cohort")`).
 
-- There is no record with `NA` value in the required columns.
+- There is no record with an `NA` value in the required columns.
 
 - There is no record with `cohort_start_date` after `cohort_end_date`.
 
@@ -266,7 +265,7 @@ A cohort table must be a table with:
 You can bind two cohort tables using the method
 [`bind()`](https://darwin-eu.github.io/omopgenerics/reference/bind.md).
 You can combine several cohort tables using this method. The only
-constrain is that cohort names must be unique across the different
+constraint is that cohort names must be unique across the different
 cohort tables. You have to provide a name for the new cohort table.
 
 ``` r
@@ -283,7 +282,7 @@ cdm$asthma <- newCohortTable(cdm$asthma,
     cohort_name = "asthma"
   )
 )
-#> Warning: ! 2 casted column in asthma as do not match expected column type:
+#> Warning: ! 2 cast column in asthma as do not match the expected column type:
 #> • `cohort_definition_id` from numeric to integer
 #> • `subject_id` from numeric to integer
 
@@ -299,7 +298,7 @@ cdm$copd <- newCohortTable(cdm$copd,
     cohort_name = "copd"
   )
 )
-#> Warning: ! 2 casted column in copd as do not match expected column type:
+#> Warning: ! 2 cast column in copd as do not match the expected column type:
 #> • `cohort_definition_id` from numeric to integer
 #> • `subject_id` from numeric to integer
 
@@ -344,8 +343,8 @@ You can export the metadata of a `cohort_table` using the function:
 
 summary(cdm$exposures) |>
   glimpse()
-#> `cohort_definition_id` casted to character.
-#> `cohort_definition_id` casted to character.
+#> `cohort_definition_id` cast to character.
+#> `cohort_definition_id` cast to character.
 #> Rows: 12
 #> Columns: 13
 #> $ result_id        <int> 1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4

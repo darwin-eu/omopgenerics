@@ -12,7 +12,7 @@ createTableIndex(table, index)
 
 - table:
 
-  A cdm_table object.
+  A `<cdm_table>` object.
 
 - index:
 

@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,11 +41,11 @@
     <li><a class="dropdown-item" href="../articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
-    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result obejct</a></li>
+    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result object</a></li>
     <li><a class="dropdown-item" href="../articles/logging.html">Logging with omopgenerics</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
-    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgenerics</a></li>
     <li><a class="dropdown-item" href="../articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul>
 </li>
@@ -72,7 +72,7 @@
       <h1>Cohort tables</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.7/vignettes/cohorts.Rmd" class="external-link"><code>vignettes/cohorts.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/vignettes/cohorts.Rmd" class="external-link"><code>vignettes/cohorts.Rmd</code></a></small>
       <div class="d-none name"><code>cohorts.Rmd</code></div>
     </div>
 
@@ -81,9 +81,9 @@
 <div class="section level2">
 <h2 id="cohort-table">Cohort table<a class="anchor" aria-label="anchor" href="#cohort-table"></a>
 </h2>
-<p>A cohort is a <strong>set of people that fulfill a certain set of
+<p>A cohort is a <strong>set of people that satisfy a certain set of
 criteria for a period of time</strong>.</p>
-<p>In omopgenerics we defined the <code>cohort_table</code> class that
+<p>In omopgenerics we define the <code>cohort_table</code> class that
 allows us to represent individuals in a cohort.</p>
 <p>A <code>cohort_table</code> is created using the
 <code><a href="../reference/newCohortTable.html">newCohortTable()</a></code> function that is defined by:</p>
@@ -112,13 +112,13 @@ allows us to represent individuals in a cohort.</p>
 <span>  <span class="op">)</span>,</span>
 <span>  cdmName <span class="op">=</span> <span class="st">"example_cdm"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 5 casted column in <span style="font-weight: bold;">person</span> as do not match expected column type:</span></span>
+<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 5 cast column in <span style="font-weight: bold;">person</span> as do not match the expected column type:</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `person_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `gender_concept_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `year_of_birth` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `race_concept_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `ethnicity_concept_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
-<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 3 casted column in <span style="font-weight: bold;">observation_period</span> as do not match expected column type:</span></span>
+<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 3 cast column in <span style="font-weight: bold;">observation_period</span> as do not match the expected column type:</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `observation_period_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `person_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `period_type_concept_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
@@ -129,8 +129,8 @@ allows us to represent individuals in a cohort.</p>
 <span><span class="co">#&gt; • <span style="font-weight: bold;">cohort tables:</span> -</span></span>
 <span><span class="co">#&gt; • <span style="font-weight: bold;">achilles tables:</span> -</span></span>
 <span><span class="co">#&gt; • <span style="font-weight: bold;">other tables:</span> -</span></span></code></pre></div>
-<p>Now let’s say one of these people have a clinical event of interest,
-we can include them in a cohort table which can then be used as part of
+<p>Now let’s say one of these people has a clinical event of interest.
+We can include them in a cohort table, which can then be used as part of
 an analysis.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cohort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -140,13 +140,13 @@ an analysis.</p>
 <span><span class="op">)</span></span>
 <span><span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/insertTable.html">insertTable</a></span><span class="op">(</span>cdm <span class="op">=</span> <span class="va">cdm</span>, name <span class="op">=</span> <span class="st">"cohort"</span>, table <span class="op">=</span> <span class="va">cohort</span><span class="op">)</span></span>
 <span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 2 casted column in <span style="font-weight: bold;">cohort</span> as do not match expected column type:</span></span>
+<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 2 cast column in <span style="font-weight: bold;">cohort</span> as do not match the expected column type:</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `cohort_definition_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `subject_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span></code></pre></div>
-<p>The cohort table will be associated with settings and attrition. As
-we didn’t specify these in newCohortTable() above they will have been
-automatically populated. You can access the cohort set of a cohort table
-using the function <code><a href="../reference/settings.html">settings()</a></code></p>
+<p>The cohort table will be associated with settings and attrition.
+Because we did not specify these in <code><a href="../reference/newCohortTable.html">newCohortTable()</a></code> above,
+they will have been automatically populated. You can access the cohort
+set of a cohort table using the function <code><a href="../reference/settings.html">settings()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/settings.html">settings</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span></span>
@@ -154,7 +154,7 @@ using the function <code><a href="../reference/settings.html">settings()</a></co
 <span><span class="co">#&gt;                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>                    1 cohort_1</span></span></code></pre></div>
 <p>Meanwhile, you can access the cohort attrition of a cohort table
-using the function <code><a href="../reference/attrition.html">attrition()</a></code></p>
+using the function <code><a href="../reference/attrition.html">attrition()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/attrition.html">attrition</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 7</span></span></span>
@@ -162,8 +162,8 @@ using the function <code><a href="../reference/attrition.html">attrition()</a></
 <span><span class="co">#&gt;                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>                    1              1               1         1 Initial qualify…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 more variables: excluded_records &lt;int&gt;, excluded_subjects &lt;int&gt;</span></span></span></code></pre></div>
-<p>Cohort attrition table is also used to compute the number of counts
-that each cohort (ie from the last row of the attrition). It can be seen
+<p>The cohort attrition table is also used to compute the counts for
+each cohort (i.e. from the last row of the attrition). These can be seen
 with the function <code><a href="../reference/cohortCount.html">cohortCount()</a></code>.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/cohortCount.html">cohortCount</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span><span class="op">)</span></span>
@@ -173,7 +173,7 @@ with the function <code><a href="../reference/cohortCount.html">cohortCount()</a
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>                    1              1               1</span></span></code></pre></div>
 <p>Note that because the cohort count is taken from the last row of
 attrition, if we make changes to a cohort we should then update
-attrition as we go. We can do this</p>
+attrition as we go. We can do this with:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span> <span class="op">&lt;-</span> <span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">cohort_start_date</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2019-01-01"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -205,7 +205,7 @@ associated with our cohort.</p>
 <span><span class="co">#&gt; Warning: No codelists found for the specified cohorts</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">0 codelists</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>
-<p>We could though associate our cohort with a codelist</p>
+<p>We can also associate our cohort with a codelist.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/newCohortTable.html">newCohortTable</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">cohort</span>,</span>
 <span>  cohortCodelistRef <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -220,21 +220,21 @@ associated with our cohort.</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">1 codelist</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; - disease X (2 codes)</span></span></code></pre></div>
-<p>Each one of the elements that define a cohort table have to fulfill
-certain criteria.</p>
+<p>Each element that defines a cohort table must satisfy certain
+criteria.</p>
 <div class="section level3">
 <h3 id="cohort-set">Cohort Set<a class="anchor" aria-label="anchor" href="#cohort-set"></a>
 </h3>
 <p>A cohort set must be a table with:</p>
 <ul>
-<li><p>Lower case column names.</p></li>
+<li><p>Lowercase column names.</p></li>
 <li><p>At least cohort_definition_id, cohort_name columns
 (<code>cohortColumns("cohort_set")</code>).</p></li>
-<li><p><code>cohort_name</code> it must contain unique cohort names
-(currently they are cased to snake case).</p></li>
-<li><p><code>cohort_definition_id</code> it must contain unique cohort
-ids, all the ids present in table must be present in the cohort set and
-the same ids must be present in cohort attrition.</p></li>
+<li><p><code>cohort_name</code> must contain unique cohort names
+(currently they are converted to snake case).</p></li>
+<li><p><code>cohort_definition_id</code> must contain unique cohort IDs.
+All IDs present in the table must be present in the cohort set and the
+same IDs must be present in cohort attrition.</p></li>
 </ul>
 </div>
 <div class="section level3">
@@ -242,15 +242,15 @@ the same ids must be present in cohort attrition.</p></li>
 </h3>
 <p>A cohort attrition must be a table with:</p>
 <ul>
-<li><p>Lower case column names.</p></li>
+<li><p>Lowercase column names.</p></li>
 <li><p>At least cohort_definition_id, number_records, number_subjects,
 reason_id, reason, excluded_records, excluded_subjects columns
 (<code>cohortColumns("cohort_attrition")</code>).</p></li>
-<li><p><code>cohort_definition_id</code> it must contain cohort ids, all
-the ids present in table must be present in the cohort attrition and the
-same ids must be present in cohort set.</p></li>
-<li><p>There must exist unique pairs of
-<code>cohort_definition_id</code> and <code>reason_id</code>.</p></li>
+<li><p><code>cohort_definition_id</code> must contain cohort IDs. All
+IDs present in the table must be present in the cohort attrition and the
+same IDs must be present in the cohort set.</p></li>
+<li><p>There must be unique pairs of <code>cohort_definition_id</code>
+and <code>reason_id</code>.</p></li>
 </ul>
 </div>
 <div class="section level3">
@@ -258,13 +258,13 @@ same ids must be present in cohort set.</p></li>
 </h3>
 <p>A cohort codelist must be a table with:</p>
 <ul>
-<li><p>Lower case column names.</p></li>
+<li><p>Lowercase column names.</p></li>
 <li><p>At least cohort_definition_id, codelist_name, concept_id,
 codelist_type columns
 (<code>cohortColumns("cohort_codelist")</code>).</p></li>
-<li><p><code>cohort_definition_id</code> it must contain cohort ids, all
-the ids present in table must be present in the cohort attrition and the
-same ids must be present in cohort set.</p></li>
+<li><p><code>cohort_definition_id</code> must contain cohort IDs. All
+IDs present in the table must be present in the cohort attrition and the
+same IDs must be present in the cohort set.</p></li>
 <li><p><code>type</code> must be one of “index event”, “inclusion
 criteria”, and “exit criteria”</p></li>
 </ul>
@@ -276,11 +276,11 @@ criteria”, and “exit criteria”</p></li>
 <ul>
 <li><p>It comes from a cdm_reference (extracted via
 <code>cdm$cohort</code>).</p></li>
-<li><p>It has the same source than this cdm_reference.</p></li>
-<li><p>Lower case column names.</p></li>
+<li><p>It has the same source as this cdm_reference.</p></li>
+<li><p>Lowercase column names.</p></li>
 <li><p>At least cohort_definition_id, subject_id, cohort_start_date,
 cohort_end_date columns (<code>cohortColumns("cohort")</code>).</p></li>
-<li><p>There is no record with <code>NA</code> value in the required
+<li><p>There is no record with an <code>NA</code> value in the required
 columns.</p></li>
 <li><p>There is no record with <code>cohort_start_date</code> after
 <code>cohort_end_date</code>.</p></li>
@@ -301,7 +301,7 @@ included) the individual must be in observation.</p></li>
 </h2>
 <p>You can bind two cohort tables using the method <code><a href="../reference/bind.html">bind()</a></code>.
 You can combine several cohort tables using this method. The only
-constrain is that cohort names must be unique across the different
+constraint is that cohort names must be unique across the different
 cohort tables. You have to provide a name for the new cohort table.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">asthma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -316,7 +316,7 @@ cohort tables. You have to provide a name for the new cohort table.</p>
 <span>    cohort_name <span class="op">=</span> <span class="st">"asthma"</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 2 casted column in <span style="font-weight: bold;">asthma</span> as do not match expected column type:</span></span>
+<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 2 cast column in <span style="font-weight: bold;">asthma</span> as do not match the expected column type:</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `cohort_definition_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `subject_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span></span>
@@ -332,7 +332,7 @@ cohort tables. You have to provide a name for the new cohort table.</p>
 <span>    cohort_name <span class="op">=</span> <span class="st">"copd"</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 2 casted column in <span style="font-weight: bold;">copd</span> as do not match expected column type:</span></span>
+<span><span class="co">#&gt; Warning: <span style="color: #BBBB00;">!</span> 2 cast column in <span style="font-weight: bold;">copd</span> as do not match the expected column type:</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `cohort_definition_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `subject_id` from <span style="color: #0000BB;">numeric</span> to <span style="color: #0000BB;">integer</span></span></span>
 <span></span>
@@ -375,8 +375,8 @@ function: <code><a href="https://rdrr.io/r/base/summary.html" class="external-li
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">exposures</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; `cohort_definition_id` casted to character.</span></span>
-<span><span class="co">#&gt; `cohort_definition_id` casted to character.</span></span>
+<span><span class="co">#&gt; `cohort_definition_id` cast to character.</span></span>
+<span><span class="co">#&gt; `cohort_definition_id` cast to character.</span></span>
 <span><span class="co">#&gt; Rows: 12</span></span>
 <span><span class="co">#&gt; Columns: 13</span></span>
 <span><span class="co">#&gt; $ result_id        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1<span style="color: #949494;">, </span>1<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>2<span style="color: #949494;">, </span>3<span style="color: #949494;">, </span>3<span style="color: #949494;">, </span>3<span style="color: #949494;">, </span>3<span style="color: #949494;">, </span>4<span style="color: #949494;">, </span>4<span style="color: #949494;">, </span>4<span style="color: #949494;">, </span>4</span></span>

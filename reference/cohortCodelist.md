@@ -18,7 +18,7 @@ cohortCodelist(
 
 - cohort:
 
-  A cohort_table object.
+  A `<cohort_table>` object.
 
 - cohortId:
 
@@ -74,17 +74,17 @@ cdm <- cdmFromTables(
   cdmName = "my_example_cdm",
   cohortTables = list("cohort1" = cohort)
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 3 casted column in observation_period as do not match expected column type:
+#> Warning: ! 3 cast column in observation_period as do not match the expected column type:
 #> • `observation_period_id` from numeric to integer
 #> • `person_id` from numeric to integer
 #> • `period_type_concept_id` from numeric to integer
-#> Warning: ! 2 casted column in cohort1 as do not match expected column type:
+#> Warning: ! 2 cast column in cohort1 as do not match the expected column type:
 #> • `cohort_definition_id` from numeric to integer
 #> • `subject_id` from numeric to integer
 cdm$cohort1 <- newCohortTable(table = cdm$cohort1,

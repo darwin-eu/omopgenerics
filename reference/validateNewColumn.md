@@ -5,7 +5,14 @@ Validate a new column of a table
 ## Usage
 
 ``` r
-validateNewColumn(table, column, validation = "warning", call = parent.frame())
+validateNewColumn(
+  table,
+  column,
+  empty = TRUE,
+  validation = "warning",
+  nm = deparse1(substitute(column), backtick = TRUE),
+  call = parent.frame()
+)
 ```
 
 ## Arguments
@@ -18,13 +25,22 @@ validateNewColumn(table, column, validation = "warning", call = parent.frame())
 
   Character vector with the name(s) of the new column(s).
 
+- empty:
+
+  Whether it can be empty.
+
 - validation:
 
-  Whether to throw warning or error.
+  How to perform validation: "error", "warning".
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `column`.
 
 - call:
 
-  Passed to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Value
 

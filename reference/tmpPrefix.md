@@ -1,6 +1,6 @@
-# Create a temporary prefix for tables, that contains a unique prefix that starts with tmp.
+# Create a temporary prefix for tables that contains a unique prefix that starts with tmp.
 
-Create a temporary prefix for tables, that contains a unique prefix that
+Create a temporary prefix for tables that contains a unique prefix that
 starts with tmp.
 
 ## Usage

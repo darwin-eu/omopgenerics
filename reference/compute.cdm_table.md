@@ -32,7 +32,7 @@ compute(
 
 - overwrite:
 
-  Whether to overwrite previously existing table with name same.
+  Whether to overwrite an existing table.
 
 - logPrefix:
 
@@ -40,7 +40,7 @@ compute(
 
 - ...:
 
-  For compatibility (not used).
+  For compatibility; not used.
 
 ## Value
 

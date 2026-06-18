@@ -12,7 +12,7 @@ getCohortName(cohort, cohortId = NULL)
 
 - cohort:
 
-  A cohort_table object.
+  A `<cohort_table>` object.
 
 - cohortId:
 

@@ -10,7 +10,9 @@ always be a codelist.
 validateConceptSetArgument(
   conceptSet,
   cdm = NULL,
+  empty = TRUE,
   validation = "error",
+  nm = deparse1(substitute(conceptSet), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -24,16 +26,26 @@ validateConceptSetArgument(
 
 - cdm:
 
-  A cdm_reference object, needed if a concept_set_expression is
-  provided.
+  A `<cdm_reference>` object. If provided, concept IDs in the resulting
+  codelist will be checked against `cdm$concept`. It is also needed if a
+  concept_set_expression with descendants is provided.
+
+- empty:
+
+  Whether it can be empty.
 
 - validation:
 
   How to perform validation: "error", "warning".
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `conceptSet`.
+
 - call:
 
-  A call argument to pass to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Value
 

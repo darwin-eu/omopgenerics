@@ -12,7 +12,7 @@ dropTable(cdm, name)
 
 - cdm:
 
-  A cdm reference.
+  A `<cdm_reference>` object.
 
 - name:
 

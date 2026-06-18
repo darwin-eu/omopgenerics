@@ -13,7 +13,9 @@ assertTable(
   columns = character(),
   allowExtraColumns = TRUE,
   null = FALSE,
+  empty = TRUE,
   unique = FALSE,
+  nm = deparse1(substitute(x), backtick = TRUE),
   call = parent.frame(),
   msg = NULL
 )
@@ -27,7 +29,7 @@ assertTable(
 
 - class:
 
-  A class that the table must have: "tbl", "data.fram", "tbl_sql", ...
+  A class that the table must have: "tbl", "data.frame", "tbl_sql", ...
 
 - numberColumns:
 
@@ -49,13 +51,22 @@ assertTable(
 
   Whether it can be NULL.
 
+- empty:
+
+  Whether it can be empty.
+
 - unique:
 
   Whether it has to contain unique rows.
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
+
 - call:
 
-  Call argument that will be passed to `cli` error message.
+  Call argument that will be passed to `cli`.
 
 - msg:
 

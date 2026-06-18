@@ -5,18 +5,18 @@
 ## Usage
 
 ``` r
-createIndexes(cdm, name = NULL)
+createIndexes(x, name = NULL)
 ```
 
 ## Arguments
 
-- cdm:
+- x:
 
-  A cdm_reference object.
+  A `<cdm_reference>` or `<cdm_table>` object.
 
 - name:
 
-  Name(s) of the cdm tables.
+  Name(s) of the CDM table(s).
 
 ## Value
 

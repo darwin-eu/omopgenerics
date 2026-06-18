@@ -12,7 +12,7 @@ exportConceptSetExpression(x, path, type = "json")
 
 - x:
 
-  A concept set expression
+  A `<concept_set_expression>` object.
 
 - path:
 

@@ -12,7 +12,7 @@ newCdmSource(src, sourceType)
 
 - src:
 
-  Source to a cdm object.
+  Source for a cdm object.
 
 - sourceType:
 

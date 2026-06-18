@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Suppression of a summarised_result obejct • omopgenerics</title>
+<title>Suppression of a summarised_result object • omopgenerics</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Suppression of a summarised_result obejct">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Suppression of a summarised_result object">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,11 +41,11 @@
     <li><a class="dropdown-item" href="../articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
-    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result obejct</a></li>
+    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result object</a></li>
     <li><a class="dropdown-item" href="../articles/logging.html">Logging with omopgenerics</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
-    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgenerics</a></li>
     <li><a class="dropdown-item" href="../articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul>
 </li>
@@ -69,10 +69,10 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Suppression of a summarised_result obejct</h1>
+      <h1>Suppression of a summarised_result object</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.7/vignettes/suppression.Rmd" class="external-link"><code>vignettes/suppression.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/vignettes/suppression.Rmd" class="external-link"><code>vignettes/suppression.Rmd</code></a></small>
       <div class="d-none name"><code>suppression.Rmd</code></div>
     </div>
 
@@ -81,59 +81,58 @@
 <div class="section level2">
 <h2 id="minimum-cell-count-suppression">Minimum cell count suppression<a class="anchor" aria-label="anchor" href="#minimum-cell-count-suppression"></a>
 </h2>
-<p>Minimum cell count suppression is very important in studies as it is
-essential step to ensure no reidentification. The min cell count
-suppression can vary source to source, but in general a minimum cell
-count of 5 is fixed. In this vignette we explain how the suppression
+<p>Minimum cell count suppression is very important in studies, as it is
+an essential step to reduce reidentification risk. The minimum cell
+count can vary from source to source, but in general a minimum cell
+count of 5 is used. In this vignette we explain how the suppression
 process works for <code>summarised_result</code> objects.</p>
 <div class="section level3">
 <h3 id="how-suppression-works">How suppression works<a class="anchor" aria-label="anchor" href="#how-suppression-works"></a>
 </h3>
-<p>In general a record is suppressed if 3 conditions are met:</p>
+<p>In general, a record is suppressed if three conditions are met:</p>
 <ol style="list-style-type: decimal">
 <li>The <code>estimate_name</code> field contains the word ‘count’ (e.g
 ‘count’, ‘outcome_count’, ‘count_of_individuals’, …).</li>
 <li>The <code>estimate_type</code> field is either <em>numeric</em> or
 <em>integer</em>.</li>
-<li>The <code>estimate_value</code> numeric value is smaller than
-<em>minCellCount</em> and bigger than 0.</li>
+<li>The <code>estimate_value</code> numeric value is less than
+<em>minCellCount</em> and greater than 0.</li>
 </ol>
-<p>This simple rule determines the suppression at record level. The
-suppressed record is not removed from the results, instead the
+<p>This simple rule determines record-level suppression. The suppressed
+record is not removed from the results; instead, the
 <code>estimate_value</code> field is populated as
 ‘&lt;{minCellCount}’.</p>
-<p>Once one record is suppressed this can trigger suppression of other
-<em>linked</em> estimates. This suppression is done at different level
+<p>Once one record is suppressed, this can trigger suppression of other
+<em>linked</em> estimates. This suppression is done at different levels
 and affects different rows of the result object:</p>
 <ul>
-<li><p><strong>Suppression at group level</strong>: if in the suppressed
-estimate the field <code>variable_name</code> is populated with the word
-“number records” or “number subjects” (it is not case sensitive) then
-the whole group of records will be suppressed. Note a group of records
+<li><p><strong>Suppression at group level</strong>: if, in the
+suppressed estimate, the field <code>variable_name</code> is populated
+with “number records” or “number subjects” (case-insensitive), then the
+whole group of records will be suppressed. Note that a group of records
 is a set of rows with the same: <code>result_id</code>,
 <code>cdm_name</code>, <code>group_name</code>,
 <code>group_level</code>, <code>strata_name</code>,
 <code>strata_level</code>, <code>additional_name</code>,
-<code>additional_level</code>. This level of suppression is for example
-to suppress all the demographics of a cohort of individuals that has
-less than the minimum amount of records required. For developers note
-that creating a row with <code>variable_name</code> = “number
-records/subjects” can have a big impact on the suppression, but at the
-same point it gives you the ability to link a group of estimates and
-suppress all of them at the same point.</p></li>
-<li><p><strong>Suppression at variable_name level</strong>: if in the
-suppressed estimate the field <code>estimate_name</code> is populated
-with either “count”, “denominator_count”, “outcome_count”,
-“record_count” or “subject_count” then the suppression is done at the
-variable level, meaning that all the estimates with the same:
-<code>result_id</code>, <code>cdm_name</code>, <code>group_name</code>,
+<code>additional_level</code>. This level of suppression can be used to
+suppress all demographics for a cohort of individuals that has fewer
+than the minimum number of records required. For developers, creating a
+row with <code>variable_name</code> = “number records/subjects” can have
+a big impact on suppression, but it also gives you the ability to link a
+group of estimates and suppress all of them at the same time.</p></li>
+<li><p><strong>Suppression at variable_name level</strong>: if, in the
+suppressed estimate, the field <code>estimate_name</code> is populated
+with “count”, “denominator_count”, “outcome_count”, “record_count” or
+“subject_count”, then suppression is done at the variable level. This
+means that all estimates with the same: <code>result_id</code>,
+<code>cdm_name</code>, <code>group_name</code>,
 <code>group_level</code>, <code>strata_name</code>,
 <code>strata_level</code>, <code>additional_name</code>,
 <code>additional_level</code> and <code>variable_name</code> will be
-suppressed. This level of suppression is for example to suppress the
-statistics associated with an outcome count for example, but not do not
-affect the different outcomes for example. For developers use one of
-this key words to link the estimates at the variable level.</p></li>
+suppressed. This level of suppression can be used to suppress statistics
+associated with an outcome count without affecting different outcomes.
+For developers, use one of these keywords to link estimates at the
+variable level.</p></li>
 <li><p><strong>Suppression of percentages</strong>: if an estimate is
 suppressed any estimate in the same level (same <code>result_id</code>,
 <code>cdm_name</code>, <code>group_name</code>,
@@ -214,10 +213,10 @@ object:</p>
 <span><span class="co">#&gt; $ additional      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> ""</span></span>
 <span><span class="co">#&gt; $ min_cell_count  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "7"</span></span>
 <span><span class="co">#&gt; $ study           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "my_characterisation_study"</span></span></code></pre></div>
-<p>As a result object can be partially suppressed (e.g. binding an
+<p>Because a result object can be partially suppressed (e.g. binding an
 object that has already been suppressed with another one that is not
-suppressed) and settings of results objects can be long we also have a
-utility function to check if an object has been suppressed or not, <a href="https://darwin-eu.github.io/omopgenerics/reference/isResultSuppressed.html"><code>isResultSuppressed()</code></a>:</p>
+suppressed), and settings of results objects can be long, we also have a
+utility function to check whether an object has been suppressed: <a href="https://darwin-eu.github.io/omopgenerics/reference/isResultSuppressed.html"><code>isResultSuppressed()</code></a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/isResultSuppressed.html">isResultSuppressed</a></span><span class="op">(</span>result <span class="op">=</span> <span class="va">result</span>, minCellCount <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: <span style="color: #BB0000;">✖</span> 1 set (1 row) not suppressed.</span></span>

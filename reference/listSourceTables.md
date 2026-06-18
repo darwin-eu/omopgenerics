@@ -1,6 +1,6 @@
-# List tables that can be accessed though a cdm object.
+# List tables that can be accessed through a cdm object.
 
-List tables that can be accessed though a cdm object.
+List tables that can be accessed through a cdm object.
 
 ## Usage
 
@@ -12,7 +12,7 @@ listSourceTables(cdm)
 
 - cdm:
 
-  A cdm reference or the source of a cdm reference.
+  A `<cdm_reference>` object.
 
 ## Value
 

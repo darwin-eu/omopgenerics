@@ -7,7 +7,13 @@ notation is used.
 ## Usage
 
 ``` r
-validateNameStyle(nameStyle, ..., call = parent.frame())
+validateNameStyle(
+  nameStyle,
+  ...,
+  empty = TRUE,
+  nm = deparse1(substitute(nameStyle), backtick = TRUE),
+  call = parent.frame()
+)
 ```
 
 ## Arguments
@@ -22,9 +28,18 @@ validateNameStyle(nameStyle, ..., call = parent.frame())
 
   Elements to be included.
 
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `nameStyle`.
+
 - call:
 
-  Passed to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Value
 

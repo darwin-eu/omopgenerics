@@ -1,6 +1,6 @@
-# Assign an table to a cdm reference.
+# Assign a table to a cdm reference.
 
-Assign an table to a cdm reference.
+Assign a table to a cdm reference.
 
 ## Usage
 
@@ -13,15 +13,15 @@ cdm$name <- value
 
 - cdm:
 
-  A cdm reference.
+  A `<cdm_reference>` object.
 
 - name:
 
-  Name where to assign the new table.
+  Name where the new table will be assigned.
 
 - value:
 
-  Table with the same source than the cdm object.
+  Table with the same source as the `cdm_reference` object.
 
 ## Value
 
@@ -48,13 +48,13 @@ cdm <- cdmFromTables(
   ),
   cdmName = "mock"
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 1 casted column in observation_period as do not match expected column type:
+#> Warning: ! 1 cast column in observation_period as do not match the expected column type:
 #> • `period_type_concept_id` from numeric to integer
 
 cdm$person

@@ -1,6 +1,6 @@
-# Assert that an object is a character and fulfill certain conditions.
+# Assert that an object is a character and satisfies certain conditions.
 
-Assert that an object is a character and fulfill certain conditions.
+Assert that an object is a character and satisfies certain conditions.
 
 ## Usage
 
@@ -10,9 +10,11 @@ assertCharacter(
   length = NULL,
   na = FALSE,
   null = FALSE,
+  empty = TRUE,
   unique = FALSE,
   named = FALSE,
   minNumCharacter = 0,
+  nm = deparse1(substitute(x), backtick = TRUE),
   call = parent.frame(),
   msg = NULL
 )
@@ -36,6 +38,10 @@ assertCharacter(
 
   Whether it can be NULL.
 
+- empty:
+
+  Whether it can be empty.
+
 - unique:
 
   Whether it has to contain unique elements.
@@ -48,9 +54,14 @@ assertCharacter(
 
   Minimum number of characters that all elements must have.
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
+
 - call:
 
-  Call argument that will be passed to `cli` error message.
+  Call argument that will be passed to `cli`.
 
 - msg:
 

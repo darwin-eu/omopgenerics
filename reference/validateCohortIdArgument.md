@@ -1,8 +1,8 @@
-# Validate cohortId argument. CohortId can either be a cohort_definition_id value, a cohort_name or a tidyselect expression referinc to cohort_names. If you want to support tidyselect expressions please use the function as: `validateCohortIdArgument({{cohortId}}, cohort)`.
+# Validate cohortId argument. CohortId can either be a cohort_definition_id value, a cohort_name or a tidyselect expression referring to cohort_names. If you want to support tidyselect expressions please use the function as: `validateCohortIdArgument({{cohortId}}, cohort)`.
 
 Validate cohortId argument. CohortId can either be a
 cohort_definition_id value, a cohort_name or a tidyselect expression
-referinc to cohort_names. If you want to support tidyselect expressions
+referring to cohort_names. If you want to support tidyselect expressions
 please use the function as:
 `validateCohortIdArgument({{cohortId}}, cohort)`.
 
@@ -13,7 +13,9 @@ validateCohortIdArgument(
   cohortId,
   cohort,
   null = TRUE,
+  empty = TRUE,
   validation = "error",
+  nm = deparse1(substitute(cohortId), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -26,19 +28,28 @@ validateCohortIdArgument(
 
 - cohort:
 
-  A cohort_table object.
+  A `<cohort_table>` object.
 
 - null:
 
   Whether `NULL` is accepted. If NULL all `cohortId` will be returned.
 
+- empty:
+
+  Whether it can be empty.
+
 - validation:
 
   How to perform validation: "error", "warning".
 
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `cohortId`.
+
 - call:
 
-  A call argument to pass to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Examples
 
@@ -66,13 +77,13 @@ cdm <- cdmFromTables(
   ),
   cdmName = "mock"
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 1 casted column in observation_period as do not match expected column type:
+#> Warning: ! 1 cast column in observation_period as do not match the expected column type:
 #> • `period_type_concept_id` from numeric to integer
 
 validateCohortIdArgument(NULL, cdm$cohort)
@@ -81,6 +92,5 @@ validateCohortIdArgument(1L, cdm$cohort)
 #> [1] 1
 validateCohortIdArgument(2L, cdm$cohort, validation = "warning")
 #> Warning: ! cohort definition id: 2 not defined in settings.
-#> Warning: ! cohortId is empty.
 #> integer(0)
 ```

@@ -12,7 +12,7 @@ insertCdmTo(cdm, to)
 
 - cdm:
 
-  A cdm_reference, if not local it will be collected into memory.
+  A `<cdm_reference>` object.
 
 - to:
 
@@ -21,3 +21,8 @@ insertCdmTo(cdm, to)
 ## Value
 
 The first cdm_reference object inserted to the source.
+
+## Details
+
+If `cdm` is not local, it will be collected into memory before
+insertion.

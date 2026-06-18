@@ -1,13 +1,20 @@
-# Validate a window argument. It must be a list of two elements (window start and window end), both must be integerish and window start must be lower or equal than window end.
+# Validate a window argument. It must be a list of two elements (window start and window end), both must be numeric, integerish by default, and window start must be lower or equal than window end.
 
 Validate a window argument. It must be a list of two elements (window
-start and window end), both must be integerish and window start must be
-lower or equal than window end.
+start and window end), both must be numeric, integerish by default, and
+window start must be lower or equal than window end.
 
 ## Usage
 
 ``` r
-validateWindowArgument(window, snakeCase = TRUE, call = parent.frame())
+validateWindowArgument(
+  window,
+  snakeCase = TRUE,
+  integerish = TRUE,
+  empty = TRUE,
+  nm = deparse1(substitute(window), backtick = TRUE),
+  call = parent.frame()
+)
 ```
 
 ## Arguments
@@ -20,9 +27,22 @@ validateWindowArgument(window, snakeCase = TRUE, call = parent.frame())
 
   return default window name in snake case if TRUE
 
+- integerish:
+
+  Whether window values must be integerish.
+
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `window`.
+
 - call:
 
-  A call argument to pass to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Value
 

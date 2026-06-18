@@ -1,6 +1,6 @@
-# Read a table from the cdm_source and add it to to the cdm.
+# Read a table from the cdm_source and add it to the cdm.
 
-Read a table from the cdm_source and add it to to the cdm.
+Read a table from the cdm_source and add it to the cdm.
 
 ## Usage
 
@@ -12,11 +12,12 @@ readSourceTable(cdm, name)
 
 - cdm:
 
-  A cdm reference.
+  A `<cdm_reference>` or `<cdm_table>` object.
 
 - name:
 
-  Name of a table to read in the cdm_source space.
+  Name of a table to read in the cdm_source space. Tidyselect statements
+  are supported.
 
 ## Value
 

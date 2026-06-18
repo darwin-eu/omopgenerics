@@ -12,11 +12,11 @@ newAchillesTable(table, version = "5.3", cast = FALSE)
 
 - table:
 
-  A cdm_table.
+  A `<cdm_table>` object.
 
 - version:
 
-  version of the cdm.
+  Version of the OMOP Common Data Model.
 
 - cast:
 

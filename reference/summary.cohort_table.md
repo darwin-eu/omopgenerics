@@ -1,6 +1,6 @@
-# Summary a generated cohort set
+# Summarise a generated cohort set
 
-Summary a generated cohort set
+Summarise a generated cohort set
 
 ## Usage
 
@@ -13,11 +13,11 @@ summary(object, ...)
 
 - object:
 
-  A generated cohort set object.
+  A cdm source object.
 
 - ...:
 
-  For compatibility (not used).
+  For compatibility; not used.
 
 ## Value
 
@@ -48,23 +48,23 @@ cdm <- cdmFromTables(
     cohort_end_date = as.Date("2010-01-05")
   ))
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 3 casted column in observation_period as do not match expected column type:
+#> Warning: ! 3 cast column in observation_period as do not match the expected column type:
 #> • `observation_period_id` from numeric to integer
 #> • `person_id` from numeric to integer
 #> • `period_type_concept_id` from numeric to integer
-#> Warning: ! 2 casted column in cohort1 as do not match expected column type:
+#> Warning: ! 2 cast column in cohort1 as do not match the expected column type:
 #> • `cohort_definition_id` from numeric to integer
 #> • `subject_id` from numeric to integer
 
 summary(cdm$cohort1)
-#> `cohort_definition_id` casted to character.
-#> `cohort_definition_id` casted to character.
+#> `cohort_definition_id` cast to character.
+#> `cohort_definition_id` cast to character.
 #> # A tibble: 6 × 13
 #>   result_id cdm_name group_name  group_level strata_name strata_level           
 #>       <int> <chr>    <chr>       <chr>       <chr>       <chr>                  

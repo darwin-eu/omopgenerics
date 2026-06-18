@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,11 +41,11 @@
     <li><a class="dropdown-item" href="../articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
-    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result obejct</a></li>
+    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result object</a></li>
     <li><a class="dropdown-item" href="../articles/logging.html">Logging with omopgenerics</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
-    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgenerics</a></li>
     <li><a class="dropdown-item" href="../articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul>
 </li>
@@ -72,7 +72,7 @@
       <h1>The cdm reference</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.7/vignettes/cdm_reference.Rmd" class="external-link"><code>vignettes/cdm_reference.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/vignettes/cdm_reference.Rmd" class="external-link"><code>vignettes/cdm_reference.Rmd</code></a></small>
       <div class="d-none name"><code>cdm_reference.Rmd</code></div>
     </div>
 
@@ -80,13 +80,13 @@
     
 <p>A cdm reference is a single R object that represents OMOP CDM data.
 The tables in the cdm reference may be in a database, but a cdm
-reference may also contain OMOP CDM tables that are in dataframes or
-tibbles, or in arrow. In the latter cases the cdm reference would
+reference may also contain OMOP CDM tables that are in data frames,
+tibbles, or Arrow. In the latter cases, the cdm reference would
 typically be a subset of an original cdm reference that has been derived
 as part of a particular analysis.</p>
-<p>omopgenerics provides a general class definition a cdm reference and
-a dataframe/ tibble implementation. For creating a cdm reference using a
-database, see the CDMConnector package (<a href="https://darwin-eu.github.io/CDMConnector/" class="external-link uri">https://darwin-eu.github.io/CDMConnector/</a>).</p>
+<p>omopgenerics provides a general class definition for a cdm reference
+and a data frame/tibble implementation. For creating a cdm reference
+using a database, see the CDMConnector package (<a href="https://darwin-eu.github.io/CDMConnector/" class="external-link uri">https://darwin-eu.github.io/CDMConnector/</a>).</p>
 <p>A cdm reference is a list of tables. These tables come in three
 types: standard OMOP CDM tables, cohort tables, and other auxiliary
 tables.</p>
@@ -94,7 +94,7 @@ tables.</p>
 <h3 id="standard-omop-cdm-tables">1) Standard OMOP CDM tables<a class="anchor" aria-label="anchor" href="#standard-omop-cdm-tables"></a>
 </h3>
 <p>There are multiple versions of the OMOP CDM. The list of tables
-included in version 5.3 are as follows.</p>
+included in version 5.3 is as follows.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://darwin-eu.github.io/omopgenerics/">omopgenerics</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -117,7 +117,7 @@ included in version 5.3 are as follows.</p>
 <span><span class="co">#&gt; [34] "source_to_concept_map" "drug_strength"         "cohort_definition"    </span></span>
 <span><span class="co">#&gt; [37] "attribute_definition"  "concept_recommended"</span></span></code></pre></div>
 <p>The standard OMOP tables have required fields. We can check the
-required column of the person table, for example, like so</p>
+required columns of the person table, for example, like so:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/omopColumns.html">omopColumns</a></span><span class="op">(</span>table <span class="op">=</span> <span class="st">"person"</span>, version <span class="op">=</span> <span class="st">"5.3"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "person_id"                   "gender_concept_id"          </span></span>
@@ -139,12 +139,12 @@ required column of the person table, for example, like so</p>
 <h3 id="cohort-tables">2) Cohort tables<a class="anchor" aria-label="anchor" href="#cohort-tables"></a>
 </h3>
 <p>Studies using the OMOP CDM often create study-specific cohort tables.
-We also consider these as part of the cdm reference once created. Each
+We also consider these part of the cdm reference once created. Each
 cohort table is associated with a specific class of its own, a
 <code>generatedCohortSet</code>, which is described more in a subsequent
 vignette. As with the standard OMOP CDM tables, cohort tables are
-expected to contain a specific set of fields (with no restriction placed
-on whether they include additional fields or not).</p>
+expected to contain a specific set of fields, and they may include
+additional fields.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/cohortColumns.html">cohortColumns</a></span><span class="op">(</span>table <span class="op">=</span> <span class="st">"cohort"</span>, version <span class="op">=</span> <span class="st">"5.3"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "cohort_definition_id" "subject_id"           "cohort_start_date"   </span></span>
@@ -183,33 +183,32 @@ database. The following tables are created with the given columns.</p>
 </h3>
 <p>Beyond the standard OMOP CDM tables and cohort tables, additional
 tables can be added to the cdm reference. These tables could, for
-example, be OMOP extension/ expansion tables or extra tables containing
-data required to perform a study but not normally included as part of
-the OMOP CDM. These tables could contain any set of fields.</p>
+example, be OMOP extension or expansion tables, or extra tables
+containing data required to perform a study but not normally included as
+part of the OMOP CDM. These tables could contain any set of fields.</p>
 </div>
 <div class="section level2">
 <h2 id="general-rules-for-a-cdm-reference">General rules for a cdm reference<a class="anchor" aria-label="anchor" href="#general-rules-for-a-cdm-reference"></a>
 </h2>
-<p>Any table to be part of a cdm object has to fulfill the following
+<p>Any table that is part of a cdm object has to satisfy the following
 conditions:</p>
 <ul>
 <li><p>All tables must share a common source (that is, a mix of tables
 in the database and in-memory is not permitted).</p></li>
-<li><p>The name of the tables must be lower snake_case.</p></li>
-<li><p>The name of the column names of each table must be lower
-snake_case.</p></li>
+<li><p>Table names must be lowercase snake_case.</p></li>
+<li><p>Column names in each table must be lowercase snake_case.</p></li>
 <li><p>The <code>person</code> and <code>observation_period</code>
 tables must be present.</p></li>
-<li><p>The cdm reference must have an attribute “cdmName” that gives the
-name associated with the data contained there within.</p></li>
+<li><p>The cdm reference must have a “cdmName” attribute that gives the
+name associated with the data contained within it.</p></li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="export-metadata-about-the-cdm-reference">Export metadata about the cdm reference<a class="anchor" aria-label="anchor" href="#export-metadata-about-the-cdm-reference"></a>
 </h2>
 <p>When the export method is applied to a cdm reference, metadata about
-that cdm will be written to a csv. The csv contains the following
-columns</p>
+that cdm will be written to a CSV file. The CSV file contains the
+following columns:</p>
 <table class="table">
 <colgroup>
 <col width="23%">

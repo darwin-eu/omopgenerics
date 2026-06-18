@@ -1,6 +1,6 @@
-# Summary a cdm reference
+# Summarise a cdm reference
 
-Summary a cdm reference
+Summarise a cdm reference
 
 ## Usage
 
@@ -17,7 +17,7 @@ summary(object, ...)
 
 - ...:
 
-  For compatibility (not used).
+  For compatibility; not used.
 
 ## Value
 
@@ -43,13 +43,13 @@ cdm <- cdmFromTables(
   tables = list("person" = person, "observation_period" = observation_period),
   cdmName = "test"
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 3 casted column in observation_period as do not match expected column type:
+#> Warning: ! 3 cast column in observation_period as do not match the expected column type:
 #> • `observation_period_id` from numeric to integer
 #> • `person_id` from numeric to integer
 #> • `period_type_concept_id` from numeric to integer

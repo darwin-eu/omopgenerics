@@ -13,11 +13,11 @@ print(x, ...)
 
 - x:
 
-  A concept set expression
+  A `<concept_set_expression>` object.
 
 - ...:
 
-  Included for compatibility with generic. Not used.
+  For compatibility; not used.
 
 ## Value
 

@@ -2,27 +2,26 @@
 
 ## Logging
 
-Logging is a common practice in studies, specially when sharing code.
-Logging can be useful to check timings or record error messages. There
-exist multiple packages in R that allow you to record these log
-messages. For example the `logger` package is quite useful.
+Logging is a common practice in studies, especially when sharing code.
+Logging can be useful for checking timings or recording error messages.
+There are multiple R packages that allow you to record these log
+messages. For example, the `logger` package is quite useful.
 
 ### Logging with omopgenerics
 
-`omopgenerics` does not want to replace any of these packages, we just
-provide simple functionality to log messages. In the future we might
-consider building this on top of one of the existing log packages, but
-for the moment we have these three simple functions:
+`omopgenerics` does not aim to replace any of these packages; it just
+provides simple functionality to log messages. In the future, we might
+consider building this on top of one of the existing logging packages,
+but for the moment we have these three simple functions:
 
 - [`createLogFile()`](https://darwin-eu.github.io/omopgenerics/reference/createLogFile.md)
-  It is used to create the log file.
+  creates the log file.
 - [`logMessage()`](https://darwin-eu.github.io/omopgenerics/reference/logMessage.md)
-  It is used to record the messages that we want in the log file, note
-  those messages will also be displayed in the console. If `logFile`
-  does not exist the message is only displayed in the console.
+  records messages in the log file. These messages will also be
+  displayed in the console. If `logFile` does not exist, the message is
+  only displayed in the console.
 - [`summariseLogFile()`](https://darwin-eu.github.io/omopgenerics/reference/summariseLogFile.md)
-  It is used to read the log file and format it into a
-  `summarised_result` object.
+  reads the log file and formats it into a `summarised_result` object.
 
 ### Example
 
@@ -34,29 +33,29 @@ library(omopgenerics, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmpk3V6AX/log_2026_06_17_20_23_4025105376453d.txt.
-#> [2026-06-17 20:23:40] - Log file created
+#> ℹ Creating log file: /tmp/RtmpgDIbuP/log_2026_06_18_08_08_0825db6e4d73d6.txt.
+#> [2026-06-18 08:08:08] - Log file created
 
 # study
 logMessage("Generating random numbers")
-#> [2026-06-17 20:23:40] - Generating random numbers
+#> [2026-06-18 08:08:08] - Generating random numbers
 x <- runif(1e6)
 
 logMessage("Calculating the sum")
-#> [2026-06-17 20:23:40] - Calculating the sum
+#> [2026-06-18 08:08:08] - Calculating the sum
 result <- sum(x)
 
 # export logger to a `summarised_result`
 log <- summariseLogFile()
-#> [2026-06-17 20:23:40] - Exporting log file
+#> [2026-06-18 08:08:08] - Exporting log file
 
 # content of the log file
 readLines(getOption("omopgenerics.logFile")) |>
   cat(sep = "\n")
-#> [2026-06-17 20:23:40] - Log file created
-#> [2026-06-17 20:23:40] - Generating random numbers
-#> [2026-06-17 20:23:40] - Calculating the sum
-#> [2026-06-17 20:23:40] - Exporting log file
+#> [2026-06-18 08:08:08] - Log file created
+#> [2026-06-18 08:08:08] - Generating random numbers
+#> [2026-06-18 08:08:08] - Calculating the sum
+#> [2026-06-18 08:08:08] - Exporting log file
 
 # `summarised_result` object
 log
@@ -79,7 +78,7 @@ settings(log)
 #> # A tibble: 1 × 8
 #>   result_id result_type     package_name package_version group strata additional
 #>       <int> <chr>           <chr>        <chr>           <chr> <chr>  <chr>     
-#> 1         1 summarise_log_… omopgenerics 1.3.7           ""    log_id ""        
+#> 1         1 summarise_log_… omopgenerics 1.4.0           ""    log_id ""        
 #> # ℹ 1 more variable: min_cell_count <chr>
 
 # tidy version of the `summarised_result`
@@ -93,15 +92,15 @@ tidy(log)
 #> 4 unknown  4      Exporting log file       NA             2026-06-…           NA
 ```
 
-Note that if the logFile is not created the
+Note that if the `logFile` is not created, the
 [`logMessage()`](https://darwin-eu.github.io/omopgenerics/reference/logMessage.md)
 function only displays the message in the console.
 
 ### `exportSummarisedResult`
 
-The
+By default,
 [`exportSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.md)
-exports by default the logger if there is one. See example code:
+exports the logger if there is one. See the example code:
 
 ``` r
 
@@ -110,17 +109,17 @@ library(tidyr, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmpk3V6AX/log_2026_06_17_20_23_4125106c9e2f7.txt.
-#> [2026-06-17 20:23:41] - Log file created
+#> ℹ Creating log file: /tmp/RtmpgDIbuP/log_2026_06_18_08_08_0925dbc7eca65.txt.
+#> [2026-06-18 08:08:09] - Log file created
 
 # start analysis
-logMessage("Deffining toy data")
-#> [2026-06-17 20:23:41] - Deffining toy data
+logMessage("Defining toy data")
+#> [2026-06-18 08:08:09] - Defining toy data
 n <- 1e5
 x <- tibble(person_id = seq_len(n), age = rnorm(n = n, mean = 55, sd = 20))
 
 logMessage("Summarise toy data")
-#> [2026-06-17 20:23:41] - Summarise toy data
+#> [2026-06-18 08:08:09] - Summarise toy data
 res <- x |>
   summarise(
     `number subjects_count` = n(),
@@ -150,25 +149,24 @@ res <- x |>
 #> `result_type`, `package_name`, and `package_version` added to
 #> settings.
 
-# res is a summarised_result object that we can export using the `exportSummarisedResult`
+# res is a summarised_result object that we can export using `exportSummarisedResult()`
 tempDir <- tempdir()
 exportSummarisedResult(res, path = tempDir)
-#> [2026-06-17 20:23:41] - Exporting log file
+#> [2026-06-18 08:08:09] - Exporting log file
 ```
 
 [`exportSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.md)
-also exported the log file, let’s see it. Let’s start importing the
-exported `summarised_result` object:
+also exported the log file. Let’s inspect it by importing the exported
+`summarised_result` object:
 
 ``` r
 
 result <- importSummarisedResult(tempDir)
-#> Reading file: /tmp/Rtmpk3V6AX/results_mock data_2026_06_17.csv.
-#> Converting to summarised_result:
-#> /tmp/Rtmpk3V6AX/results_mock data_2026_06_17.csv.
+#> Reading file: results_mock data_2026_06_18.csv.
+#> Converting to summarised_result: results_mock data_2026_06_18.
 ```
 
-We can see that the log file is exported see
+We can see that the log file is exported by looking for
 `result_type = "summarise_log_file"`:
 
 ``` r
@@ -181,7 +179,7 @@ result |>
 #> $ result_id       <int> 1, 2
 #> $ result_type     <chr> "", "summarise_log_file"
 #> $ package_name    <chr> "", "omopgenerics"
-#> $ package_version <chr> "", "1.3.7"
+#> $ package_version <chr> "", "1.4.0"
 #> $ group           <chr> "", ""
 #> $ strata          <chr> "", "log_id"
 #> $ additional      <chr> "", ""
@@ -199,8 +197,8 @@ result |>
 #> # A tibble: 4 × 6
 #>   cdm_name  log_id variable_name      variable_level date_time      elapsed_time
 #>   <chr>     <chr>  <chr>              <chr>          <chr>                 <int>
-#> 1 mock data 1      Log file created   NA             2026-06-17 20…            0
-#> 2 mock data 2      Deffining toy data NA             2026-06-17 20…            0
-#> 3 mock data 3      Summarise toy data NA             2026-06-17 20…            0
-#> 4 mock data 4      Exporting log file NA             2026-06-17 20…           NA
+#> 1 mock data 1      Log file created   NA             2026-06-18 08…            0
+#> 2 mock data 2      Defining toy data  NA             2026-06-18 08…            0
+#> 3 mock data 3      Summarise toy data NA             2026-06-18 08…            0
+#> 4 mock data 4      Exporting log file NA             2026-06-18 08…           NA
 ```

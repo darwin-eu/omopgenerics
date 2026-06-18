@@ -25,8 +25,8 @@ filterStrata(result, ...)
 
 ## Value
 
-A `<summarised_result>` object with only the rows that fulfill the
-required specified strata.
+A `<summarised_result>` object with only the rows that satisfy the
+specified strata.
 
 ## Examples
 

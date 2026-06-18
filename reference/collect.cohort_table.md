@@ -17,7 +17,7 @@ collect(x, ...)
 
 - ...:
 
-  Not used (for compatibility).
+  For compatibility; not used.
 
 ## Value
 

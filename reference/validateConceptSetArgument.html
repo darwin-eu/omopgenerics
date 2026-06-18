@@ -11,7 +11,7 @@ codelist."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,11 +30,11 @@ codelist."></head><body>
     <li><a class="dropdown-item" href="../articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
-    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result obejct</a></li>
+    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result object</a></li>
     <li><a class="dropdown-item" href="../articles/logging.html">Logging with omopgenerics</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
-    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgenerics</a></li>
     <li><a class="dropdown-item" href="../articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -50,7 +50,7 @@ codelist."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Validate conceptSet argument. It can either be a list, a codelist, a concept set expression or a codelist with details. The output will always be a codelist.</h1>
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.7/R/validate.R" class="external-link"><code>R/validate.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/R/validate.R" class="external-link"><code>R/validate.R</code></a></small>
       <div class="d-none name"><code>validateConceptSetArgument.Rd</code></div>
     </div>
 
@@ -65,7 +65,9 @@ codelist.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">validateConceptSetArgument</span><span class="op">(</span></span>
 <span>  <span class="va">conceptSet</span>,</span>
 <span>  cdm <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  empty <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  validation <span class="op">=</span> <span class="st">"error"</span>,</span>
+<span>  nm <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/deparse.html" class="external-link">deparse1</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute</a></span><span class="op">(</span><span class="va">conceptSet</span><span class="op">)</span>, backtick <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>  call <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -80,16 +82,26 @@ codelist_with_details or concept_set_expression object.</p></dd>
 
 
 <dt id="arg-cdm">cdm<a class="anchor" aria-label="anchor" href="#arg-cdm"></a></dt>
-<dd><p>A cdm_reference object, needed if a concept_set_expression is
-provided.</p></dd>
+<dd><p>A <code>&lt;cdm_reference&gt;</code> object. If provided, concept IDs in the
+resulting codelist will be checked against <code>cdm$concept</code>. It is also needed
+if a concept_set_expression with descendants is provided.</p></dd>
+
+
+<dt id="arg-empty">empty<a class="anchor" aria-label="anchor" href="#arg-empty"></a></dt>
+<dd><p>Whether it can be empty.</p></dd>
 
 
 <dt id="arg-validation">validation<a class="anchor" aria-label="anchor" href="#arg-validation"></a></dt>
 <dd><p>How to perform validation: "error", "warning".</p></dd>
 
 
+<dt id="arg-nm">nm<a class="anchor" aria-label="anchor" href="#arg-nm"></a></dt>
+<dd><p>Name to use in error messages. Defaults to the expression supplied
+to <code>conceptSet</code>.</p></dd>
+
+
 <dt id="arg-call">call<a class="anchor" aria-label="anchor" href="#arg-call"></a></dt>
-<dd><p>A call argument to pass to cli functions.</p></dd>
+<dd><p>Call argument passed to <code>cli</code> functions.</p></dd>
 
 </dl></div>
     <div class="section level2">

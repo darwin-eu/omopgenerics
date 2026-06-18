@@ -46,21 +46,21 @@ cdm <- cdmFromTables(
     cohort_end_date = as.Date("2010-01-05")
   ))
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 1 casted column in observation_period as do not match expected column type:
+#> Warning: ! 1 cast column in observation_period as do not match the expected column type:
 #> • `period_type_concept_id` from numeric to integer
-#> Warning: ! 1 casted column in cohort1 as do not match expected column type:
+#> Warning: ! 1 cast column in cohort1 as do not match the expected column type:
 #> • `cohort_definition_id` from numeric to integer
 
 result1 <- summary(cdm)
 result2 <- summary(cdm$cohort1)
-#> `cohort_definition_id` casted to character.
-#> `cohort_definition_id` casted to character.
+#> `cohort_definition_id` cast to character.
+#> `cohort_definition_id` cast to character.
 
 mergedResult <- bind(result1, result2)
 mergedResult

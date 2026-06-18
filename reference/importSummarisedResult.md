@@ -18,7 +18,7 @@ importSummarisedResult(path, recursive = FALSE, ...)
 - recursive:
 
   If TRUE and path is a directory, search for files will recurse into
-  directories
+  directories.
 
 - ...:
 

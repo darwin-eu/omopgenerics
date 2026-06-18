@@ -8,7 +8,7 @@ library(omopgenerics)
 ## Codelist
 
 A concept set can be represented as either a codelist or a concept set
-expression. A codelist is a named list, with each item of the list
+expression. A codelist is a named list, with each item in the list
 containing specific concept IDs.
 
 ``` r
@@ -18,7 +18,7 @@ condition_codes <- list(
   "asthma" = 317009
 )
 condition_codes <- newCodelist(condition_codes)
-#> Warning: ! `codelist` casted to integers.
+#> Warning: ! `codelist` cast to integers.
 
 condition_codes
 #> 
@@ -26,7 +26,7 @@ condition_codes
 #> - diabetes (3 codes)
 ```
 
-A codelist must be named
+A codelist must be named.
 
 ``` r
 
@@ -38,7 +38,7 @@ newCodelist(condition_codes)
 #>   integer64; it can not contain NA; it has to be named; it can not be NULL.
 ```
 
-And a codelist cannot have missing values
+A codelist also cannot have missing values.
 
 ``` r
 
@@ -47,7 +47,7 @@ condition_codes <- list(
   "asthma" = 317009
 )
 newCodelist(condition_codes)
-#> Warning: ! `codelist` casted to integers.
+#> Warning: ! `codelist` cast to integers.
 #> Error in `validateCodelist()`:
 #> ✖ 1 codelist contain NA: `diabetes`.
 ```

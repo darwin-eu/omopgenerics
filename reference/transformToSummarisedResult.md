@@ -42,7 +42,7 @@ transformToSummarisedResult(
 
 - settings:
 
-  Columns in x thta form the settings of the \<summarised_result\>
+  Columns in x that form the settings of the \<summarised_result\>
   object.
 
 ## Value

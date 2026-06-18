@@ -17,7 +17,7 @@ summary(object, ...)
 
 - ...:
 
-  For compatibility (not used).
+  For compatibility; not used.
 
 ## Value
 

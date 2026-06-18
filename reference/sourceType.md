@@ -12,7 +12,7 @@ sourceType(x)
 
 - x:
 
-  Object to know the source type.
+  Object for which to get the source type.
 
 ## Value
 

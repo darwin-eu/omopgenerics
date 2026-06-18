@@ -1,7 +1,7 @@
-# Validate name argument. It must be a snake_case character vector. You can add the a cdm object to check `name` is not already used in that cdm.
+# Validate name argument. It must be a snake_case character vector. You can add a cdm object to check that `name` is not already used in that cdm.
 
 Validate name argument. It must be a snake_case character vector. You
-can add the a cdm object to check `name` is not already used in that
+can add a cdm object to check that `name` is not already used in that
 cdm.
 
 ## Usage
@@ -12,6 +12,8 @@ validateNameArgument(
   cdm = NULL,
   validation = "error",
   null = FALSE,
+  empty = TRUE,
+  nm = deparse1(substitute(name), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -24,8 +26,8 @@ validateNameArgument(
 
 - cdm:
 
-  A cdm_reference object. It will check if a table named name already
-  exists in the cdm.
+  A `<cdm_reference>` object. If provided, the name will be checked to
+  ensure it does not already exist in the cdm.
 
 - validation:
 
@@ -35,9 +37,18 @@ validateNameArgument(
 
   If TRUE, name can be NULL
 
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `name`.
+
 - call:
 
-  A call argument to pass to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Examples
 

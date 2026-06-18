@@ -8,8 +8,9 @@ Validate if two columns are valid Name-Level pair.
 validateNameLevel(
   x,
   prefix,
-  sep = " &&& ",
   validation = "error",
+  empty = TRUE,
+  nm = deparse1(substitute(x), backtick = TRUE),
   call = parent.frame()
 )
 ```
@@ -25,13 +26,18 @@ validateNameLevel(
   Prefix for the name-level pair, e.g. 'strata' for
   strata_name-strata_level pair.
 
-- sep:
-
-  Separation pattern.
-
 - validation:
 
   Either 'error', 'warning' or 'message'.
+
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `x`.
 
 - call:
 

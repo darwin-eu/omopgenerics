@@ -12,7 +12,7 @@ insertFromSource(cdm, value)
 
 - cdm:
 
-  A cdm_reference object.
+  A `<cdm_reference>` object.
 
 - value:
 

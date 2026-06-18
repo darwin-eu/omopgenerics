@@ -13,11 +13,11 @@ print(x, ...)
 
 - x:
 
-  A codelist
+  A `<codelist>` object.
 
 - ...:
 
-  Included for compatibility with generic. Not used.
+  For compatibility; not used.
 
 ## Value
 
@@ -28,7 +28,7 @@ Invisibly returns the input
 ``` r
 codes <- list("disease X" = c(1, 2, 3), "disease Y" = c(4, 5))
 codes <- newCodelist(codes)
-#> Warning: ! `codelist` casted to integers.
+#> Warning: ! `codelist` cast to integers.
 print(codes)
 #> 
 #> ── 2 codelists ─────────────────────────────────────────────────────────────────

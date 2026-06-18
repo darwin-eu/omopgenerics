@@ -13,15 +13,15 @@ cdm[[name]] <- value
 
 - cdm:
 
-  A cdm reference.
+  A `<cdm_reference>` object.
 
 - name:
 
-  Name where to assign the new table.
+  Name where the new table will be assigned.
 
 - value:
 
-  Table with the same source than the cdm object.
+  Table with the same source as the `cdm_reference` object.
 
 ## Value
 

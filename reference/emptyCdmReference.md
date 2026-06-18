@@ -12,11 +12,12 @@ emptyCdmReference(cdmName, cdmVersion = NULL)
 
 - cdmName:
 
-  Name of the cdm_reference
+  Name of the `<cdm_reference>` object.
 
 - cdmVersion:
 
-  Version of the cdm_reference
+  Version of the OMOP Common Data Model. Supported versions are "5.3"
+  and "5.4".
 
 ## Value
 

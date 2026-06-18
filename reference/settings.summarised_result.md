@@ -46,30 +46,30 @@ cdm <- cdmFromTables(
   cdmName = "test",
   cohortTables = list("my_cohort" = cohort)
 )
-#> Warning: ! 5 casted column in person as do not match expected column type:
+#> Warning: ! 5 cast column in person as do not match the expected column type:
 #> • `person_id` from numeric to integer
 #> • `gender_concept_id` from numeric to integer
 #> • `year_of_birth` from numeric to integer
 #> • `race_concept_id` from numeric to integer
 #> • `ethnicity_concept_id` from numeric to integer
-#> Warning: ! 3 casted column in observation_period as do not match expected column type:
+#> Warning: ! 3 cast column in observation_period as do not match the expected column type:
 #> • `observation_period_id` from numeric to integer
 #> • `person_id` from numeric to integer
 #> • `period_type_concept_id` from numeric to integer
-#> Warning: ! 2 casted column in my_cohort as do not match expected column type:
+#> Warning: ! 2 cast column in my_cohort as do not match the expected column type:
 #> • `cohort_definition_id` from numeric to integer
 #> • `subject_id` from numeric to integer
 
 result <- summary(cdm$my_cohort)
-#> `cohort_definition_id` casted to character.
-#> `cohort_definition_id` casted to character.
+#> `cohort_definition_id` cast to character.
+#> `cohort_definition_id` cast to character.
 
 settings(result)
 #> # A tibble: 2 × 10
 #>   result_id result_type     package_name package_version group strata additional
 #>       <int> <chr>           <chr>        <chr>           <chr> <chr>  <chr>     
-#> 1         1 cohort_count    omopgenerics 1.3.7           coho… ""     ""        
-#> 2         2 cohort_attriti… omopgenerics 1.3.7           coho… "reas… "reason_i…
+#> 1         1 cohort_count    omopgenerics 1.4.0           coho… ""     ""        
+#> 2         2 cohort_attriti… omopgenerics 1.4.0           coho… "reas… "reason_i…
 #> # ℹ 3 more variables: min_cell_count <chr>, cohort_definition_id <chr>,
 #> #   table_name <chr>
 ```

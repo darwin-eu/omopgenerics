@@ -1,17 +1,16 @@
-# Re-exporting functions from omopgnerics
+# Re-exporting functions from omopgenerics
 
 ## Introduction
 
-**omopgenerics** is a package that is meant to be invisible for the user
-and it should be only developer focused package. This means that the
-typical user of the omopverse packages should never need to import
-directly it. This means that the functions needed to be used by the user
-they need to be reexported in other packages.
+**omopgenerics** is a developer-focused package that is meant to be
+mostly invisible to users. This means that the typical user of the
+omopverse packages should not need to import it directly. Functions that
+users need should be re-exported by other packages.
 
 ## Methods
 
-If a package defined an implementation for a desired method (attrition,
-settings, …), this function should be reexported there.
+If a package defines an implementation for a desired method (attrition,
+settings, …), this function should be re-exported there.
 
 ## CDM reference
 
@@ -75,8 +74,8 @@ package should re-export the following functions:
 
 ## Summarised result
 
-If a package has a function to create an `summarised_result` object,
-this package should re-export the following functions:
+If a package has a function to create a `summarised_result` object, this
+package should re-export the following functions:
 
 - [`suppress()`](https://darwin-eu.github.io/omopgenerics/reference/suppress.md)
 

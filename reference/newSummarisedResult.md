@@ -1,6 +1,6 @@
-# 'summarised_results' object constructor
+# `summarised_result` object constructor
 
-'summarised_results' object constructor
+`summarised_result` object constructor
 
 ## Usage
 
@@ -87,7 +87,7 @@ x <- tibble(
     result_id = 1L, result_type = "custom_summary", mock = TRUE, value = 5
   ))
 #> `package_name` and `package_version` added to settings.
-#> `mock` and `value` casted to character.
+#> `mock` and `value` cast to character.
 
 x
 #> # A tibble: 2 × 13

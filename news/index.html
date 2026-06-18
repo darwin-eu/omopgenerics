@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,11 +26,11 @@
     <li><a class="dropdown-item" href="../articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
-    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result obejct</a></li>
+    <li><a class="dropdown-item" href="../articles/suppression.html">Suppression of a summarised_result object</a></li>
     <li><a class="dropdown-item" href="../articles/logging.html">Logging with omopgenerics</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
-    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="../articles/reexport.html">Re-exporting functions from omopgenerics</a></li>
     <li><a class="dropdown-item" href="../articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -46,17 +46,44 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.3.7/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.4.0" id="omopgenerics-140">omopgenerics 1.4.0<a class="anchor" aria-label="anchor" href="#omopgenerics-140"></a></h2><p class="text-muted">CRAN release: 2026-06-17</p>
+<ul><li>Create importCodelistWithDetails and exportCodelistWithDetails by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/839" class="external-link">#839</a></li>
+<li>Provide better error message by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/834" class="external-link">#834</a></li>
+<li>Use type = NULL (json + csv) by default in inport function by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/841" class="external-link">#841</a></li>
+<li>Add methods for cdm_table (read, drop, insert, list, indexes) by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/837" class="external-link">#837</a></li>
+<li>Assign method for cdmName by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/833" class="external-link">#833</a></li>
+<li>Change casted to cast by <a href="https://github.com/ablack3" class="external-link">@ablack3</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/814" class="external-link">#814</a></li>
+<li>Allow uniqueId(n = 0) to work by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/842" class="external-link">#842</a></li>
+<li>Add integerish argument to validateWindowArgument by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/844" class="external-link">#844</a></li>
+<li>Create filterResult function by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/845" class="external-link">#845</a></li>
+<li>Add argument <code>nm</code> to assert and validate functions to allow naming of the input by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/847" class="external-link">#847</a></li>
+<li>Add null = FALSE argument to validateColumn by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/848" class="external-link">#848</a></li>
+<li>Correct message for cohort_end_date &lt; cohort_start_date by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/851" class="external-link">#851</a></li>
+<li>Add recursive = FALSE option to import Concepts functions by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/854" class="external-link">#854</a></li>
+<li>Create empty argument for assert and validate functions by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/849" class="external-link">#849</a></li>
+<li>Attributes of cohort_table are not collected if not needed by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/857" class="external-link">#857</a></li>
+<li>Create readOnly source by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/858" class="external-link">#858</a></li>
+<li>Create compareOmopTableFields function by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/859" class="external-link">#859</a></li>
+<li>Register result type by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/781" class="external-link">#781</a></li>
+<li>Allow to validate codelists with the cdm by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/843" class="external-link">#843</a></li>
+<li>Allow tidy expressions and negate expressions to work for dropSourecTable, readSourceTable, getCohortId functions by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/850" class="external-link">#850</a></li>
+<li>Fix issues with NA in summarised_result by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/860" class="external-link">#860</a></li>
+<li>Consistent documentation of arguments by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/855" class="external-link">#855</a></li>
+<li>spell check by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/862" class="external-link">#862</a></li>
+<li>add code_search by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/864" class="external-link">#864</a></li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.7" id="omopgenerics-137">omopgenerics 1.3.7<a class="anchor" aria-label="anchor" href="#omopgenerics-137"></a></h2><p class="text-muted">CRAN release: 2026-03-07</p>
 <ul><li>Correct typo in import concept set expression in tibble format by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/808" class="external-link">#808</a></li>
-<li>Correctly handling different cdm versions by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/811" class="external-link">#811</a>, <a href="https://github.com/darwin-eu/omopgenerics/issues/812" class="external-link">#812</a></li>
+<li>Correctly handle different cdm versions by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/811" class="external-link">#811</a>, <a href="https://github.com/darwin-eu/omopgenerics/issues/812" class="external-link">#812</a></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.6" id="omopgenerics-136">omopgenerics 1.3.6<a class="anchor" aria-label="anchor" href="#omopgenerics-136"></a></h2><p class="text-muted">CRAN release: 2026-01-28</p>
-<ul><li>Allow to codelist and concept set import in tibble format by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/806" class="external-link">#806</a></li>
+<ul><li>Allow codelist and concept set import in tibble format by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/806" class="external-link">#806</a></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.5" id="omopgenerics-135">omopgenerics 1.3.5<a class="anchor" aria-label="anchor" href="#omopgenerics-135"></a></h2><p class="text-muted">CRAN release: 2025-12-10</p>
@@ -73,7 +100,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.3" id="omopgenerics-133">omopgenerics 1.3.3<a class="anchor" aria-label="anchor" href="#omopgenerics-133"></a></h2><p class="text-muted">CRAN release: 2025-11-11</p>
-<ul><li>add unique argument in assertLogical by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/782" class="external-link">#782</a></li>
+<ul><li>Add <code>unique</code> argument to <code><a href="../reference/assertLogical.html">assertLogical()</a></code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/782" class="external-link">#782</a></li>
 <li>Fix non UTF-8 issues (any collected character non UTF-8 is eliminated) by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/778" class="external-link">#778</a></li>
 <li>concept set to also import codelists by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/787" class="external-link">#787</a></li>
 <li>logging explain is now TRUE/FALSE option to add in the same log file by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/785" class="external-link">#785</a></li>
@@ -82,8 +109,8 @@
 <h2 class="pkg-version" data-toc-text="1.3.2" id="omopgenerics-132">omopgenerics 1.3.2<a class="anchor" aria-label="anchor" href="#omopgenerics-132"></a></h2><p class="text-muted">CRAN release: 2025-10-13</p>
 <ul><li>Fix typo in compute timing by <a href="https://github.com/edward-burn" class="external-link">@edward-burn</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/763" class="external-link">#763</a></li>
 <li>Add stable badge by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/769" class="external-link">#769</a></li>
-<li>Allow to extract all codelists of a cohort with <code><a href="../reference/cohortCodelist.html">cohortCodelist()</a></code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/770" class="external-link">#770</a></li>
-<li>Export sql and explain sql can be added to the result object by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/765" class="external-link">#765</a></li>
+<li>Allow extraction of all codelists of a cohort with <code><a href="../reference/cohortCodelist.html">cohortCodelist()</a></code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/770" class="external-link">#770</a></li>
+<li>Export SQL and explain SQL can be added to the result object by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/765" class="external-link">#765</a></li>
 <li>Create <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> method for <code>concept_set_expression</code> by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/774" class="external-link">#774</a></li>
 <li>
 <code><a href="../reference/newConceptSetExpression.html">newConceptSetExpression()</a></code> accepts <code>codelists</code> as inputs by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/773" class="external-link">#773</a></li>
@@ -92,7 +119,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.1" id="omopgenerics-131">omopgenerics 1.3.1<a class="anchor" aria-label="anchor" href="#omopgenerics-131"></a></h2><p class="text-muted">CRAN release: 2025-09-18</p>
-<ul><li>The time a query takes to copute is included in log file by <a href="https://github.com/edward-burn" class="external-link">@edward-burn</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/737" class="external-link">#737</a></li>
+<ul><li>The time a query takes to compute is included in the log file by <a href="https://github.com/edward-burn" class="external-link">@edward-burn</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/737" class="external-link">#737</a></li>
 <li>Create emptyConceptSetExpression function by <a href="https://github.com/edward-burn" class="external-link">@edward-burn</a> <a href="https://github.com/darwin-eu/omopgenerics/issues/735" class="external-link">#735</a></li>
 <li>Empty codelist has class codelist by <a href="https://github.com/edward-burn" class="external-link">@edward-burn</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/734" class="external-link">#734</a></li>
 <li>Correct typo for condition_era_id by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/727" class="external-link">#727</a></li>
@@ -109,7 +136,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.0" id="omopgenerics-130">omopgenerics 1.3.0<a class="anchor" aria-label="anchor" href="#omopgenerics-130"></a></h2><p class="text-muted">CRAN release: 2025-07-15</p>
-<ul><li>write method fro summary.cdm_source by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/719" class="external-link">#719</a> <a href="https://github.com/darwin-eu/omopgenerics/issues/720" class="external-link">#720</a></li>
+<ul><li>Write method for summary.cdm_source by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/719" class="external-link">#719</a> <a href="https://github.com/darwin-eu/omopgenerics/issues/720" class="external-link">#720</a></li>
 <li>Add query id in logging files by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/716" class="external-link">#716</a></li>
 <li>Expanding omopgenerics vignette by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/721" class="external-link">#721</a></li>
 <li>Indexes experimental functions by <a href="https://github.com/catalamarti" class="external-link">@catalamarti</a> in <a href="https://github.com/darwin-eu/omopgenerics/issues/722" class="external-link">#722</a> <a href="https://github.com/darwin-eu/omopgenerics/issues/723" class="external-link">#723</a> <a href="https://github.com/darwin-eu/omopgenerics/issues/724" class="external-link">#724</a></li>

@@ -6,7 +6,13 @@ point to columns in table.
 ## Usage
 
 ``` r
-validateStrataArgument(strata, table, call = parent.frame())
+validateStrataArgument(
+  strata,
+  table,
+  empty = TRUE,
+  nm = deparse1(substitute(strata), backtick = TRUE),
+  call = parent.frame()
+)
 ```
 
 ## Arguments
@@ -19,9 +25,18 @@ validateStrataArgument(strata, table, call = parent.frame())
 
   A table with columns.
 
+- empty:
+
+  Whether it can be empty.
+
+- nm:
+
+  Name to use in error messages. Defaults to the expression supplied to
+  `strata`.
+
 - call:
 
-  Passed to cli functions.
+  Call argument passed to `cli` functions.
 
 ## Value
 

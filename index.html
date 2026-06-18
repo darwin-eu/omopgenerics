@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.3.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,11 +43,11 @@
     <li><a class="dropdown-item" href="articles/summarised_result.html">A summarised result</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>OMOP Studies</h6></li>
-    <li><a class="dropdown-item" href="articles/suppression.html">Suppression of a summarised_result obejct</a></li>
+    <li><a class="dropdown-item" href="articles/suppression.html">Suppression of a summarised_result object</a></li>
     <li><a class="dropdown-item" href="articles/logging.html">Logging with omopgenerics</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Principles</h6></li>
-    <li><a class="dropdown-item" href="articles/reexport.html">Re-exporting functions from omopgnerics</a></li>
+    <li><a class="dropdown-item" href="articles/reexport.html">Re-exporting functions from omopgenerics</a></li>
     <li><a class="dropdown-item" href="articles/expanding_omopgenerics.html">Expanding omopgenerics</a></li>
   </ul>
 </li>
@@ -78,8 +78,8 @@
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co">#&gt; 'omopgenerics' from package DESCRIPTION file</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt; To cite package 'omopgenerics' in publications use:</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt;   Català M, Burn E (2025). _omopgenerics: Methods and Classes for the</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt;   OMOP Common Data Model_. R package version 1.3.2,</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt;   Català M, Burn E (????). _omopgenerics: Methods and Classes for the</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt;   OMOP Common Data Model_. R package version 1.3.7,</span></span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt;   &lt;https://darwin-eu.github.io/omopgenerics/&gt;.</span></span>
 <span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
@@ -87,7 +87,7 @@
 <span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt;   @Manual{,</span></span>
 <span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt;     title = {omopgenerics: Methods and Classes for the OMOP Common Data Model},</span></span>
 <span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;     author = {Martí Català and Edward Burn},</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;     note = {R package version 1.3.2},</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;     note = {R package version 1.3.7},</span></span>
 <span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;     url = {https://darwin-eu.github.io/omopgenerics/},</span></span>
 <span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt;   }</span></span></code></pre></div>
 <p>If you find the package useful in supporting your research study, please consider citing this package.</p>
@@ -110,9 +110,9 @@
 <div class="section level3">
 <h3 id="cdm-reference">CDM Reference<a class="anchor" aria-label="anchor" href="#cdm-reference"></a>
 </h3>
-<p>A cdm reference is a single R object that represents OMOP CDM data. The tables in the cdm reference may be in a database, but a cdm reference may also contain OMOP CDM tables that are in dataframes/tibbles or in arrow. In the latter case the cdm reference would typically be a subset of an original cdm reference that has been derived as part of a particular analysis.</p>
-<p>omopgenerics contains the class definition of a cdm reference and a dataframe implementation. For creating a cdm reference using a database, see the CDMConnector package (<a href="https://darwin-eu.github.io/CDMConnector/" class="external-link uri">https://darwin-eu.github.io/CDMConnector/</a>).</p>
-<p>A cdm object can contain four type of tables:</p>
+<p>A cdm reference is a single R object that represents OMOP CDM data. The tables in the cdm reference may be in a database, but a cdm reference may also contain OMOP CDM tables that are in data frames/tibbles or in Arrow. In the latter case, the cdm reference would typically be a subset of an original cdm reference that has been derived as part of a particular analysis.</p>
+<p>omopgenerics contains the class definition of a cdm reference and a data frame implementation. For creating a cdm reference using a database, see the CDMConnector package (<a href="https://darwin-eu.github.io/CDMConnector/" class="external-link uri">https://darwin-eu.github.io/CDMConnector/</a>).</p>
+<p>A cdm object can contain four types of tables:</p>
 <ul>
 <li>Standard tables:</li>
 </ul>
@@ -131,7 +131,7 @@
 <span><span class="co">#&gt; [31] "relationship"          "concept_synonym"       "concept_ancestor"     </span></span>
 <span><span class="co">#&gt; [34] "source_to_concept_map" "drug_strength"         "cohort_definition"    </span></span>
 <span><span class="co">#&gt; [37] "attribute_definition"  "concept_recommended"</span></span></code></pre></div>
-<p>Each one of the tables has a required columns. For example, for the <code>person</code> table this are the required columns:</p>
+<p>Each table has required columns. For example, these are the required columns for the <code>person</code> table:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/omopColumns.html">omopColumns</a></span><span class="op">(</span>table <span class="op">=</span> <span class="st">"person"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "person_id"                   "gender_concept_id"          </span></span>
@@ -163,13 +163,13 @@
 <span><span class="co">#&gt; [1] "analysis_id" "stratum_1"   "stratum_2"   "stratum_3"   "stratum_4"  </span></span>
 <span><span class="co">#&gt; [6] "stratum_5"   "count_value"</span></span></code></pre></div>
 <ul>
-<li>Other tables, these other tables can have any format.</li>
+<li>Other tables, which can have any format.</li>
 </ul>
-<p>Any table to be part of a cdm object has to fulfill 4 conditions:</p>
+<p>Any table that is part of a cdm object has to satisfy four conditions:</p>
 <ul>
 <li><p>All must share a common source.</p></li>
-<li><p>The name of the tables must be lowercase.</p></li>
-<li><p>The name of the column names of each table must be lowercase.</p></li>
+<li><p>Table names must be lowercase.</p></li>
+<li><p>Column names in each table must be lowercase.</p></li>
 <li><p><code>person</code> and <code>observation_period</code> must be present.</p></li>
 </ul>
 </div>
@@ -218,7 +218,7 @@
 <div class="section level3">
 <h3 id="a-cohort-table">A cohort table<a class="anchor" aria-label="anchor" href="#a-cohort-table"></a>
 </h3>
-<p>A cohort is a set of persons who satisfy one or more inclusion criteria for a duration of time and, when defined, this table in a cdm reference has a cohort table class. Cohort tables are then associated with attributes such as settings and attrition.</p>
+<p>A cohort is a set of people who satisfy one or more inclusion criteria for a period of time. When represented in a cdm reference, this table has the cohort table class. Cohort tables are then associated with attributes such as settings and attrition.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">person</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  person_id <span class="op">=</span> <span class="fl">1L</span>,</span>
@@ -262,22 +262,23 @@
 <span><span class="co">#&gt;                  &lt;int&gt; &lt;chr&gt;      </span></span>
 <span><span class="co">#&gt; 1                    1 cohort_1</span></span>
 <span><span class="fu"><a href="reference/attrition.html">attrition</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">diabetes</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 1 × 7</span></span>
-<span><span class="co">#&gt;   cohort_definition_id number_records number_subjects reason_id reason          </span></span>
-<span><span class="co">#&gt;                  &lt;int&gt;          &lt;int&gt;           &lt;int&gt;     &lt;int&gt; &lt;chr&gt;           </span></span>
-<span><span class="co">#&gt; 1                    1              1               1         1 Initial qualify…</span></span>
-<span><span class="co">#&gt; # ℹ 2 more variables: excluded_records &lt;int&gt;, excluded_subjects &lt;int&gt;</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 8</span></span>
+<span><span class="co">#&gt;   cohort_definition_id cohort_name number_records number_subjects reason_id</span></span>
+<span><span class="co">#&gt;                  &lt;int&gt; &lt;chr&gt;                &lt;int&gt;           &lt;int&gt;     &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1                    1 cohort_1                 1               1         1</span></span>
+<span><span class="co">#&gt; # ℹ 3 more variables: reason &lt;chr&gt;, excluded_records &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   excluded_subjects &lt;int&gt;</span></span>
 <span><span class="fu"><a href="reference/cohortCount.html">cohortCount</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">diabetes</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 1 × 3</span></span>
-<span><span class="co">#&gt;   cohort_definition_id number_records number_subjects</span></span>
-<span><span class="co">#&gt;                  &lt;int&gt;          &lt;int&gt;           &lt;int&gt;</span></span>
-<span><span class="co">#&gt; 1                    1              1               1</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 1 × 4</span></span>
+<span><span class="co">#&gt;   cohort_definition_id cohort_name number_records number_subjects</span></span>
+<span><span class="co">#&gt;                  &lt;int&gt; &lt;chr&gt;                &lt;int&gt;           &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1                    1 cohort_1                 1               1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="summarised-result">Summarised result<a class="anchor" aria-label="anchor" href="#summarised-result"></a>
 </h3>
 <p>A summarised result provides a standard format for the results of an analysis performed against data mapped to the OMOP CDM.</p>
-<p>For example this format is used when we get a summary of the cdm as a whole</p>
+<p>For example, this format is used when we get a summary of the cdm as a whole:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -293,15 +294,15 @@
 <span><span class="co">#&gt; $ variable_level   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA</span></span>
 <span><span class="co">#&gt; $ estimate_name    &lt;chr&gt; "value", "count", "count", "source_name", "version", …</span></span>
 <span><span class="co">#&gt; $ estimate_type    &lt;chr&gt; "date", "integer", "integer", "character", "character…</span></span>
-<span><span class="co">#&gt; $ estimate_value   &lt;chr&gt; "2025-10-12", "1", "1", "", NA, "5.3", "", "", "", ""…</span></span>
+<span><span class="co">#&gt; $ estimate_value   &lt;chr&gt; "2026-06-02", "1", "1", "", NA, "5.3", "", "", "", ""…</span></span>
 <span><span class="co">#&gt; $ additional_name  &lt;chr&gt; "overall", "overall", "overall", "overall", "overall"…</span></span>
 <span><span class="co">#&gt; $ additional_level &lt;chr&gt; "overall", "overall", "overall", "overall", "overall"…</span></span></code></pre></div>
-<p>and also when we summarise a cohort</p>
+<p>It is also used when we summarise a cohort:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cdm</span><span class="op">$</span><span class="va">diabetes</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; `cohort_definition_id` casted to character.</span></span>
-<span><span class="co">#&gt; `cohort_definition_id` casted to character.</span></span>
+<span><span class="co">#&gt; `cohort_definition_id` cast to character.</span></span>
+<span><span class="co">#&gt; `cohort_definition_id` cast to character.</span></span>
 <span><span class="co">#&gt; Rows: 6</span></span>
 <span><span class="co">#&gt; Columns: 13</span></span>
 <span><span class="co">#&gt; $ result_id        &lt;int&gt; 1, 1, 2, 2, 2, 2</span></span>

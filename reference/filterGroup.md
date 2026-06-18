@@ -25,8 +25,8 @@ filterGroup(result, ...)
 
 ## Value
 
-A `<summarised_result>` object with only the rows that fulfill the
-required specified group.
+A `<summarised_result>` object with only the rows that satisfy the
+specified group.
 
 ## Examples
 

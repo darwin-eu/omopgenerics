@@ -12,12 +12,11 @@ dropSourceTable(cdm, name)
 
 - cdm:
 
-  A cdm reference.
+  A `<cdm_reference>` or `<cdm_table>` object.
 
 - name:
 
-  Name(s) of the table(s) to insert. Tidyselect statements are
-  supported.
+  Name(s) of the table(s) to drop. Tidyselect statements are supported.
 
 ## Value
 
