@@ -26,18 +26,18 @@ library(dplyr)
 
 logFile <- tempfile(pattern = "log_{date}_{time}", fileext = ".txt")
 createLogFile(logFile = logFile)
-#> ℹ Creating log file: /tmp/RtmprtKwel/log_2026_06_18_08_07_2719e72031a437.txt.
-#> [2026-06-18 08:07:27] - Log file created
+#> ℹ Creating log file: /tmp/RtmpNUY4fq/log_2026_06_18_08_10_121a341a7f75d2.txt.
+#> [2026-06-18 08:10:12] - Log file created
 
 logMessage("Starting analysis")
-#> [2026-06-18 08:07:27] - Starting analysis
+#> [2026-06-18 08:10:12] - Starting analysis
 1 + 1
 #> [1] 2
 logMessage("Analysis finished")
-#> [2026-06-18 08:07:27] - Analysis finished
+#> [2026-06-18 08:10:12] - Analysis finished
 
 res <- summariseLogFile()
-#> [2026-06-18 08:07:27] - Exporting log file
+#> [2026-06-18 08:10:12] - Exporting log file
 
 glimpse(res)
 #> Rows: 7
@@ -52,7 +52,7 @@ glimpse(res)
 #> $ variable_level   <chr> NA, NA, NA, NA, NA, NA, NA
 #> $ estimate_name    <chr> "date_time", "elapsed_time", "date_time", "elapsed_ti…
 #> $ estimate_type    <chr> "character", "integer", "character", "integer", "char…
-#> $ estimate_value   <chr> "2026-06-18 08:07:27", "0", "2026-06-18 08:07:27", "0…
+#> $ estimate_value   <chr> "2026-06-18 08:10:12", "0", "2026-06-18 08:10:12", "0…
 #> $ additional_name  <chr> "overall", "overall", "overall", "overall", "overall"…
 #> $ additional_level <chr> "overall", "overall", "overall", "overall", "overall"…
 
