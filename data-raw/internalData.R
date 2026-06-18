@@ -223,8 +223,80 @@ fieldTablesColumns <- dplyr::tribble(
 
 supportedCdmVersions <- c("5.3", "5.4")
 
+# change: new/eliminated/changed
+fieldsChanges <- list(
+  "same" = dplyr::tibble(field = character(), change = character()),
+  "5.3 to 5.4" = dplyr::tribble(
+    ~field, ~change,
+    "attribute_definition-attribute_definition_id", "eliminated table",
+    "attribute_definition-attribute_name", "eliminated table",
+    "attribute_definition-attribute_description", "eliminated table",
+    "attribute_definition-attribute_type_concept_id", "eliminated table",
+    "attribute_definition-attribute_syntax", "eliminated table",
+    "visit_occurrence-admitted_from_concept_id", "changed from: visit_occurrence-admitting_source_concept_id",
+    "visit_occurrence-admitted_from_source_value", "changed from: visit_occurrence-admitting_source_value",
+    "visit_occurrence-discharged_to_concept_id", "changed from: visit_occurrence-discharge_to_concept_id",
+    "visit_occurrence-discharged_to_source_value", "changed from: visit_occurrence-discharge_to_source_value",
+    "visit_detail-admitted_from_concept_id", "changed from: visit_detail-admitting_source_concept_id",
+    "visit_detail-admitted_from_source_value", "changed from: visit_detail-admitting_source_value",
+    "visit_detail-discharged_to_source_value", "changed from: visit_detail-discharge_to_source_value",
+    "visit_detail-discharged_to_concept_id", "changed from: visit_detail-discharge_to_concept_id",
+    "visit_detail-parent_visit_detail_id", "changed from: visit_detail-visit_detail_parent_id",
+    "device_exposure-unique_device_id", "changed from: device_exposure-unique_device_id",
+    "cdm_source-cdm_source_abbreviation", "changed from: cdm_source-cdm_source_abbreviation",
+    "cdm_source-cdm_holder", "changed from: cdm_source-cdm_holder",
+    "cdm_source-source_release_date", "changed from: cdm_source-source_release_date",
+    "cdm_source-cdm_release_date", "changed from: cdm_source-cdm_release_date",
+    "cdm_source-vocabulary_version", "changed from: cdm_source-vocabulary_version",
+    "vocabulary-vocabulary_reference", "changed from: vocabulary-vocabulary_reference",
+    "procedure_occurrence-procedure_end_date", "new field",
+    "procedure_occurrence-procedure_end_datetime", "new field",
+    "device_exposure-production_id", "new field",
+    "device_exposure-unit_concept_id", "new field",
+    "device_exposure-unit_source_value", "new field",
+    "device_exposure-unit_source_concept_id", "new field",
+    "measurement-unit_source_concept_id", "new field",
+    "measurement-measurement_event_id", "new field",
+    "measurement-meas_event_field_concept_id", "new field",
+    "observation-value_source_value", "new field",
+    "observation-observation_event_id", "new field",
+    "observation-obs_event_field_concept_id", "new field",
+    "note-note_event_id", "new field",
+    "note-note_event_field_concept_id", "new field",
+    "location-country_concept_id", "new field",
+    "location-country_source_value", "new field",
+    "location-latitude", "new field",
+    "location-longitude", "new field",
+    "episode-episode_id", "new table",
+    "episode-person_id", "new table",
+    "episode-episode_concept_id", "new table",
+    "episode-episode_start_date", "new table",
+    "episode-episode_start_datetime", "new table",
+    "episode-episode_end_date", "new table",
+    "episode-episode_end_datetime", "new table",
+    "episode-episode_parent_id", "new table",
+    "episode-episode_number", "new table",
+    "episode-episode_object_concept_id", "new table",
+    "episode-episode_type_concept_id", "new table",
+    "episode-episode_source_value", "new table",
+    "episode-episode_source_concept_id", "new table",
+    "episode_event-episode_id", "new table",
+    "episode_event-event_id", "new table",
+    "episode_event-episode_event_field_concept_id", "new table",
+    "metadata-metadata_id", "new field",
+    "metadata-value_as_number", "new field",
+    "cdm_source-cdm_version_concept_id", "new field",
+    "cohort-cohort_definition_id", "new table",
+    "cohort-subject_id", "new table",
+    "cohort-cohort_start_date", "new table",
+    "cohort-cohort_end_date", "new table"
+  )
+)
+
+ogDateFormat <- "%Y-%m-%d"
+
 usethis::use_data(
   fieldsTables, fieldsResults, groupCount, fieldTablesColumns,
-  supportedCdmVersions,
+  supportedCdmVersions, fieldsChanges, ogDateFormat,
   internal = TRUE, overwrite = TRUE
 )

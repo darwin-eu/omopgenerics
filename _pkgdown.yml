@@ -62,6 +62,7 @@ reference:
 - contents:
   - starts_with("omop")
   - omopTableFields
+  - compareOmopTableFields
 - subtitle: achilles_table utility functions
   desc: Utility functions for achilles_table objects
 - contents:
@@ -95,12 +96,22 @@ reference:
   - tidyColumns
   - pivotEstimates
   - addSettings
+  - resultType
+- subtitle: code_search utility functions
+  desc: Utility functions for code_search objects
+- contents:
+  - exportCodeSearch
+  - importCodeSearch
+  - searchStrategy
+  - ends_with(".code_search")
 - subtitle: codelist utility functions
   desc: Utility functions for codelist objects
 - contents:
   - exportCodelist
+  - exportCodelistWithDetails
   - exportConceptSetExpression
   - importCodelist
+  - importCodelistWithDetails
   - importConceptSetExpression
   - ends_with(".codelist")
   - ends_with(".codelist_with_details")
