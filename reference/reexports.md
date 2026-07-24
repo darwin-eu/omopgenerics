@@ -5,8 +5,8 @@ to see their documentation.
 
 - dplyr:
 
-  [`filter`](https://dplyr.tidyverse.org/reference/filter.html)
+  [`filter()`](https://dplyr.tidyverse.org/reference/filter.html)
 
 - generics:
 
-  [`tidy`](https://generics.r-lib.org/reference/tidy.html)
+  [`tidy()`](https://generics.r-lib.org/reference/tidy.html)

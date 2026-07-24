@@ -5,7 +5,11 @@
 ## Usage
 
 ``` r
-newSummarisedResult(x, settings = attr(x, "settings"))
+newSummarisedResult(
+  x,
+  settings = attr(x, "settings"),
+  .softValidation = getOption("og.summarised_result.softvalidation", FALSE)
+)
 ```
 
 ## Arguments
@@ -17,6 +21,11 @@ newSummarisedResult(x, settings = attr(x, "settings"))
 - settings:
 
   Settings for the summarised_result object.
+
+- .softValidation:
+
+  Whether validation errors should be reported as warnings where
+  possible.
 
 ## Value
 

@@ -1,5 +1,35 @@
 # Changelog
 
+## omopgenerics 1.4.1
+
+CRAN release: 2026-07-23
+
+- Insert only the first 5 lines of cars dataset by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#870](https://github.com/darwin-eu/omopgenerics/issues/870)
+- Allow to import files from a url by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#871](https://github.com/darwin-eu/omopgenerics/issues/871)
+- Export `supportedCdmVersions` by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#876](https://github.com/darwin-eu/omopgenerics/issues/876)
+- Insert concept ids as table by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#879](https://github.com/darwin-eu/omopgenerics/issues/879)
+- Ungroup in newSummarisedResult to prepent uninfromative error message
+  by [@catalamarti](https://github.com/catalamarti) in
+  [\#881](https://github.com/darwin-eu/omopgenerics/issues/881)
+- Add softValidation options by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#875](https://github.com/darwin-eu/omopgenerics/issues/875)
+- Add `cli` evaluate in log messages by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#883](https://github.com/darwin-eu/omopgenerics/issues/883)
+- Create
+  [`guessCdmVersion()`](https://darwin-eu.github.io/omopgenerics/reference/guessCdmVersion.md)
+  function by [@catalamarti](https://github.com/catalamarti) in
+  [\#882](https://github.com/darwin-eu/omopgenerics/issues/882)
+
 ## omopgenerics 1.4.0
 
 CRAN release: 2026-06-17

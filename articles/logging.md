@@ -33,29 +33,29 @@ library(omopgenerics, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmp5eKvss/log_2026_06_18_08_10_55262b526715bb.txt.
-#> [2026-06-18 08:10:55] - Log file created
+#> ℹ Creating log file: /tmp/RtmpKOQuNu/log_2026_07_24_20_21_01271839200e54.txt.
+#> [2026-07-24 20:21:01] - Log file created
 
 # study
 logMessage("Generating random numbers")
-#> [2026-06-18 08:10:55] - Generating random numbers
+#> [2026-07-24 20:21:01] - Generating random numbers
 x <- runif(1e6)
 
 logMessage("Calculating the sum")
-#> [2026-06-18 08:10:55] - Calculating the sum
+#> [2026-07-24 20:21:01] - Calculating the sum
 result <- sum(x)
 
 # export logger to a `summarised_result`
 log <- summariseLogFile()
-#> [2026-06-18 08:10:55] - Exporting log file
+#> [2026-07-24 20:21:01] - Exporting log file
 
 # content of the log file
 readLines(getOption("omopgenerics.logFile")) |>
   cat(sep = "\n")
-#> [2026-06-18 08:10:55] - Log file created
-#> [2026-06-18 08:10:55] - Generating random numbers
-#> [2026-06-18 08:10:55] - Calculating the sum
-#> [2026-06-18 08:10:55] - Exporting log file
+#> [2026-07-24 20:21:01] - Log file created
+#> [2026-07-24 20:21:01] - Generating random numbers
+#> [2026-07-24 20:21:01] - Calculating the sum
+#> [2026-07-24 20:21:01] - Exporting log file
 
 # `summarised_result` object
 log
@@ -78,7 +78,7 @@ settings(log)
 #> # A tibble: 1 × 8
 #>   result_id result_type     package_name package_version group strata additional
 #>       <int> <chr>           <chr>        <chr>           <chr> <chr>  <chr>     
-#> 1         1 summarise_log_… omopgenerics 1.4.0           ""    log_id ""        
+#> 1         1 summarise_log_… omopgenerics 1.4.1           ""    log_id ""        
 #> # ℹ 1 more variable: min_cell_count <chr>
 
 # tidy version of the `summarised_result`
@@ -86,10 +86,10 @@ tidy(log)
 #> # A tibble: 4 × 6
 #>   cdm_name log_id variable_name            variable_level date_time elapsed_time
 #>   <chr>    <chr>  <chr>                    <chr>          <chr>            <int>
-#> 1 unknown  1      Log file created         NA             2026-06-…            0
-#> 2 unknown  2      Generating random numbe… NA             2026-06-…            0
-#> 3 unknown  3      Calculating the sum      NA             2026-06-…            0
-#> 4 unknown  4      Exporting log file       NA             2026-06-…           NA
+#> 1 unknown  1      Log file created         NA             2026-07-…            0
+#> 2 unknown  2      Generating random numbe… NA             2026-07-…            0
+#> 3 unknown  3      Calculating the sum      NA             2026-07-…            0
+#> 4 unknown  4      Exporting log file       NA             2026-07-…           NA
 ```
 
 Note that if the `logFile` is not created, the
@@ -109,17 +109,17 @@ library(tidyr, warn.conflicts = FALSE)
 
 # create the log file
 createLogFile(logFile = tempfile(pattern = "log_{date}_{time}"))
-#> ℹ Creating log file: /tmp/Rtmp5eKvss/log_2026_06_18_08_10_55262bb3cb0c3.txt.
-#> [2026-06-18 08:10:55] - Log file created
+#> ℹ Creating log file: /tmp/RtmpKOQuNu/log_2026_07_24_20_21_022718444aeb21.txt.
+#> [2026-07-24 20:21:02] - Log file created
 
 # start analysis
 logMessage("Defining toy data")
-#> [2026-06-18 08:10:55] - Defining toy data
+#> [2026-07-24 20:21:02] - Defining toy data
 n <- 1e5
 x <- tibble(person_id = seq_len(n), age = rnorm(n = n, mean = 55, sd = 20))
 
 logMessage("Summarise toy data")
-#> [2026-06-18 08:10:55] - Summarise toy data
+#> [2026-07-24 20:21:02] - Summarise toy data
 res <- x |>
   summarise(
     `number subjects_count` = n(),
@@ -152,7 +152,7 @@ res <- x |>
 # res is a summarised_result object that we can export using `exportSummarisedResult()`
 tempDir <- tempdir()
 exportSummarisedResult(res, path = tempDir)
-#> [2026-06-18 08:10:55] - Exporting log file
+#> [2026-07-24 20:21:02] - Exporting log file
 ```
 
 [`exportSummarisedResult()`](https://darwin-eu.github.io/omopgenerics/reference/exportSummarisedResult.md)
@@ -162,8 +162,8 @@ also exported the log file. Let’s inspect it by importing the exported
 ``` r
 
 result <- importSummarisedResult(tempDir)
-#> Reading file: results_mock data_2026_06_18.csv.
-#> Converting to summarised_result: results_mock data_2026_06_18.
+#> Reading file: results_mock data_2026_07_24.csv.
+#> Converting to summarised_result: results_mock data_2026_07_24.
 ```
 
 We can see that the log file is exported by looking for
@@ -179,7 +179,7 @@ result |>
 #> $ result_id       <int> 1, 2
 #> $ result_type     <chr> "", "summarise_log_file"
 #> $ package_name    <chr> "", "omopgenerics"
-#> $ package_version <chr> "", "1.4.0"
+#> $ package_version <chr> "", "1.4.1"
 #> $ group           <chr> "", ""
 #> $ strata          <chr> "", "log_id"
 #> $ additional      <chr> "", ""
@@ -197,8 +197,8 @@ result |>
 #> # A tibble: 4 × 6
 #>   cdm_name  log_id variable_name      variable_level date_time      elapsed_time
 #>   <chr>     <chr>  <chr>              <chr>          <chr>                 <int>
-#> 1 mock data 1      Log file created   NA             2026-06-18 08…            0
-#> 2 mock data 2      Defining toy data  NA             2026-06-18 08…            0
-#> 3 mock data 3      Summarise toy data NA             2026-06-18 08…            0
-#> 4 mock data 4      Exporting log file NA             2026-06-18 08…           NA
+#> 1 mock data 1      Log file created   NA             2026-07-24 20…            0
+#> 2 mock data 2      Defining toy data  NA             2026-07-24 20…            0
+#> 3 mock data 3      Summarise toy data NA             2026-07-24 20…            0
+#> 4 mock data 4      Exporting log file NA             2026-07-24 20…           NA
 ```

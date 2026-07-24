@@ -6,7 +6,10 @@ Bind two or summarised_result objects
 
 ``` r
 # S3 method for class 'summarised_result'
-bind(...)
+bind(
+  ...,
+  .softValidation = getOption("og.summarised_result.softvalidation", FALSE)
+)
 ```
 
 ## Arguments
@@ -14,6 +17,11 @@ bind(...)
 - ...:
 
   summarised_result objects
+
+- .softValidation:
+
+  Whether validation errors should be reported as warnings where
+  possible.
 
 ## Value
 

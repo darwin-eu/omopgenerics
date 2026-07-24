@@ -5,7 +5,12 @@
 ## Usage
 
 ``` r
-newCdmReference(tables, cdmName, cdmVersion = NULL, .softValidation = FALSE)
+newCdmReference(
+  tables,
+  cdmName,
+  cdmVersion = NULL,
+  .softValidation = getOption("og.cdm_reference.softvalidation", FALSE)
+)
 ```
 
 ## Arguments

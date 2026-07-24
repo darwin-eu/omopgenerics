@@ -163,6 +163,9 @@ Utility functions for cdm_reference objects
   subject_id or person_id), it will throw an error if it contains both
   or neither.
 
+- [`guessCdmVersion()`](https://darwin-eu.github.io/omopgenerics/reference/guessCdmVersion.md)
+  : Guess the OMOP CDM version
+
 - [`` `$`( ``*`<cdm_reference>`*`)`](https://darwin-eu.github.io/omopgenerics/reference/cash-.cdm_reference.md)
   : Subset a cdm reference object.
 
@@ -566,6 +569,9 @@ To assert that an object fulfills certain criteria
   : Assert that an expression is TRUE.
 
 ### Utility functions
+
+- [`supportedCdmVersions`](https://darwin-eu.github.io/omopgenerics/reference/supportedCdmVersions.md)
+  : Supported OMOP CDM versions
 
 - [`insertFromSource()`](https://darwin-eu.github.io/omopgenerics/reference/insertFromSource.md)
   **\[deprecated\]** : Convert a table that is not a cdm_table but have

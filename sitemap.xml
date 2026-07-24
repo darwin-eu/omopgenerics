@@ -103,6 +103,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/getCohortName.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/getPersonIdentifier.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/groupColumns.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/guessCdmVersion.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/importCodeSearch.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/importCodelist.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/importCodelistWithDetails.html</loc></url>
@@ -172,6 +173,7 @@
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/summary.cdm_source.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/summary.cohort_table.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/summary.summarised_result.html</loc></url>
+<url><loc>https://darwin-eu.github.io/omopgenerics/reference/supportedCdmVersions.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/suppress.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/suppress.summarised_result.html</loc></url>
 <url><loc>https://darwin-eu.github.io/omopgenerics/reference/tableName.html</loc></url>

@@ -23,5 +23,5 @@ A string that can be used as a dbplyr temp table name
 ``` r
 library(omopgenerics)
 uniqueTableName()
-#> [1] "og_002_1781770238"
+#> [1] "og_002_1784924444"
 ```
