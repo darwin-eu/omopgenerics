@@ -47,6 +47,7 @@ reference:
   - readSourceTable
   - insertCdmTo
   - getPersonIdentifier
+  - guessCdmVersion
   - ends_with(".cdm_reference")
   - ends_with(".cdm_source")
 - subtitle: cdm_table utility functions
@@ -134,6 +135,7 @@ reference:
   - starts_with("assert")
 - subtitle: Utility functions
 - contents:
+  - supportedCdmVersions
   - insertFromSource
   - sourceType
   - tmpPrefix

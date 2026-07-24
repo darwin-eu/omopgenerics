@@ -221,8 +221,6 @@ fieldTablesColumns <- dplyr::tribble(
   "payer_plan_period", "payer_plan_period_start_date", "payer_plan_period_end_date", "payer_concept_id", "payer_source_concept_id", NA, "payer_plan_period_id", NA, "person_id"
 )
 
-supportedCdmVersions <- c("5.3", "5.4")
-
 # change: new/eliminated/changed
 fieldsChanges <- list(
   "same" = dplyr::tibble(field = character(), change = character()),
@@ -297,6 +295,9 @@ ogDateFormat <- "%Y-%m-%d"
 
 usethis::use_data(
   fieldsTables, fieldsResults, groupCount, fieldTablesColumns,
-  supportedCdmVersions, fieldsChanges, ogDateFormat,
+  fieldsChanges, ogDateFormat,
   internal = TRUE, overwrite = TRUE
 )
+
+supportedCdmVersions <- c("5.3", "5.4")
+usethis::use_data(supportedCdmVersions, internal = FALSE, overwrite = TRUE)
