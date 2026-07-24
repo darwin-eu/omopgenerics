@@ -72,7 +72,7 @@
       <h1>Logging with omopgenerics</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/vignettes/logging.Rmd" class="external-link"><code>vignettes/logging.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.4.1/vignettes/logging.Rmd" class="external-link"><code>vignettes/logging.Rmd</code></a></small>
       <div class="d-none name"><code>logging.Rmd</code></div>
     </div>
 
@@ -115,29 +115,29 @@ into a <code>summarised_result</code> object.</li>
 <span></span>
 <span><span class="co"># create the log file</span></span>
 <span><span class="fu"><a href="../reference/createLogFile.html">createLogFile</a></span><span class="op">(</span>logFile <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"log_{date}_{time}"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpKOQuNu/log_2026_07_24_20_21_01271839200e54.txt</span>.</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:01]</span> - Log file created</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpOU6KyD/log_2026_07_24_20_24_14260547b681a7.txt</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:14]</span> - Log file created</span></span>
 <span></span>
 <span><span class="co"># study</span></span>
 <span><span class="fu"><a href="../reference/logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Generating random numbers"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:01]</span> - Generating random numbers</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:14]</span> - Generating random numbers</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1e6</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Calculating the sum"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:01]</span> - Calculating the sum</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:14]</span> - Calculating the sum</span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># export logger to a `summarised_result`</span></span>
 <span><span class="va">log</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summariseLogFile.html">summariseLogFile</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:01]</span> - Exporting log file</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:14]</span> - Exporting log file</span></span>
 <span></span>
 <span><span class="co"># content of the log file</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"omopgenerics.logFile"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span>sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [2026-07-24 20:21:01] - Log file created</span></span>
-<span><span class="co">#&gt; [2026-07-24 20:21:01] - Generating random numbers</span></span>
-<span><span class="co">#&gt; [2026-07-24 20:21:01] - Calculating the sum</span></span>
-<span><span class="co">#&gt; [2026-07-24 20:21:01] - Exporting log file</span></span>
+<span><span class="co">#&gt; [2026-07-24 20:24:14] - Log file created</span></span>
+<span><span class="co">#&gt; [2026-07-24 20:24:14] - Generating random numbers</span></span>
+<span><span class="co">#&gt; [2026-07-24 20:24:14] - Calculating the sum</span></span>
+<span><span class="co">#&gt; [2026-07-24 20:24:14] - Exporting log file</span></span>
 <span></span>
 <span><span class="co"># `summarised_result` object</span></span>
 <span><span class="va">log</span></span>
@@ -188,17 +188,17 @@ if there is one. See the example code:</p>
 <span></span>
 <span><span class="co"># create the log file</span></span>
 <span><span class="fu"><a href="../reference/createLogFile.html">createLogFile</a></span><span class="op">(</span>logFile <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"log_{date}_{time}"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpKOQuNu/log_2026_07_24_20_21_022718444aeb21.txt</span>.</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:02]</span> - Log file created</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Creating log file: <span style="color: #0000BB;">/tmp/RtmpOU6KyD/log_2026_07_24_20_24_1426057018cf0e.txt</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:14]</span> - Log file created</span></span>
 <span></span>
 <span><span class="co"># start analysis</span></span>
 <span><span class="fu"><a href="../reference/logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Defining toy data"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:02]</span> - Defining toy data</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:15]</span> - Defining toy data</span></span>
 <span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">1e5</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>person_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>, age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="va">n</span>, mean <span class="op">=</span> <span class="fl">55</span>, sd <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/logMessage.html">logMessage</a></span><span class="op">(</span><span class="st">"Summarise toy data"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:02]</span> - Summarise toy data</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:15]</span> - Summarise toy data</span></span>
 <span><span class="va">res</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
 <span>    `number subjects_count` <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -231,7 +231,7 @@ if there is one. See the example code:</p>
 <span><span class="co"># res is a summarised_result object that we can export using `exportSummarisedResult()`</span></span>
 <span><span class="va">tempDir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/exportSummarisedResult.html">exportSummarisedResult</a></span><span class="op">(</span><span class="va">res</span>, path <span class="op">=</span> <span class="va">tempDir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:21:02]</span> - Exporting log file</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #0000BB;">[2026-07-24 20:24:15]</span> - Exporting log file</span></span></code></pre></div>
 <p><code><a href="../reference/exportSummarisedResult.html">exportSummarisedResult()</a></code> also exported the log file.
 Let’s inspect it by importing the exported
 <code>summarised_result</code> object:</p>
@@ -264,7 +264,7 @@ version:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 6</span></span></span>
 <span><span class="co">#&gt;   cdm_name  log_id variable_name      variable_level date_time      elapsed_time</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> mock data 1      Log file created   <span style="color: #BB0000;">NA</span>             2026-07-24 20…            0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> mock data 1      Log file created   <span style="color: #BB0000;">NA</span>             2026-07-24 20…            1</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> mock data 2      Defining toy data  <span style="color: #BB0000;">NA</span>             2026-07-24 20…            0</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> mock data 3      Summarise toy data <span style="color: #BB0000;">NA</span>             2026-07-24 20…            0</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> mock data 4      Exporting log file <span style="color: #BB0000;">NA</span>             2026-07-24 20…           <span style="color: #BB0000;">NA</span></span></span></code></pre></div>
