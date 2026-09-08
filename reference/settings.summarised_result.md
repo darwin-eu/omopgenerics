@@ -68,8 +68,8 @@ settings(result)
 #> # A tibble: 2 × 10
 #>   result_id result_type     package_name package_version group strata additional
 #>       <int> <chr>           <chr>        <chr>           <chr> <chr>  <chr>     
-#> 1         1 cohort_count    omopgenerics 1.4.1           coho… ""     ""        
-#> 2         2 cohort_attriti… omopgenerics 1.4.1           coho… "reas… "reason_i…
+#> 1         1 cohort_count    omopgenerics 1.4.2           coho… ""     ""        
+#> 2         2 cohort_attriti… omopgenerics 1.4.2           coho… "reas… "reason_i…
 #> # ℹ 3 more variables: min_cell_count <chr>, cohort_definition_id <chr>,
 #> #   table_name <chr>
 ```

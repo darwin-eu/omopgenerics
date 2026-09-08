@@ -1,5 +1,14 @@
 # Changelog
 
+## omopgenerics 1.4.2
+
+- Use read.csv to import codelsits by
+  [@edward-burn](https://github.com/edward-burn) in
+  [\#885](https://github.com/darwin-eu/omopgenerics/issues/885)
+- Add support for OMOP CDM 5.5 by
+  [@catalamarti](https://github.com/catalamarti) in
+  [\#887](https://github.com/darwin-eu/omopgenerics/issues/887)
+
 ## omopgenerics 1.4.1
 
 CRAN release: 2026-07-23

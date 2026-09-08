@@ -24,10 +24,10 @@ The OMOP data folder.
 ``` r
 # \donttest{
 omopDataFolder()
-#> [1] "/tmp/RtmpoAy5cp/OMOP_DATA_FOLDER"
+#> [1] "/tmp/Rtmp1mgtp8/OMOP_DATA_FOLDER"
 omopDataFolder(file.path(tempdir(), "OMOP_DATA"))
-#> ℹ Creating /tmp/RtmpoAy5cp/OMOP_DATA.
+#> ℹ Creating /tmp/Rtmp1mgtp8/OMOP_DATA.
 omopDataFolder()
-#> [1] "/tmp/RtmpoAy5cp/OMOP_DATA"
+#> [1] "/tmp/Rtmp1mgtp8/OMOP_DATA"
 # }
 ```

@@ -16,7 +16,8 @@ newAchillesTable(table, version = "5.3", cast = FALSE)
 
 - version:
 
-  Version of the OMOP Common Data Model.
+  Version of the OMOP Common Data Model. Supported options are: "5.3",
+  "5.4", or "5.5".
 
 - cast:
 

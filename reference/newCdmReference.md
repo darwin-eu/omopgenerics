@@ -25,8 +25,8 @@ newCdmReference(
 
 - cdmVersion:
 
-  Version of the OMOP Common Data Model. Supported versions are "5.3"
-  and "5.4".
+  Version of the OMOP Common Data Model. Supported options are: "5.3",
+  "5.4", or "5.5".
 
 - .softValidation:
 

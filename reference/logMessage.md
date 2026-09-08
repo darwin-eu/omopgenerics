@@ -38,26 +38,26 @@ library(dplyr)
 logFile <- tempfile(pattern = "log_{date}_{time}", fileext = ".txt")
 createLogFile(logFile = logFile)
 #> ! Overwriting current log file
-#> ℹ Creating log file: /tmp/RtmpoAy5cp/log_2026_07_24_20_23_4019f949cc7b4e.txt.
-#> [2026-07-24 20:23:40] - Log file created
+#> ℹ Creating log file: /tmp/Rtmp1mgtp8/log_2026_09_08_16_16_371b1aabd0146.txt.
+#> [2026-09-08 16:16:37] - Log file created
 
 logMessage("Starting analysis")
-#> [2026-07-24 20:23:40] - Starting analysis
+#> [2026-09-08 16:16:37] - Starting analysis
 1 + 1
 #> [1] 2
 logMessage("Analysis finished")
-#> [2026-07-24 20:23:40] - Analysis finished
+#> [2026-09-08 16:16:37] - Analysis finished
 
 x <- c("a", "b", "c")
 for (i in seq_along(x)) {
   logMessage("{x[i]}")
 }
-#> [2026-07-24 20:23:40] - a
-#> [2026-07-24 20:23:40] - b
-#> [2026-07-24 20:23:40] - c
+#> [2026-09-08 16:16:37] - a
+#> [2026-09-08 16:16:37] - b
+#> [2026-09-08 16:16:37] - c
 
 res <- summariseLogFile()
-#> [2026-07-24 20:23:40] - Exporting log file
+#> [2026-09-08 16:16:37] - Exporting log file
 
 glimpse(res)
 #> Rows: 13
@@ -72,7 +72,7 @@ glimpse(res)
 #> $ variable_level   <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 #> $ estimate_name    <chr> "date_time", "elapsed_time", "date_time", "elapsed_ti…
 #> $ estimate_type    <chr> "character", "integer", "character", "integer", "char…
-#> $ estimate_value   <chr> "2026-07-24 20:23:40", "0", "2026-07-24 20:23:40", "0…
+#> $ estimate_value   <chr> "2026-09-08 16:16:37", "0", "2026-09-08 16:16:37", "0…
 #> $ additional_name  <chr> "overall", "overall", "overall", "overall", "overall"…
 #> $ additional_level <chr> "overall", "overall", "overall", "overall", "overall"…
 
@@ -80,11 +80,11 @@ tidy(res)
 #> # A tibble: 7 × 6
 #>   cdm_name log_id variable_name      variable_level date_time       elapsed_time
 #>   <chr>    <chr>  <chr>              <chr>          <chr>                  <int>
-#> 1 unknown  1      Log file created   NA             2026-07-24 20:…            0
-#> 2 unknown  2      Starting analysis  NA             2026-07-24 20:…            0
-#> 3 unknown  3      Analysis finished  NA             2026-07-24 20:…            0
-#> 4 unknown  4      a                  NA             2026-07-24 20:…            0
-#> 5 unknown  5      b                  NA             2026-07-24 20:…            0
-#> 6 unknown  6      c                  NA             2026-07-24 20:…            0
-#> 7 unknown  7      Exporting log file NA             2026-07-24 20:…           NA
+#> 1 unknown  1      Log file created   NA             2026-09-08 16:…            0
+#> 2 unknown  2      Starting analysis  NA             2026-09-08 16:…            0
+#> 3 unknown  3      Analysis finished  NA             2026-09-08 16:…            0
+#> 4 unknown  4      a                  NA             2026-09-08 16:…            0
+#> 5 unknown  5      b                  NA             2026-09-08 16:…            0
+#> 6 unknown  6      c                  NA             2026-09-08 16:…            0
+#> 7 unknown  7      Exporting log file NA             2026-09-08 16:…           NA
 ```

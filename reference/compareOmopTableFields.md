@@ -15,11 +15,11 @@ compareOmopTableFields(
 
 - cdmVersionReference:
 
-  An OMOP CDM version, it can either be "5.3" or "5.4".
+  An OMOP CDM version, it can be "5.3", "5.4", or "5.5".
 
 - cdmVersionComparator:
 
-  An OMOP CDM version, it can either be "5.3" or "5.4".
+  An OMOP CDM version, it can be "5.3", "5.4", or "5.5".
 
 ## Value
 

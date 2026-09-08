@@ -17,5 +17,5 @@ A character vector of OMOP CDM version numbers.
 
 ``` r
 supportedCdmVersions
-#> [1] "5.3" "5.4"
+#> [1] "5.3" "5.4" "5.5"
 ```

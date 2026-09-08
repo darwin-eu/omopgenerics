@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">omopgenerics</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
       <h1>Expanding omopgenerics</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/v1.4.1/vignettes/expanding_omopgenerics.Rmd" class="external-link"><code>vignettes/expanding_omopgenerics.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/darwin-eu/omopgenerics/blob/main/vignettes/expanding_omopgenerics.Rmd" class="external-link"><code>vignettes/expanding_omopgenerics.Rmd</code></a></small>
       <div class="d-none name"><code>expanding_omopgenerics.Rmd</code></div>
     </div>
 
@@ -399,7 +399,7 @@ objects with the same source.</p>
 <span>  <span class="fu">omopgenerics</span><span class="fu">::</span><span class="fu"><a href="../reference/newCdmReference.html">newCdmReference</a></span><span class="op">(</span></span>
 <span>    tables <span class="op">=</span> <span class="va">tables</span>, <span class="co"># list of cdm and achilles standard tables</span></span>
 <span>    cdmName <span class="op">=</span> <span class="st">"..."</span>, <span class="co"># usually provided as input, but also you might want to search in the cdm_source</span></span>
-<span>    cdmVersion <span class="op">=</span> <span class="st">"..."</span> <span class="co"># either "5.3" or "5.4"</span></span>
+<span>    cdmVersion <span class="op">=</span> <span class="st">"..."</span> <span class="co"># See supported options in `supportedCdmVersions`</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p>If you want to add <em><cohort_tables></cohort_tables></em> to your object, do it
@@ -427,7 +427,7 @@ wish:</p>
 <span>  <span class="va">cdm</span> <span class="op">&lt;-</span> <span class="fu">omopgenerics</span><span class="fu">::</span><span class="fu"><a href="../reference/newCdmReference.html">newCdmReference</a></span><span class="op">(</span></span>
 <span>    tables <span class="op">=</span> <span class="va">tables</span>, <span class="co"># list of cdm and achilles standard tables</span></span>
 <span>    cdmName <span class="op">=</span> <span class="st">"..."</span>, <span class="co"># usually provided as input, but also you might want to search in the cdm_source</span></span>
-<span>    cdmVersion <span class="op">=</span> <span class="st">"..."</span> <span class="co"># either "5.3" or "5.4"</span></span>
+<span>    cdmVersion <span class="op">=</span> <span class="st">"..."</span> <span class="co"># See supported options in `supportedCdmVersions`</span></span>
 <span>  <span class="op">)</span></span>
 <span>  </span>
 <span>  <span class="co"># read cohort tables</span></span>
