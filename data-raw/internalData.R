@@ -16,128 +16,106 @@
 
 library(dplyr)
 
-# fields and type of tables
-fieldsCdmTables <- readr::read_csv(
-  here::here("data-raw", "OMOP_CDMv5.3_Field_Level.csv"),
-  show_col_types = FALSE
-) |>
-  dplyr::mutate(cdm_version = "5.3") |>
-  dplyr::union_all(
-    readr::read_csv(
-      here::here("data-raw", "OMOP_CDMv5.4_Field_Level.csv"),
+supportedCdmVersions <- c("5.3", "5.4", "5.5")
+
+fieldsTables <- supportedCdmVersions |>
+  rlang::set_names() |>
+  purrr::map(\(v) {
+    # fields and type of tables
+    fieldsCdmTables <- readr::read_csv(
+      here::here("data-raw", paste0("OMOP_CDMv", v, "_Field_Level.csv")),
       show_col_types = FALSE
     ) |>
-      dplyr::mutate(cdm_version = "5.4")
-  ) |>
-  select(
-    "cdm_table_name" = "cdmTableName",
-    "cdm_field_name" = "cdmFieldName",
-    "is_required" = "isRequired",
-    "cdm_datatype" = "cdmDatatype",
-    "cdm_version"
-  )
+      select(
+        "cdm_table_name" = "cdmTableName",
+        "cdm_field_name" = "cdmFieldName",
+        "is_required" = "isRequired",
+        "cdm_datatype" = "cdmDatatype"
+      )
 
-fieldsCohorts <- tibble(
-  cdm_table_name = "cohort",
-  cdm_field_name = c(
-    "cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date"
-  ),
-  is_required = TRUE,
-  cdm_datatype = c("integer", "integer", "date", "date")
-) |>
-  union_all(tibble(
-    cdm_table_name = "cohort_set",
-    cdm_field_name = c("cohort_definition_id", "cohort_name"),
-    is_required = TRUE,
-    cdm_datatype = c("integer", "varchar(255)")
-  )) |>
-  union_all(tibble(
-    cdm_table_name = "cohort_attrition",
-    cdm_field_name = c(
-      "cohort_definition_id", "number_records", "number_subjects", "reason_id",
-      "reason", "excluded_records", "excluded_subjects"
-    ),
-    is_required = TRUE,
-    cdm_datatype = c(
-      "integer", "integer", "integer", "integer", "varchar(255)", "integer",
-      "integer"
-    )
-  )) |>
-  union_all(tibble(
-    cdm_table_name = "cohort_codelist",
-    cdm_field_name = c(
-      "cohort_definition_id", "codelist_name", "concept_id", "codelist_type"
-    ),
-    is_required = TRUE,
-    cdm_datatype = c(
-      "integer", "varchar(255)", "integer", "varchar(255)"
-    )
-  ))
+    # cohorts
+    fieldsCohorts <- tibble(
+      cdm_table_name = "cohort",
+      cdm_field_name = c(
+        "cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date"
+      ),
+      is_required = TRUE,
+      cdm_datatype = c("integer", "integer", "date", "date")
+    ) |>
+      union_all(tibble(
+        cdm_table_name = "cohort_set",
+        cdm_field_name = c("cohort_definition_id", "cohort_name"),
+        is_required = TRUE,
+        cdm_datatype = c("integer", "varchar(255)")
+      )) |>
+      union_all(tibble(
+        cdm_table_name = "cohort_attrition",
+        cdm_field_name = c(
+          "cohort_definition_id", "number_records", "number_subjects", "reason_id",
+          "reason", "excluded_records", "excluded_subjects"
+        ),
+        is_required = TRUE,
+        cdm_datatype = c(
+          "integer", "integer", "integer", "integer", "varchar(255)", "integer",
+          "integer"
+        )
+      )) |>
+      union_all(tibble(
+        cdm_table_name = "cohort_codelist",
+        cdm_field_name = c(
+          "cohort_definition_id", "codelist_name", "concept_id", "codelist_type"
+        ),
+        is_required = TRUE,
+        cdm_datatype = c(
+          "integer", "varchar(255)", "integer", "varchar(255)"
+        )
+      ))
 
-fieldsCohorts <- fieldsCohorts |>
-  dplyr::mutate(cdm_version = "5.3") |>
-  dplyr::union_all(
-    fieldsCohorts |>
-      dplyr::mutate(cdm_version = "5.4")
-  )
+    # achilles
+    fieldsAchilles <- dplyr::tibble(
+      cdm_table_name = "achilles_analysis",
+      cdm_field_name = c(
+        "analysis_id", "analysis_name", "stratum_1_name", "stratum_2_name",
+        "stratum_3_name", "stratum_4_name", "stratum_5_name", "is_default",
+        "category"
+      ),
+      is_required = TRUE,
+      cdm_datatype = c("integer", rep("varchar(255)", 6), "logical", "varchar(255)")
+    ) |>
+      dplyr::union_all(dplyr::tibble(
+        cdm_table_name = "achilles_results",
+        cdm_field_name = c(
+          "analysis_id", "stratum_1", "stratum_2", "stratum_3", "stratum_4",
+          "stratum_5", "count_value"
+        ),
+        is_required = TRUE,
+        cdm_datatype = c("integer", rep("varchar(255)", 5), "integer")
+      )) |>
+      dplyr::union_all(dplyr::tibble(
+        cdm_table_name = "achilles_results_dist",
+        cdm_field_name = c(
+          "analysis_id", "stratum_1", "stratum_2", "stratum_3", "stratum_4",
+          "stratum_5", "count_value", "min_value", "max_value", "avg_value",
+          "stdev_value", "median_value", "p10_value", "p25_value", "p75_value",
+          "p90_value"
+        ),
+        is_required = TRUE,
+        cdm_datatype = c(
+          "integer", rep("varchar(255)", 5), rep("integer", 3), rep("float", 7)
+        )
+      ))
 
-fieldsAchilles <- dplyr::tibble(
-  cdm_table_name = "achilles_analysis",
-  cdm_field_name = c(
-    "analysis_id", "analysis_name", "stratum_1_name", "stratum_2_name",
-    "stratum_3_name", "stratum_4_name", "stratum_5_name", "is_default",
-    "category"
-  ),
-  is_required = TRUE,
-  cdm_datatype = c("integer", rep("varchar(255)", 6), "logical", "varchar(255)")
-) |>
-  dplyr::union_all(dplyr::tibble(
-    cdm_table_name = "achilles_results",
-    cdm_field_name = c(
-      "analysis_id", "stratum_1", "stratum_2", "stratum_3", "stratum_4",
-      "stratum_5", "count_value"
-    ),
-    is_required = TRUE,
-    cdm_datatype = c("integer", rep("varchar(255)", 5), "integer")
-  )) |>
-  dplyr::union_all(dplyr::tibble(
-    cdm_table_name = "achilles_results_dist",
-    cdm_field_name = c(
-      "analysis_id", "stratum_1", "stratum_2", "stratum_3", "stratum_4",
-      "stratum_5", "count_value", "min_value", "max_value", "avg_value",
-      "stdev_value", "median_value", "p10_value", "p25_value", "p75_value",
-      "p90_value"
-    ),
-    is_required = TRUE,
-    cdm_datatype = c(
-      "integer", rep("varchar(255)", 5), rep("integer", 3), rep("float", 7)
-    )
-  ))
-
-fieldsAchilles <- fieldsAchilles |>
-  dplyr::mutate(cdm_version = "5.3") |>
-  dplyr::union_all(
-    fieldsAchilles |>
-      dplyr::mutate(cdm_version = "5.4")
-  )
-
-fieldsTables <- fieldsCdmTables |>
-  dplyr::mutate(type = "cdm_table") |>
-  dplyr::union_all(
-    fieldsCohorts |>
-      dplyr::mutate(type = "cohort")
-  ) |>
-  dplyr::union_all(
-    fieldsAchilles |>
-      dplyr::mutate(type = "achilles")
-  ) |>
-  dplyr::group_by(.data$cdm_version) |>
-  dplyr::group_split() |>
-  as.list()
-names(fieldsTables) <- fieldsTables |>
-  purrr::map_chr(\(x) unique(x$cdm_version))
-fieldsTables <- fieldsTables |>
-  purrr::map(\(x) dplyr::select(x, !"cdm_version"))
+    fieldsCdmTables |>
+      dplyr::mutate(type = "cdm_table") |>
+      dplyr::union_all(
+        fieldsCohorts |>
+          dplyr::mutate(type = "cohort")
+      ) |>
+      dplyr::union_all(
+        fieldsAchilles |>
+          dplyr::mutate(type = "achilles")
+      )
+  })
 
 fieldsResults <- dplyr::tibble(
   result = "summarised_result",
@@ -288,16 +266,54 @@ fieldsChanges <- list(
     "cohort-subject_id", "new table",
     "cohort-cohort_start_date", "new table",
     "cohort-cohort_end_date", "new table"
+  ),
+  "5.4 to 5.5" = dplyr::tribble(
+    ~field, ~change,
+    "measurement-value_as_source_concept_id", "new field",
+    "observation-value_as_date", "new field",
+    "observation-unit_source_concept_id", "new field",
+    "observation-value_as_source_concept_id", "new field",
+    "specimen-visit_occurrence_id", "new field",
+    "specimen-visit_detail_id", "new field",
+    "cdm_source-cdm_release_identifier", "new field",
+    "pack_content-pack_concept_id", "new table",
+    "pack_content-drug_concept_id", "new table",
+    "pack_content-amount", "new table",
+    "pack_content-box_size", "new table",
+    "concept_metadata-concept_id", "new table",
+    "concept_metadata-concept_category", "new table",
+    "concept_metadata-reuse_status", "new table",
+    "concept_relationship_metadata-concept_id_1", "new table",
+    "concept_relationship_metadata-concept_id_2", "new table",
+    "concept_relationship_metadata-relationship_id", "new table",
+    "concept_relationship_metadata-relationship_predicate_id", "new table",
+    "concept_relationship_metadata-relationship_group", "new table",
+    "concept_relationship_metadata-mapping_source", "new table",
+    "concept_relationship_metadata-confidence", "new table",
+    "concept_relationship_metadata-mapping_tool", "new table",
+    "concept_relationship_metadata-mapper", "new table",
+    "concept_relationship_metadata-reviewer", "new table"
   )
+)
+
+fieldsChanges[["5.3 to 5.5"]] <- dplyr::bind_rows(
+  fieldsChanges[["5.3 to 5.4"]], fieldsChanges[["5.4 to 5.5"]]
 )
 
 ogDateFormat <- "%Y-%m-%d"
 
+supportedCdmVersionsOptions <- paste0("\"", supportedCdmVersions, "\"")
+n <- length(supportedCdmVersionsOptions)
+supportedCdmVersionsOptions <- paste0(
+  paste0(supportedCdmVersionsOptions[1:(n - 1)], collapse = ", "),
+  ", or ",
+  supportedCdmVersionsOptions[n]
+)
+
 usethis::use_data(
   fieldsTables, fieldsResults, groupCount, fieldTablesColumns,
-  fieldsChanges, ogDateFormat,
+  fieldsChanges, ogDateFormat, supportedCdmVersionsOptions,
   internal = TRUE, overwrite = TRUE
 )
 
-supportedCdmVersions <- c("5.3", "5.4")
 usethis::use_data(supportedCdmVersions, internal = FALSE, overwrite = TRUE)
